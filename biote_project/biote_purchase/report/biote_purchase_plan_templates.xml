@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--完全自定义布局-->
+    <template id="basic_layout">
+        <div class="header">
+            <img src="/biote_purchase/static/src/img/logo.png" width='100px' height='35px' class="pull-left"/>
+        </div>
+        <div class="article">
+            <t t-raw="0"/>
+        </div>
+        <div class="footer">
+            <div class="row">
+                <div class='text-center' style="color:#808080">
+                    <!--页码-->
+                    <ul class="list-inline">
+                        <li>Page:</li>
+                        <!--当前页-->
+                        <li>
+                            <span class="page"/>
+                        </li>
+                        <li>/</li>
+                        <!--总页数-->
+                        <li>
+                            <span class="topage"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!--继承修改系统布局-->
+    <template id="biote_purchase_report_layout" inherit_id="web.internal_layout">
+        <xpath expr="//div[@class='header']" position="replace">
+            <div class="header">
+                <div class="row">
+                    <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)"
+                         width='100px' height='35px' class="pull-left"/>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@ class='article']" position="after">
+            <div class="footer">
+                <div class="row">
+                    <div class='text-center' style="color:#808080">
+                        <ul class="list-inline">
+                            <li>
+                                <span class="page"/>
+                            </li>
+                            <li>/</li>
+                            <li>
+                                <span class="topage"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+
+    <template id="report_purchaseplan">
+        <t t-call="web.internal_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <h1 t-field="doc.name" class='text-center'/>
+                    <t t-foreach="doc.line_ids" t-as="line">
+                        <p t-field="line.product_id"/>
+                    </t>
+                    <h2 t-field="doc.budget_amount_total" class='text-center'/>
+                    <h2 t-field="doc.inventory_amount_total" class='text-center'/>
+                    <h2 t-field="doc.planned_purchase_amount_total" class='text-center'/>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_purchaseplanline">
+        <t t-call="web.internal_layout">
+        <!--<t t-call="biote_report_style.list_layout">-->
+            <div class="page">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>产品代号</th>
+                            <th>预算量</th>
+                            <th>库存量</th>
+                            <th>计划采购量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="doc">
+                            <tr>
+                                <td>
+                                    <span t-field="doc.product_code"/>
+                                </td>
+                                <td>
+                                    <span t-field="doc.budget_amount"/>
+                                </td>
+                                <td>
+                                    <span t-field="doc.inventory"/>
+                                </td>
+                                <td>
+                                    <span t-field="doc.planned_purchase_amount"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                总库存:
+                <h1 t-esc="res"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>

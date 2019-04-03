@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+
+#. module: website_sale
+#: model:ir.ui.view,arch_db:website_sale.website_planner
+msgid "<strong>See it in action in Odoo</strong><br/>"
+msgstr "<strong>在 C2P 中查看操作画面</strong><br/>"
+
+#. module: website_sale
+#: model:ir.ui.view,arch_db:website_sale.website_planner
+msgid ""
+"If you deal with a major shipper (UPS, FedEx, DHL, etc.), activate the "
+"related connector in Odoo to compute accurate costs and print labels."
+msgstr "如果您与主要的承运商（UPS、FedEx、DHL 等）合作，请在 C2P 中激活相应的连接器以正确地计算费用并打印标签。"
+
+#. module: website_sale
+#: model:ir.ui.view,arch_db:website_sale.website_planner
+msgid ""
+"To do so, take the most out of Odoo's <strong>pricing options</strong>:<br/>"
+msgstr "为此，请充分利用 C2P <strong>的定价选项</strong>：<br/>"
+
+#. module: website_sale
+#: model:ir.ui.view,arch_db:website_sale.website_planner
+msgid "You can setup 3 types of <strong>payment acquirers in Odoo:</strong>"
+msgstr "您<strong>可以在 C2P 中设置 3 种类型的付款收单方：</strong>"
+
+#. module: website_sale
+#: model:ir.ui.view,arch_db:website_sale.website_planner
+msgid "use Odoo API to import through scripts"
+msgstr "使用C2P API通过脚本导入"

@@ -1,0 +1,23 @@
+<odoo>
+    <record id="seq_biote_expense_num" model="ir.sequence">
+        <field name="name">费用报销编号</field>
+        <field name="code">biote.expense.num</field>
+        <field name="padding">2</field>
+        <field name="prefix">fybx%(year)s%(month)s%(day)s</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="seq_biote_travel_expense_num" model="ir.sequence">
+        <field name="name">差旅费用报销编号</field>
+        <field name="code">biote.travel.expense.num</field>
+        <field name="padding">2</field>
+        <field name="prefix">clbx%(year)s%(month)s%(day)s</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="seq_biote_payment_num" model="ir.sequence">
+        <field name="name">付费报销编号</field>
+        <field name="code">biote.payment.num</field>
+        <field name="padding">2</field>
+        <field name="prefix">FKSQ%(year)s%(month)s%(day)s</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

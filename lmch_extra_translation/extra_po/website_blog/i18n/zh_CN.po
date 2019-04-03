@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+
+#. module: website_blog
+#: model:blog.post,content:website_blog.blog_post_1
+msgid "Here are the ideas behind the Odoo communication tools:"
+msgstr "以下是 C2P 通信工具背后的想法："
+
+#. module: website_blog
+#: model:blog.post,subtitle:website_blog.blog_post_1
+msgid "Ideas behind the Odoo communication tools."
+msgstr "C2P通讯工具背后的想法。"
+
+#. module: website_blog
+#: model:blog.post,website_meta_keywords:website_blog.blog_post_1
+msgid "Odoo, email"
+msgstr "C2P，电邮"
+
+#. module: website_blog
+#: model:blog.post,content:website_blog.blog_post_1
+msgid "The Communication Mechanism of Odoo"
+msgstr "C2P 的通信机制"

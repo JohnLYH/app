@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+all1,all2,model_people_teacher,all0,1,0,0,0,
+all3,all4,model_people_sports,all0,1,0,0,0,
+all5,all6,model_zz_peoples,all0,1,0,0,0,

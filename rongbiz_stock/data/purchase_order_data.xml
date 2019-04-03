@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- 改变采购订单的默认名称 -->
+        <function
+            id="po_name_default"
+            model="ir.default" name="set"
+            eval="('purchase.order', 'name', '新建')"
+        />
+        <!-- 改变采购订单编号规则 -->
+        <record id="seq_purchase_order_rs" model="ir.sequence">
+            <field name="name">入库单</field>
+            <field name="code">purchase.order.rs</field>
+            <field name="prefix">入库单</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

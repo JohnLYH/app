@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- purchase.order tree view -->
+    <record id="purchase_order_view_tree" model="ir.ui.view">
+        <field name="name">purchase.order.view.tree</field>
+        <field name="model">purchase.order</field>
+        <field name="arch" type="xml">
+            <tree class="rs_custom_class">
+                <field name="name" string="订单号" />
+                <field name="purchase_date" />
+                <field name="partner_id" />
+                <field name="invoice_category"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <!-- 采购入库单 -->
+    <record id="purchase_order_view_form" model="ir.ui.view">
+        <field name="name">purchase.order.view.form</field>
+        <field name="model">purchase.order</field>
+        <field name="arch" type="xml">
+            <form string="采购入库单">
+                <header>
+                    <button type="object" name="button_incoming_confirm" string="订单确认" class="oe_highlight" 
+                        attrs="{'invisible': [('state', 'in', ('purchase'))]}"
+                        groups="rongbiz_stock.rs_group_cw"/>
+                     <button name="verify_invoice" type="object" string="确认发票" class="oe_highlight"
+                             attrs="{'invisible':['|', ('state', 'in', ('draft')), ('is_verify', '=', False)]}"/>
+                    <field name="is_verify" invisible="1"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,purchase" readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label string="入库单单号" />
+                        <h1>
+                            <field name="name" readonly="1" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <!-- 从该视图创建的partner默认是供应商 -->
+                            <field name="partner_id" options="{'quick_create':False}" 
+                                context="{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'tree_view_ref': 'rongbiz_stock.res_partner_view_tree', 'form_view_ref': 'rongbiz_stock.res_partner_view_form'}"
+                                domain="[('supplier','=',True)]" />
+                            <field name="invoice_category" />
+                            <!--attrs="{'readonly': [('invoice_category', 'in', ('special_vote', 'general_vote'))]}"-->
+                        </group>
+                        <group>
+                            <field name="purchase_date" />
+                            <field name="origin" string="发票号" attrs="{'readonly': [('state', 'in', ('purchase', 'to approve','done', 'cancel'))]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="入库明细">
+                            <!--attrs="{'readonly': [('state', 'in', ('purchase', 'to approve','done', 'cancel'))]}"-->
+                            <field name="order_line">
+                                <tree string="入库单明细" editable="bottom" disable_open="1">
+                                    <field name="state" invisible="1" />
+                                    <field name="date_planned" invisible="1"/>
+                                    <field name="product_id" string="货品"
+                                        context="{'partner_id':parent.partner_id, 'quantity':product_qty, 'uom':product_uom, 'form_view_ref': 'rongbiz_stock.product_template_view_form', 'tree_view_ref': 'rongbiz_stock.product_template_view_tree'}"
+                                        force_save="1" options="{'quick_create':False}" />
+                                    <field name="lot_name" required="1"/>
+                                    <field name="product_qty"/>
+                                    <field name="product_uom" string="单位" options="{'no_create': True}" force_save="1" />
+                                    <field name="predict_price" groups="rongbiz_stock.rs_group_cw"
+                                           attrs="{'readonly':[('invoice_category', 'in', ('special_vote', 'general_vote'))]}"/>
+                                    <field name="price_unit" string='发票单价' options="{'no_open': True}" groups="rongbiz_stock.rs_group_cw"
+                                           attrs="{'column_invisible': [('parent.invoice_category', '=', 'temporary')]}"
+                                    />
+                                    <field name="taxes_id" string="税率" widget="many2many_tags" domain="[('type_tax_use','=','purchase')]"
+                                         context="{'default_type_tax_use': 'purchase'}" options="{'no_create': True}"
+                                         attrs="{'column_invisible': [('parent.invoice_category', '=', 'temporary')]}"
+                                         groups="rongbiz_stock.rs_group_cw"/>
+                                    <field name="price_tax" string="税额" widget="monetary"
+                                           attrs="{'column_invisible': [('parent.invoice_category', '=', 'temporary')]}"
+                                           groups="rongbiz_stock.rs_group_cw"/>
+                                    <field name="price_subtotal" widget="monetary"
+                                        groups="rongbiz_stock.rs_group_cw"/>
+                                    <field name="project_id"/>
+                                    <field name="invoice_category" invisible="1"/>
+                                    <field name="name" invisible="1"/>
+                                    <field name="note"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right" groups="rongbiz_stock.rs_group_cw">
+                                <field name="predict_total_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline">
+                                    <label for="amount_total"/>
+                                </div>
+                                <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary"
+                                    options="{'currency_field': 'currency_id'}" string="实际总计"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="purchase_order_view_search" model="ir.ui.view">
+        <field name="name">搜索</field>
+        <field name="model">purchase.order</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Reference"/>
+                <field name="partner_id" operator="child_of"/>
+                <filter name="invoice_category" string="暂估发票类别" domain="[('invoice_category', '=', 'temporary')]"/>
+                <group>
+                    <filter name="purchase_date" string="入库日期" context="{'group_by': 'purchase_date'}"/>
+                    <filter string="供应商" domain="[]" context="{'group_by':'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_family_view_tree" model="ir.ui.view">
+        <field name="name">biote.hr.family.view.tree</field>
+        <field name="model">biote.hr.family</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" string="姓名"/>
+                <field name="kinship" string="关系"/>
+                <field name="identification_id" string="身份证号"/>
+                <field name="home_address" string="家庭住址"/>
+                <field name="phone" string="联系电话"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_family_view_form" model="ir.ui.view">
+        <field name="name">biote.hr.family.view.tree</field>
+        <field name="model">biote.hr.family</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" string="姓名"/>
+                    <field name="kinship" string="关系"/>
+                    <field name="identification_id" string="身份证号"/>
+                    <field name="home_address" string="家庭住址"/>
+                    <field name="phone" string="联系电话"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

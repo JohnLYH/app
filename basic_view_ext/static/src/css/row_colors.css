@@ -1,0 +1,9 @@
+.o_list_view .text-danger {
+    color: #fff;
+    background-color: brown !important
+}
+
+.o_list_view .text-warning {
+    color: #fff;
+    background-color: #c09853 !important;
+}

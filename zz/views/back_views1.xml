@@ -1,0 +1,218 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="zzlist">
+            <field name="name">zz列表</field>
+            <field name="model">zz.peoples</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="id"/>
+                    <!--sum在列最下端显示所有人成绩总和-->
+                    <field name="age" sum="总年龄"/>
+                    <field name="petote" />
+                    <field name="aname"/>
+                    <field name="zongfen" sum="总成绩"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--列表视图继承   -->
+        <record id="zzlist1" model="ir.ui.view">
+            <field name="name">zz列表2</field>
+            <field name="model">zz.peoples</field>
+            <field name="inherit_id" ref="zzlist"/>
+            <field name="arch" type="xml">
+                <!--同一个视图 可同时多次继承-->
+                <xpath expr="//field[@name='id']" position="replace">
+                </xpath>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="zzform">
+            <field name="name">zz表单</field>
+            <field name="model">zz.peoples</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!--调整状态按钮-->
+                        <button name="set_small" string="变小" states="big" type="object" class="oe_highlight"/>
+                        <button name="set_middle" string="居中" states="small,big" type="object"/>
+                        <button name="set_big" string="变大" states="small" type="object"/>
+                        <!--状态栏-->
+                        <field name="state" widget="statusbar" statusbar_visible="small,big,middle"/>
+                    </header>
+
+                    <sheet>
+                        <div style="background:yellow">
+                            <h1>
+                                <!--label for后是跟字段名 不能随意-->
+                                <!--<label for="name"/>-->
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="id" invisible="1"/>
+                                <field name="img"/>
+                                <field name="age"/>
+                                <field name="des"/>
+                                <!--隐藏特性 可在系统设置中配置-->
+                                <field name="health" widget="radio" options="{'horizontal': true}"/>
+
+                                <!--隐藏特性 点击on_change出现gender-->
+                                <field name="on_change" class="oe_edit_only"/>
+                                <field name="gender" widget="radio" options="{'horizontal': true}"
+                                       attrs="{'invisible': [('on_change', '=', False)]}"/>
+                                <field name="active"/>
+                                <field name="priority" widget="priority"/>
+                            </group>
+                            <group>
+                                <field name="petosp" widget="many2many_tags" options="{'color_field': 'color'}"
+                                       placeholder="Tags"/>
+                                <!--自定义小部件many2one_buttons-->
+                                <field name="petote" widget="many2one_buttons"/>
+                                <field name="family_id"/>
+                                <field name="city"/>
+                            </group>
+                        </group>
+                        <separator string="地址"/>
+                        <h3>
+                            <field name="aname"/>
+                        </h3>
+                        <field name="p" options='{"no_open": True, "no_create": True}' class="oe_edit_only" placeholder="省"/>
+                        <field name="c" options='{"no_open": True, "no_create": True}' domain="[('c2p', '=', p)]" class="oe_edit_only" placeholder="市"/>
+                        <field name="t" options='{"no_open": True, "no_create": True}' domain="[('t2c', '=', c)]" class="oe_edit_only" placeholder="区,县,乡"/>
+                        <!--嵌套-->
+                        <!--<tree >-->
+                        <!--<field name="name" />-->
+                        <!--<field name="id"/>-->
+                        <!--<field name="age" sum="总年龄"/>-->
+                        <!--<field name="petote"/>-->
+                        <!--</tree>-->
+                            <separator string="附件"/>
+                            <field name="ia"/>
+                        <separator string="消息"/>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--表单视图继承 属性修改   -->
+        <record id="zzform1" model="ir.ui.view">
+            <field name="name">zz表单2</field>
+            <field name="model">zz.peoples</field>
+            <field name="inherit_id" ref="zzform"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div" position="attributes">
+                    <attribute name="style">background:#f8f8f8</attribute>
+                </xpath>
+
+                <!--add方式 remove方式oe_edit_only只在编辑状态出现-->
+                <xpath expr="//field[@name='id']" position="attributes">
+                    <attribute name="class" add="oe_edit_only"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="kanban3" model="ir.ui.view">
+            <field name="name">zz看板3</field>
+            <field name="model">zz.peoples</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="state">
+                    <field name="name"/>
+                    <!--<field name="petosu"/>-->
+                    <field name="petosp"/>
+                    <field name="petote"/>
+                    <field name="color"/>
+                    <field name="priority"/>
+                    <field name="state"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <!--<div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.value)} oe_kanban_card oe_kanban_global_click">-->
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                                <div class="oe_dropdown_kanban dropdown">
+                                    <!-- dropdown menu -->
+
+                                    <!--<div class="oe_dropdown_toggle"  >-->
+                                    <!--<i class="fa fa-bars fa-lg"/>-->
+                                    <!--<ul class="oe_dropdown_menu" role="menu" aria-labelledby="dLabel">-->
+                                    <!--<li>-->
+                                    <!--<a type="delete">删除</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                    <!--<a type="open">打开</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                    <!--<a type="edit">编辑</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                    <!--<ul class="oe_kanban_colorpicker" data-field="color"/>-->
+                                    <!--</li>-->
+
+                                    <!--</ul>-->
+                                    <!--</div>-->
+                                    <!--<div class="oe_clear"></div>-->
+                                    <!--样式2-->
+                                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+                                        <span class="fa fa-bars fa-lg"/>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a type="open">Open</a>
+                                        </li>
+                                        <t t-if="widget.editable">
+                                            <li>
+                                                <a type="edit">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                            <li>
+                                                <!--看板颜色设置-->
+                                                <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                            </li>
+                                        </t>
+                                    </ul>
+
+                                </div>
+
+                                <div class="oe_kanban_content">
+                                    <h1>
+                                        <span>姓名:</span>
+                                        <field name="name"/>
+                                    </h1>
+                                    <br/>
+                                    <!--一对多-->
+                                    <!--<t t-foreach="record.petosu.raw_value" t-as='o'>-->
+                                    <!--<t t-esc="o.name"/>-->
+                                    <!--</t>-->
+                                    <!--多对多-->
+                                    <br/>
+                                    <field name="petosp"/>
+                                    <!--多对一-->
+                                    <br/>
+                                    <field name="petote"/>
+                                    <br/>
+                                    <field name="priority" widget="priority"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

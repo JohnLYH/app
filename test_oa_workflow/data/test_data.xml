@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- department -->
+        <record id="dep_a" model="hr.department">
+            <field name="name">部门A</field>
+        </record>
+        <record id="dep_b" model="hr.department">
+            <field name="name">部门B</field>
+        </record>
+        <record id="dep_c" model="hr.department">
+            <field name="name">部门C</field>
+        </record>
+        <record id="dep_d" model="hr.department">
+            <field name="name">部门D</field>
+        </record>
+        <!-- user & partner-->
+        <record id="test_partner_a" model="res.partner">
+            <field name="name">审批用户A</field>
+        </record>
+        <record id="test_user_a" model="res.users">
+            <field name="partner_id" ref="test_partner_a" />
+            <field name="login">test_user_a</field>
+            <field name="password">test_user_a</field>
+        </record>
+        <record id="test_partner_b" model="res.partner">
+            <field name="name">审批用户B</field>
+        </record>
+        <record id="test_user_b" model="res.users">
+            <field name="partner_id" ref="test_partner_b" />
+            <field name="login">test_user_b</field>
+            <field name="password">test_user_b</field>
+        </record>
+        <!-- 部门B主管 -->
+        <record id="test_partner_b_manager" model="res.partner">
+            <field name="name">部门B主管</field>
+        </record>
+        <record id="test_user_b_manager" model="res.users">
+            <field name="partner_id" ref="test_partner_b_manager" />
+            <field name="login">test_user_b_manager</field>
+            <field name="password">test_user_b_manager</field>
+        </record>
+        <record id="test_partner_c" model="res.partner">
+            <field name="name">审批用户C</field>
+        </record>
+        <record id="test_user_c" model="res.users">
+            <field name="partner_id" ref="test_partner_c" />
+            <field name="login">test_user_c</field>
+            <field name="password">test_user_c</field>
+        </record>
+        <!-- 用户审批 -->
+        <record id="test_partner_d" model="res.partner">
+            <field name="name">审批用户D</field>
+        </record>
+        <record id="test_user_d" model="res.users">
+            <field name="partner_id" ref="test_partner_d" />
+            <field name="login">test_user_d</field>
+            <field name="password">test_user_d</field>
+        </record>
+        <!-- employee -->
+        <record id="employee_a" model="hr.employee">
+            <field name="name">审批用户A</field>
+            <field name="department_id" ref="dep_a" />
+            <field name="user_id" ref="test_user_a"/>
+        </record>
+        <record id="employee_b" model="hr.employee">
+            <field name="name">审批用户B</field>
+            <field name="department_id" ref="dep_b"/>
+            <field name="user_id" ref="test_user_b"/>
+        </record>
+        <record id="employee_b_manager" model="hr.employee">
+            <field name="name">部门B主管</field>
+            <field name="department_id" ref="dep_b"/>
+            <field name="user_id" ref="test_user_b_manager"/>
+        </record>
+        <record id="dep_b" model="hr.department">
+            <field name="manager_id" ref="employee_b_manager"/>
+        </record>
+
+        <record id="employee_c" model="hr.employee">
+            <field name="name">审批用户C</field>
+            <field name="department_id" ref="dep_c"/>
+            <field name="user_id" ref="test_user_c"/>
+        </record>
+        <record id="employee_d" model="hr.employee">
+            <field name="name">审批用户D</field>
+            <field name="department_id" ref="dep_d"/>
+            <field name="user_id" ref="test_user_d"/>
+        </record>
+        <!-- route -->
+        <record id="route_simple" model="oa.workflow.route">
+            <field name="name">测试路线</field>
+            <field name="model_name">oa.simple.test</field>
+            <field name="sequence" eval="1"/>
+        </record>
+        <record id="domain_route" model="oa.workflow.route">
+            <field name="name">测试路线2</field>
+            <field name="model_name">oa.simple.test</field>
+            <field name="sequence" eval="1"/>
+            <field name="domain">[('state', '=', 'done')]</field>
+        </record>
+        <!-- stage -->
+        <record id="simple_stage_a" model="oa.workflow.stage">
+            <field name="name">部门A审批</field>
+            <field name="route_id" ref="route_simple"/>
+            <field name="sequence" eval="10"/>
+            <field name="department_ids" eval="[(5, False), (4, ref('dep_a'))]"/>
+        </record>
+        <record id="simple_stage_b" model="oa.workflow.stage">
+            <field name="name">部门B审批</field>
+            <field name="route_id" ref="route_simple"/>
+            <field name="sequence" eval="11"/>
+            <field name="department_ids" eval="[(5, False), (4, ref('dep_b'))]"/>
+            <!-- 测试阶段过滤，只有当记录的状态为done时才会显示该阶段审批 -->
+            <field name="domain">[('state', '=', 'done')]</field>
+        </record>
+        <record id="simple_stage_c" model="oa.workflow.stage">
+            <field name="name">部门C审批</field>
+            <field name="route_id" ref="route_simple"/>
+            <field name="sequence" eval="12"/>
+            <field name="department_ids" eval="[(5, False), (4, ref('dep_c'))]"/>
+        </record>
+        <!-- 指定员工与部门审批 -->
+        <record id="simple_stage_d" model="oa.workflow.stage">
+            <field name="name">部门与指定人员审批</field>
+            <field name="route_id" ref="route_simple"/>
+            <field name="sequence" eval="13"/>
+            <field name="department_ids" eval="[(5, False), (4, ref('dep_b'))]"/>
+            <field name="stage_employee_ids" eval="[(5, False), (4, ref('employee_d'))]"/>
+        </record>
+        <!-- 子审批 -->
+        <record id="simple_stage_sub" model="oa.workflow.stage">
+            <field name="name">子审批</field>
+            <field name="route_id" ref="route_simple"/>
+            <field name="sequence" eval="14"/>
+            <field name="stage_employee_ids" eval="[(5, False), (4, ref('employee_d'))]"/>
+            <field name="has_subflow" eval="True"/>
+        </record>
+        <!-- 部门B主管审批 -->
+        <record id="simple_stage_e" model="oa.workflow.stage">
+            <field name="name">部门主管审批</field>
+            <field name="route_id" ref="route_simple"/>
+            <field name="sequence" eval="15"/>
+            <field name="department_ids" eval="[(5, False), (4, ref('dep_b'))]"/>
+            <field name="department_stage_type">manager</field>
+        </record>
+        <!-- 测试路线2审批阶段 -->
+        <record id="simple_2_stage_a" model="oa.workflow.stage">
+            <field name="name">过滤路线a</field>
+            <field name="route_id" ref="domain_route"/>
+            <field name="sequence" eval="1"/>
+            <field name="department_ids" eval="[(5, False), (4, ref('dep_a'))]"/>
+            <field name="department_stage_type">all</field>
+        </record>
+        <record id="simple_2_stage_b" model="oa.workflow.stage">
+            <field name="name">过滤路线b</field>
+            <field name="route_id" ref="domain_route"/>
+            <field name="sequence" eval="2"/>
+            <field name="department_ids" eval="[(5, False), (4, ref('dep_b'))]"/>
+            <field name="department_stage_type">all</field>
+            <field name="domain">[('state', '=', 'draft')]</field>
+        </record>
+        <record id="simple_2_stage_c" model="oa.workflow.stage">
+            <field name="name">过滤路线c</field>
+            <field name="route_id" ref="domain_route"/>
+            <field name="sequence" eval="3"/>
+            <field name="department_ids" eval="[(5, False), (4, ref('dep_c'))]"/>
+            <field name="department_stage_type">all</field>
+        </record>
+        <record id="simple_2_stage_d" model="oa.workflow.stage">
+            <field name="name">过滤路线d</field>
+            <field name="route_id" ref="domain_route"/>
+            <field name="sequence" eval="4"/>
+            <field name="department_ids" eval="[(5, False), (4, ref('dep_d'))]"/>
+            <field name="department_stage_type">all</field>
+        </record>
+    </data>
+</odoo>

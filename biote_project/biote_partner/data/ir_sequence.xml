@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="category_customer_auto_yx" model="ir.sequence">
+            <field name="name">院线开头的分类</field>
+            <field name="code">customer.category.yx</field>
+            <field name="prefix">YX-</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="category_customer_auto_otc" model="ir.sequence">
+            <field name="name">otc开头的分类</field>
+            <field name="code">customer.category.otc</field>
+            <field name="prefix">OTC-</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="category_customer_auto_qt" model="ir.sequence">
+            <field name="name">qt开头的分类</field>
+            <field name="code">customer.category.qt</field>
+            <field name="prefix">QT-</field>
+            <field name="padding">6</field>
+        </record>
+    </data>
+</odoo>

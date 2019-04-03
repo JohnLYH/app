@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="biote_payment_1" model="biote.payment">
+        <field name="name">电汇</field>
+    </record>
+    <record id="biote_payment_2" model="biote.payment">
+        <field name="name">支票</field>
+    </record>
+    <record id="biote_payment_3" model="biote.payment">
+        <field name="name">银行承兑</field>
+    </record>
+    <record id="biote_payment_4" model="biote.payment">
+        <field name="name">商业承兑</field>
+    </record>
+</odoo>

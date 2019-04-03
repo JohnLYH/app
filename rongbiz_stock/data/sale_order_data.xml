@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <function
+            id="so_name_default"
+            model="ir.default" name="set"
+            eval="('sale.order', 'name', '新建')"
+        />
+        <!-- 改变销售订单编号规则 -->
+        <record id="seq_sale_order_rs" model="ir.sequence">
+            <field name="name">出库单</field>
+            <field name="code">sale.order.rs</field>
+            <field name="prefix">出库单</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+         <function
+            id="lot_location_id_default"
+            model="ir.default" name="set"
+            eval="('sale.order.line', 'lot_location_id', ref('stock.stock_location_stock'))"
+        />
+    </data>
+</odoo>

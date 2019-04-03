@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="biote_travel_expense_action_search" model="ir.ui.view">
+        <field name="name">biote.expense.action.search</field>
+        <field name="model">biote.expense</field>
+        <field name="arch" type="xml">
+            <search string="ExpenseType">
+                <field name="expense_type" string="报销类型："/>
+            </search>
+        </field>
+    </record>
+    <record id="biote_expense_view_tree" model="ir.ui.view">
+        <field name="name">biote.expense.view.tree</field>
+        <field name="model">biote.expense</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="expense_type" string="报销种类"/>
+                <field name="company_id" string="公司"/>
+                <field name="name" string="单据编号"/>
+                <field name="create_date" string="单据日期"/>
+                <field name="employee_id" string="申请人"/>
+                <field name="department_id" string="报销部门" readonly="1"/>
+                <field name="total_amount" string="总金额"/>
+                <field name="note" string="备注"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="biote_expense_view_form" model="ir.ui.view">
+        <field name="name">biote.expense.view.form</field>
+        <field name="model">biote.expense</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="expense_type" string="报销种类"/>
+                            <field name="company_id" string="公司" readonly="1"/>
+                            <field name="name" string="申请编号" readonly="1"/>
+                            <field name="create_date" string="申请日期" readonly="1"/>
+                            <field name="employee_id" string="申请人"/>
+                            <field name="mediator_id" string="经办人" options='{"no_open": True, "no_create": True}'/>
+                            <field name="department_id" string="报销部门" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="is_cash" string="是否现金报销"/>
+                            <field name="cash_amount" string="现金报销金额"
+                                   attrs="{'invisible':[('is_cash', '=', False)]}"/>
+                            <field name="is_bank" string="是否银行报销"/>
+                            <field name="bank_amount" string="银行报销金额"
+                                   attrs="{'invisible':[('is_bank', '=', False)]}"/>
+                            <field name="is_prepaid" string="是否冲预付报销"/>
+                            <field name="prepaid_amount" string="冲预付报销金额"
+                                   attrs="{'invisible':[('is_prepaid', '=', False)]}"/>
+                            <field name="is_personal" string="是否冲个人报销"/>
+                            <field name="personal_amount" string="冲预付报销金额"
+                                   attrs="{'invisible':[('is_personal', '=', False)]}"/>
+                        </group>
+                    </group>
+                    <group string="报销详细">
+                        <field name="expense_line_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="name" string="名称"/>
+                                <field name="cause" string="事由"/>
+                                <field name="start_position" string="起点" invisible="context.get('is_normal')"/>
+                                <field name="end_position" string="终点" invisible="context.get('is_normal')"/>
+                                <field name="ticket_qty" string="车船票张数" invisible="context.get('is_normal')"/>
+                                <field name="ticket_unit" string="车船票单价" invisible="context.get('is_normal')"/>
+                                <field name="room_qty" string="住宿数量" invisible="context.get('is_normal')"/>
+                                <field name="room_unit" string="住宿单价" invisible="context.get('is_normal')"/>
+                                <field name="traffic_subsidy_qty" string="交通补贴天数"
+                                       invisible="context.get('is_normal')"/>
+                                <field name="traffic_subsidy_unit" string="交通补贴单价"
+                                       invisible="context.get('is_normal')"/>
+                                <field name="food_subsidy_qty" string="午餐补贴天数" invisible="context.get('is_normal')"/>
+                                <field name="food_subsidy_unit" string="午餐补贴单价"
+                                       invisible="context.get('is_normal')"/>
+                                <field name="other_subtotal" string="其他花费" invisible="context.get('is_normal')"/>
+                                <field name="unit_amount" string="金额" sum="金额结算" readonly="not context.get('is_normal')"
+                                       force_save="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <field name="capital_total_amount" string="大写：人民币" readonly="1"/>
+                    </group>
+                    <separator string="备注"/>
+                    <field name="note" string="备注" nolabel="1"/>
+                    <notebook>
+                        <page string="银行报销" attrs="{'invisible':[('is_bank', '=', False)]}">
+                            <group>
+                                <field name="receivables_company" string="收款单位（个人）"/>
+                                <field name="bank_id" string="开户行"/>
+                                <field name="receivables_date" string="收款日期"/>
+                            </group>
+                        </page>
+                        <page string="现金报销" attrs="{'invisible':[('is_cash', '=', False)]}">
+                            <group>
+                                <group>
+                                    <field name="cash_amount" string="今收到现金报销(元）："
+                                           attrs="{'invisible':[('is_cash', '=', False)]}"/>
+                                    <field name="receivables_date" string="收款日期"/>
+                                </group>
+                                <group>
+                                    <field name="capital_total_amount" string="大写：人民币" readonly="1"/>
+                                    <field name="receivables_company" string="收款人"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+msgid ""
+msgstr ""
+
+#. module: web_editor
+#. openerp-web
+#: code:addons/web_editor/static/src/xml/editor.xml:113
+#, python-format
+msgid "https://www.odoo.com/logo.png"
+msgstr "https://www.openc2p.com/logo.png"

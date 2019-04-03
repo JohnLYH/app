@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- oa.workflow.opinion.wiz form view -->
+    <record id="oa_workflow_opinion_wiz_view_form" model="ir.ui.view">
+        <field name="name">oa.workflow.opinion.wiz.view.form</field>
+        <field name="model">oa.workflow.opinion.wiz</field>
+        <field name="arch" type="xml">
+            <form string="审批意见">
+                <sheet>
+                    <group>
+                        <field name="opinion" attrs="{
+                            'required': [
+                                '|', ('result', '=', 'refused'), ('workflow_type', '=', 'sub')
+                            ]}"/>
+                        <field name="workflow_id" invisible="1"/>      
+                        <field name="result" invisible="1"/>     
+                        <field name="workflow_type" invisible="1"/>                   
+                    </group>
+                    <footer>
+                        <button name="workflow_excute" string="确定" type="object" class="oe_highlight"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

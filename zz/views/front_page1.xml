@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="home" name="首页">
+
+        <t t-call="zz.layout">
+            <t t-set="head">
+                <t t-raw="head or ''"/>
+            </t>
+            <t t-set="page_name">index</t>
+            <div class='text-center ' style="height:850px">
+
+
+                <h1><![CDATA[<a href="/zz">欢&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;迎</a>]]></h1>
+                <!--xml转义 以及cdata-->
+                <h3>
+                    <a href="/web#view_type=kanban&amp;model=ir.module.module&amp;menu_id=45&amp;action=31">应 用</a>
+                </h3>
+
+                <!--<h3><![CDATA[<a href="/web#view_type=kanban&model=ir.module.module&menu_id=45&action=31">应 用</a>]]></h3>-->
+
+                <!--轮播图-->
+                <div id="myCarousel" class="carousel slide center-block" style="height: 790px;width: 1270px;">
+                    <!-- 轮播（Carousel）指标 -->
+                    <!--<ol class="carousel-indicators" >-->
+                    <!--<li data-target="#myCarousel" data-slide-to="0" ></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+                    <!--</ol>-->
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner ">
+                        <div class="item active">
+                            <img src="/zz/static/img/a.jpg" alt="First slide" class=" img-rounded"/>
+                        </div>
+                        <div class="item">
+                            <img src="/zz/static/img/b.jpg" alt="Second slide" class="img-rounded"/>
+                        </div>
+                        <div class="item">
+                            <img src="/zz/static/img/c.jpg" alt="Third slide" class=" img-rounded"/>
+                        </div>
+                    </div>
+                    <script>
+                        $('#myCarousel').carousel({
+                        interval: 1800})
+                    </script>
+                </div>
+
+            </div>
+        </t>
+
+        <!--<t t-extend="home">-->
+        <!--<t t-jquery="ul" t-operation="append">-->
+        <!--<li>new element</li>-->
+        <!--</t>-->
+        <!--</t>-->
+
+
+    </template>
+
+    <template id="detail1" name="详情页1">
+        <!--<t t-name="zz.detail1">-->
+        <t t-call="zz.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+
+                <!--基本情况-->
+                <section class="s_feature_grid ot-section1"
+                         style="background: rgb(255, 255, 255) none repeat scroll 0% 0%;">
+                    <div class="container text-center">
+
+                        <t t-foreach="people" t-as="person">
+
+                            <!--链接跳转到详情页   与controllers中model转换器方法相对应-->
+
+                            <img t-att-src="person.img"/>
+
+                            <!--t-field中的内容可进行格式化 编辑-->
+                            <a t-attf-href="/{{slug(person)}}">
+                                <h1 t-field="person.name"/>
+                            </a>
+                            <!--<p>修改日期: <i t-field="person.write_date"/></p>-->
+                            <!--<p>修改日期: <i t-field="person.write_date" t-options='{"format": "long"}'/></p>-->
+                            <!--<p>修改日期: <i t-field="person.write_date" t-options='{"widget": "relative"}'/></p>-->
+                            <!--<p>创建人: <i t-field=" person.create_uid"/></p>-->
+                            <h1>年龄:
+                                <t t-esc="person.age"/>
+                            </h1>
+                            <!--生成二维码-->
+                            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' %('QR',person.age, 100, 100)"/>
+                        </t>
+                    </div>
+                </section>
+
+                <!--体育爱好-->
+                <section class="s_feature_grid ot-section1" style="background:#f8f8f8 none repeat scroll 0% 0%;">
+                    <div class="container text-center">
+                        <h4>体育爱好</h4>
+                        <t t-foreach="people.petosp" t-as="p">
+                            <h6>
+                                <t t-esc="p.name"/>
+                            </h6>
+                        </t>
+                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' %('QR', '我爱你', 50, 50)"/>
+                        <!--要实现外部网址跳转需要加http-->
+                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' %('QR', 'https://www.baidu.com.cn', 50, 50)"/>
+                    </div>
+
+
+                </section>
+
+
+                <section class="s_feature_grid ot-section1" style="background:#ffffff none repeat scroll 0% 0%;">
+                    <div class="container text-center">
+
+                        <t t-if="people.id==1">
+                            <form action="#" method="post">
+                                <br/>
+                                <input type="text" name="firstname"/>
+                                <br/>
+                                <input type="text" name="lastname"/>
+                                <br/>
+                                <input type="submit" value="Submit"/>
+                                <!--避免出现csrf问题 隐藏域-->
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            </form>
+                        </t>
+                    </div>
+
+                </section>
+
+            </div>
+        </t>
+        <!--</t>-->
+    </template>
+
+    <template id="detail2" name="详情页2">
+        <t t-call="zz.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+
+                <section class="s_feature_grid ot-section1"
+                         style="background: rgb(255, 255, 255) none repeat scroll 0% 0%;">
+                    <div class="container text-center">
+
+                        <h1>
+                            <t t-esc="person.des"/>
+                        </h1>
+
+                        <h4>体育爱好</h4>
+                        <t t-foreach="person.petosp" t-as="p">
+                            <h6>
+                                <t t-esc="p.name"/>
+                            </h6>
+                        </t>
+
+                    </div>
+                </section>
+
+                <section class="s_feature_grid ot-section1" style="background: #f8f8f8 none repeat scroll 0% 0%;">
+                    <div class="container text-center">
+                        <h1>他的老师</h1>
+                        <h3>
+                            <t t-esc="person.petote.name"/>
+                        </h3>
+                        <br/>
+                        <a t-attf-href="/tp/{{person.petote.name}}">
+                            <img t-att-src="person.petote.img"/>
+                        </a>
+
+                    </div>
+                </section>
+
+
+            </div>
+        </t>
+    </template>
+
+    <template id="detail3" name="详情页3">
+        <t t-call="zz.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="s_feature_grid ot-section1"
+                         style="background: rgb(255, 255, 255) none repeat scroll 0% 0%;">
+                    <div class="container text-center">
+
+                        <h1>老师详情</h1>
+                        <t t-esc="t.name"/>
+                        <br/>
+                        <img t-att-src="t.img"/>
+                        <br/>
+                        <h4>年龄:
+                            <t t-esc="t.age"/>
+                        </h4>
+                        <h4>收入:
+                            <t t-esc="t.salary"/>
+                        </h4>
+                        <!--<h4><a t-attf-href="/zs/{{t.id}}">ID:<t t-esc="t.id"/></a></h4>-->
+
+                        <h4>学生:
+                            <t t-foreach="t.te2pe" t-as="p">
+                                <t t-esc="p.name"/>
+                            </t>
+                        </h4>
+
+                        <h4>
+                            <t t-if="t.tou">
+                                备用头像:
+                                <br/>
+                                <!--<img  t-att-src="'data:image/jpg;base64,%s'%(t.tou2)" style="width:150px;height:150px;"/>-->
+                                <!--简便方法  将字节码直接转成字符串to_text-->
+                                <img class="img-circle" t-att-src="'data:image/jpg;base64,%s'%(to_text(t.tou))"
+                                     style="width:150px;height:150px;"/>
+
+                            </t>
+                        </h4>
+                        <t t-if="fj">
+                            <h3>
+                                <a t-attf-href="/zs/{{t.id}}">附件页</a>
+                            </h3>
+                        </t>
+                        <t t-else="">
+                            <h5>此人没有附件</h5>
+                        </t>
+                    </div>
+
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <template id="detail4" name="附件页">
+        <t t-call="zz.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="s_feature_grid ot-section1"
+                         style="background: rgb(255, 255, 255) none repeat scroll 0% 0%;">
+                    <div class="container text-center">
+
+                        <!--<h4>附件查询</h4>-->
+                        <!--<form action="#" method="post">-->
+                        <!--<input type="text" name="tid"  placeholder="输入附件id" />-->
+                        <!--<br/>-->
+                        <!--<input type="submit" value="Submit"/>-->
+                        <!--</form>-->
+                        <br/>
+                        <t t-if="fj">
+                            <h4>附件显示 点击下载</h4>
+                            <t t-foreach="fj" t-as="fuj">
+                                文件:
+                                <t t-esc="fuj['name']"/>
+                                <a t-attf-href="/td/{{fuj['id']}}">
+                                    <button type="button" class="btn btn-default">下载</button>
+                                </a>
+                                <br/>
+                                <!--文件实体:<t t-esc="fuj['datas']"/><br/>-->
+                            </t>
+                        </t>
+
+                        <br/>
+                        <form action="/up" method="post" enctype="multipart/form-data">
+                            <input type="file" name="up" style="display:inline-block"/>
+                            <input type="submit" value="上传"/>
+                        </form>
+
+                    </div>
+
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

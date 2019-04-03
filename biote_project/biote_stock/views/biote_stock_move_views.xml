@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- biote.stock.move form view -->
+    <record id="biote_stock_move_view_form" model="ir.ui.view">
+        <field name="name">biote.stock.move.view.form</field>
+        <field name="model">biote.stock.move</field>
+        <field name="arch" type="xml">
+            <form string="库存移动">
+                <header>
+                    <button name="action_done" type="object" string="完成"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>                    
+                        <field name="product_id"/>
+                        <field name="move_qty"/>
+                        <field name="location_id"/>
+                        <field name="warehouse_id"/>
+                        <field name="dest_location_id"/>
+                        <field name="dest_warehouse_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- biote.contract inherit form view -->
+    <record id="biote_contract_view_form_wiz" model="ir.ui.view">
+        <field name="name">biote.contract.inherit.view.form</field>
+        <field name="model">biote.contract</field>
+        <field name="inherit_id" ref="biote_contract.biote_contract_view_form_wiz"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category']" position="after">
+                <field name="biote_purchase_plan_id" readonly="1" force_save="1"/>                
+            </xpath>            
+        </field>
+    </record>
+</odoo>                        

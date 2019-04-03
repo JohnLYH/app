@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <template id="multi_selection_assets" name="multi_selection_assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/one2many_multi_selection/static/src/js/form_relational_widgets_extend_v11.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

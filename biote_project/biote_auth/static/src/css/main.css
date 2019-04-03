@@ -1,0 +1,26 @@
+.biote-auth{
+    margin-bottom:50px;
+}
+.biote-num{
+    margin:30px 0px 30px 0px;
+}
+.auth-num{
+    padding-bottom:0px;
+    border-bottom:1px solid #000;
+}
+
+.biote-company{
+    line-height:40px;
+    font-size:20px;
+}
+
+.biote-auth p{
+    text-indent:2em;
+    line-height:40px;
+    font-size:20px;
+}
+
+.biote-auth p span{
+    padding-bottom:0px;
+    border-bottom:1px solid #000;
+}

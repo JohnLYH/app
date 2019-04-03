@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- biote.allow tree view -->
+    <record id="biote_allow_view_tree" model="ir.ui.view">
+        <field name="name">biote.allow.view.tree</field>
+        <field name="model">biote.allow</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="allow_qty"/>
+                <field name="state"/>
+                <field name="incoming_state"/>
+            </tree>
+        </field>
+    </record>
+    <!-- biote.allow form view -->
+    <record id="biote_allow_view_form" model="ir.ui.view">
+        <field name="name">biote.allow.view.form</field>
+        <field name="model">biote.allow</field>
+        <field name="arch" type="xml">
+            <form string="原材料放行单">
+                <header>
+                    <button name="action_approve" type="object" string="放行" class="oe_highlight"/>
+                    <button name="action_refused" type="object" string="不放行" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="allow_qty"/>     
+                            <field name="unqualified_state"/>     
+                            <field name="unqualified_remaining_qty"/>              
+                        </group>                                                
+                    </group>
+                    <group>
+                        <field name="allow_item_ids" widget="many2many_checkboxes" domain="[('categ', '=', 'raw')]"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

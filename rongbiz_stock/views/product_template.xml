@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- product.template tree view -->
+    <record id="product_template_view_tree" model="ir.ui.view">
+        <field name="name">product.template.view.tree</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <tree class="rs_custom_class">
+                <field name="name"/>
+                <field name="categ_id"/>
+                <field name="default_code" string="产品编码"/>
+                <field name="specification"/>
+                <field name="product_eval"/>
+                <field name="lot_qty"/>
+                <field name="lot_available_qty"/>
+                <field name="lot_reserved_qty" groups="base.group_no_one"/>
+                <field name="lot_valuation_tax" groups="rongbiz_stock.rs_group_cw"/>
+                <field name="lot_valuation" sum="库存总值" widget="monetary" groups="rongbiz_stock.rs_group_cw"/>
+            </tree>
+        </field>
+    </record>
+    <!-- product.template form view -->
+    <record id="product_template_view_form" model="ir.ui.view">
+        <field name="name">product.template.view.form</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <form string="产品">
+                <sheet>
+                    <field name="image_medium" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="产品名称"/>
+                        <h1><field name="name" placeholder="产品名称"/></h1>
+                        <field name="sale_ok" invisible="1"/>
+                        <field name="purchase_ok" invisible="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="categ_id" required="1" context="{'form_view_ref': 'rongbiz_stock.product_category_view_form', 'tree_view_ref': 'rongbiz_stock.product_category_view_tree'}" options="{'quick_create': False}"/>
+                            <field name="default_code" string="产品编码"/>
+                            <field name="specification"/>     
+                            <field name="uom_id" string="出库单位"/>
+                            <field name="uom_po_id" string="入库单位"/>           
+                        </group>
+                        <group>
+                            <field name="lot_qty"/>
+                            <field name="lot_available_qty"/>
+                            <field name="product_eval"/>
+                            <field name="lot_reserved_qty" groups="base.group_no_one"/>
+                            <field name="lot_valuation" groups="rongbiz_stock.rs_group_cw"/>
+                            <field name="lot_valuation_tax" groups="rongbiz_stock.rs_group_cw"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="备注" name="notes">
+                           <group name="description">
+                                <group string="入库单备注" attrs="{'invisible': [('purchase_ok','=',False)]}">
+                                    <field name="description_purchase" nolabel="1" placeholder="该备注应用与入库单备注"/>
+                                </group>
+                                <group string="出库单备注" attrs="{'invisible': [('sale_ok','=',False)]}">
+                                    <field name="description_sale" nolabel="1" placeholder="该备注应用于出库单备注"/>
+                                </group>
+                            </group>
+                         </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

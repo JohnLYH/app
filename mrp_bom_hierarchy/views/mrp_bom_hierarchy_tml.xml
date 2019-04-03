@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="mrp_bom_hierarchy">
+        <div class="container o_stock_reports_page o_stock_reports_no_print">
+            <span t-if="docs" class="o_report_heading text-center">
+                <h1>BoM结构</h1>
+            </span>
+            <div class="o_stock_reports_table">
+                <table width='100%' class="table-responsive">
+                <thead>
+                    <tr class="o_report_header">
+                        <th class="o_report_line_header">BOM名称</th>
+                        <th class="o_report_line_header">数量</th>
+                        <th class="o_report_line_header">BOM参考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="docs" t-as="o">
+                        <tr style="font-weight: bold;" class="trclass o_stock_reports_level0">
+                            <td>
+                                <span style="color: white;" t-esc="'..'"/>
+                                <span t-field="o.product_id.default_code"/>
+                                <span t-field="o.display_name"/>
+                            </td>
+                            <td>
+                                <span t-field="o.product_qty"/>
+                                <span groups="product.group_uom" t-field="o.product_uom_id.name"/>
+                            </td>
+                            <td>
+                                <span t-field="o.code"/>
+                            </td>
+                        </tr>
+                        <t t-foreach="o.get_bom_children()" t-as="l">
+                            <tr t-att-data-child-line-ids="l.get('child_line_ids')" t-attf-id="tr_{{l['res_id']}}" class="trclass o_stock_reports_level0">
+                                <td style="padding-left: 20px;" class="tdclass">
+                                    <span style="color: white;" t-esc="'..'*(l['level'])"/>
+                                    <span class="o_bom_hierarchy_unfoldable" t-if="not l['is_leaf']">
+                                        <i class="fa fa-fw fa-caret-down"/>
+                                    </span>
+                                    <!--叶子节点的父级带有箭头图标，这里需要再填充一段占位符才能使两者产生层级效果-->
+                                    <span style="color: white;" t-esc="'..'" t-if="l['is_leaf']"/>
+                                    <a t-att-data-active-id="l['res_id']" t-att-data-res-model="l['res_model']" class="o_bom_hierarchy_web_action">
+                                        <span t-esc="l['pname']"/>
+                                    </a>
+                                </td>
+                                <td class="tdclass">
+                                    <span t-esc="l['pqty']"/>
+                                    <span t-esc="l['uname']" groups="product.group_uom"/>
+                                </td>
+                                <td class="tdclass">
+                                    <span t-esc="l['code']"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </template>
+</odoo>

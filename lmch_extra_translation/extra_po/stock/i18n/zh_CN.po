@@ -1,0 +1,386 @@
+msgid ""
+msgstr ""
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "- The Odoo Team"
+msgstr "- C2P团队"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "<strong>Enjoy your Inventory management with Odoo!</strong>"
+msgstr "<strong>C2P更好的帮你管理库存!</strong>"
+
+#. module: stock
+#: code:addons/stock/models/stock_move.py:644
+#, python-format
+msgid ""
+"By changing this quantity here, you accept the new quantity as complete: "
+"Odoo will not automatically generate a back order."
+msgstr "通过改变这里的数量，你接纳新的数量为完整: C2P不会自动生成欠单。"
+
+#. module: stock
+#: model:ir.model.fields,help:stock.field_stock_picking_type_show_reserved
+msgid ""
+"If this checkbox is ticked, Odoo will show which products are reserved "
+"(lot/serial number, source location, source package)."
+msgstr "如果已经勾选此框格，C2P将显示哪些产品是保留的（批号/序列号、源位置，源包装）。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "It is time to make your initial Inventory. In order to do so:"
+msgstr "是时候创建期初库存了,在C2P中可以这样做："
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"Like with the sales flow, Odoo inventory management is\n"
+"                        fully integrated with the purchase app."
+msgstr "就像和销售流程一样，C2P仓库管理也和采购应用完全的集成。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"Odoo handles <strong>advanced push/pull routes configuration</strong>, for "
+"example:"
+msgstr "C2P处理<strong>高级推/拉式路线配置</strong>，例如："
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "Odoo has preconfigured <strong>one Warehouse</strong> for you."
+msgstr " C2P已经为你预先配置好<strong>一个仓库</strong>。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"Of course, feel free to add your own. Please note that Odoo is able to "
+"convert units within the same category, for example, liters to gallons in "
+"the volume category"
+msgstr "当然，你可以任意的添加。请注意C2P可以在在同一种类之间的计量单位中间转换，例如：体积类的升到加仑"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "We hope this guide helped you implement Odoo Inventory."
+msgstr "我们希望这个向导能够帮你执行C2P的盘点。"
+
+#. module: stock
+#: model:ir.model.fields,help:stock.field_stock_warehouse_orderpoint_product_min_qty
+msgid ""
+"When the virtual stock goes below the Min Quantity specified for this field,"
+" Odoo generates a procurement to bring the forecasted quantity to the Max "
+"Quantity."
+msgstr "当虚拟库存小于此字段指定的最小数量，C2P生成补货以便令预测数量达至最大数量。"
+
+#. module: stock
+#: model:ir.model.fields,help:stock.field_stock_warehouse_orderpoint_product_max_qty
+msgid ""
+"When the virtual stock goes below the Min Quantity, Odoo generates a "
+"procurement to bring the forecasted quantity to the Quantity specified as "
+"Max Quantity."
+msgstr "当虚拟库存小于最小数量，C2P生成补货以便令数量的预测数量达至最大数量。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"either by manually updating the Done quantity on the product lines, or let "
+"Odoo do it automatically while validating"
+msgstr "在产品行上手动更新完成数量，或当验证后让C2P自动更新"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"either by manually updating the Done quantity on the product lines, or scan "
+"them with the Odoo Barcode app, or let Odoo do it automatically while "
+"validating"
+msgstr "或者手动在产品行更新完成数量，或者通过 C2P 扫描枪扫描它们，或者让 C2P 在确认时自动进行处理"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "feedback@mail.odoo.com"
+msgstr "feedback@openc2p.com"
+
+
+msgid ""
+msgstr ""
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "- The Odoo Team"
+msgstr "- C2P团队"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "<strong>Enjoy your Inventory management with Odoo!</strong>"
+msgstr "<strong>C2P更好的帮你管理库存!</strong>"
+
+#. module: stock
+#: code:addons/stock/models/stock_move.py:612
+#, python-format
+msgid ""
+"By changing this quantity here, you accept the new quantity as complete: "
+"Odoo will not automatically generate a back order."
+msgstr "通过改变这里的数量，你确认新的完成数量: C2P不会自动生成欠单。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"By default, Odoo measures products by 'units', which are generic and "
+"represent just about anything"
+msgstr "默认情况下，产品的通用单位是‘件’，所有的产品都可以用它来表示"
+
+#. module: stock
+#: model:ir.actions.act_window,help:stock.action_location_form
+msgid ""
+"Define your locations to reflect your warehouse structure and\n"
+"            organization. Odoo is able to manage physical locations\n"
+"            (warehouses, shelves, bin, etc), partner locations (customers,\n"
+"            vendors) and virtual locations which are the counterpart of\n"
+"            the stock operations like the manufacturing orders\n"
+"            consumptions, inventories, etc."
+msgstr ""
+"定义您的位置以反映您的仓库结构和\n"
+"\n"
+"组织。C2P能够管理物理位置\n"
+"\n"
+"（仓库、货架、仓等）、伙伴位置（客户），\n"
+"\n"
+"供应商）和虚拟位置是对应的\n"
+"\n"
+"像制造订单那样的库存操作\n"
+"\n"
+"消费、存货等。"
+
+#. module: stock
+#: model:ir.actions.act_window,help:stock.action_location_form
+msgid ""
+"Every stock operation in Odoo moves the products from one\n"
+"            location to another one.  For instance, if you receive products\n"
+"            from a vendor, Odoo will move products from the Vendor\n"
+"            location to the Stock location. Each report can be performed on\n"
+"            physical, partner or virtual locations."
+msgstr ""
+"在每一个库存操作C2P将产品从一个\n"
+"\n"
+"位置到另一个。例如，如果您收到产品\n"
+"\n"
+"从一个供应商，C2P将产品从供应商\n"
+"\n"
+"位置到库存位置。每个报告都可以执行\n"
+"\n"
+"物理、合作伙伴或虚拟位置。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"For the Odoo Team,<br/>\n"
+"                            Fabien Pinckaers, Founder"
+msgstr ""
+"对于C2P团队,<br/>\n"
+"Fabien Pinckaers, 创始人"
+
+#. module: stock
+#: model:ir.model.fields,help:stock.field_stock_picking_type_show_reserved
+msgid ""
+"If this checkbox is ticked, Odoo will show which products are reserved "
+"(lot/serial number, source location, source package)."
+msgstr "如果此复选框将显示哪些产品，C2P保留（批号/序列号、源位置，源包装）。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"If you configured automatic procurement, Odoo automatically generates\n"
+"                        Procurements Orders. You usually don't need to worry about them, but\n"
+"                        sometimes the system can remain blocked without generating a\n"
+"                        corresponding document, usually due to a configuration problem."
+msgstr ""
+"如果你配置了自动补货，C2P可以自动产生补货单，通常你不需要担心，\n"
+"但是有时候会有异常出现，基本上是因为配置出现了问题"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"In Odoo, <strong>Reordering Rules</strong> are used to replenish your products.\n"
+"                        Odoo will automatically propose a procurement to buy new products if you are\n"
+"                        running out of stock."
+msgstr "在C2P中，<strong>订货规则</strong>被用来补货，C2P自动的创建补货单"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_inventory_form
+msgid ""
+"Inventory adjustments will be made by comparing the theoretical and the "
+"checked quantities."
+msgstr "库存调整是通过比较产品在C2P系统中的数量和实际复核的数量再进行调整。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"It is also possible to import your initial inventory from an Excel or CSV file.\n"
+"                        If you want to do that, contact your Odoo project manager."
+msgstr "你可以用excel或者CSV文件导入你的期初库存，如果想那么做的话，可以联系你的项目经理"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "It is time to make your initial Inventory. In order to do so:"
+msgstr "是时候创建期初库存了,在C2P中可以这样做："
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"Like with the sales flow, Odoo inventory management is\n"
+"                        fully integrated with the purchase app."
+msgstr "就像和销售模块集成一样，C2P的仓库也和采购模块集成"
+
+#. module: stock
+#: model:ir.actions.act_window,help:stock.action_picking_tree
+msgid ""
+"Most operations are prepared automatically by Odoo according\n"
+"                to your preconfigured logistics rules, but you can also record\n"
+"                manual stock movements."
+msgstr "大部分作业被C2P根据你的预先配置的物流规则自动准备，但是你也可以人工记录库存运动。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"Odoo handles <strong>advanced push/pull routes configuration</strong>, for "
+"example:"
+msgstr "C2P处理<strong>高级推/拉式路线配置</strong>，例如："
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "Odoo has preconfigured <strong>one Warehouse</strong> for you."
+msgstr " C2P已经为你预先配置好<strong>一个仓库</strong>"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"Odoo inventory management is fully integrated with sales and\n"
+"                        invoicing process. Everything is automated from the initial\n"
+"                        quotation to the delivery and the final invoice."
+msgstr ""
+"C2P的库存管理完全的和销售和开票流程集成\n"
+"从原始的报价单到发货再到最后的开票所有的一切都被集成"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"Odoo is able to run advanced traceability by using Product Lots and Serial\n"
+"                        Numbers, usually identified by bar codes stuck on the products."
+msgstr ""
+"用产品批次和序列号可以运行高级追踪\n"
+"通常根据贴在产品上的条码"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"Of course, feel free to add your own. Please note that Odoo is able to "
+"convert units within the same category, for example, liters to gallons in "
+"the volume category"
+msgstr "当然，可以任意的添加。请注意C2P可以在在同一种类之间的计量单位中间转换例如体积中的升和加仑"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"This guide helps getting started with Odoo Inventory.\n"
+"                        Once you are done, you will benefit from:"
+msgstr ""
+"向导帮助你开始C2P的盘点\n"
+"一旦你完成这些，你将获益于："
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"We handle the whole import process\n"
+"                                        for you: simply send your Odoo project\n"
+"                                        manager a CSV file containing all your\n"
+"                                        data."
+msgstr ""
+"我们为你处理所有的导入过程\n"
+"只要把包含你所有数据信息的CSV文件发给你的项目经理就可以"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"We handle the whole import process\n"
+"                                        for you: simply send your Odoo project\n"
+"                                        manager a CSV file containing all your\n"
+"                                        products."
+msgstr ""
+"我们为你处理所有的导入过程\n"
+"只要把包含你所有产品信息的CSV文件发给你的项目经理就可以"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "We hope this guide helped you implement Odoo Inventory."
+msgstr "希望这个向导能够帮你完成C2P的盘点"
+
+#. module: stock
+#: model:ir.model.fields,help:stock.field_stock_warehouse_orderpoint_product_min_qty
+msgid ""
+"When the virtual stock goes below the Min Quantity specified for this field,"
+" Odoo generates a procurement to bring the forecasted quantity to the Max "
+"Quantity."
+msgstr "当虚拟库存小于指定的最小数量，C2P生成补货将预测数量带到最大数量。"
+
+#. module: stock
+#: model:ir.model.fields,help:stock.field_stock_warehouse_orderpoint_product_max_qty
+msgid ""
+"When the virtual stock goes below the Min Quantity, Odoo generates a "
+"procurement to bring the forecasted quantity to the Quantity specified as "
+"Max Quantity."
+msgstr "当虚拟库存低于最小数量， C2P生成补货将预测数量带到最大数量。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_procurement_compute_wizard
+msgid ""
+"When you run the schedulers, Odoo tries to reserve the available stock to fulfill the existing pickings\n"
+"                and verify if some reordering rules should be triggered."
+msgstr ""
+"当您运行调度程序时，C2P会尝试预留可用库存以完成现有的分拣\n"
+"                 并验证是否应该触发一些重新排序规则。"
+
+#. module: stock
+#: model:ir.actions.act_window,help:stock.action_orderpoint_form
+msgid ""
+"You can define your minimum stock rules, so that Odoo will automatically "
+"create draft manufacturing orders or request for quotations according to the"
+" stock level. Once the virtual stock of a product (= stock on hand minus all"
+" confirmed orders and reservations) is below the minimum quantity, Odoo will"
+" generate a procurement request to increase the stock up to the maximum "
+"quantity."
+msgstr ""
+"你可以定义最小库存规则，这样C2P将会根据库存水平创建草稿生产订单，或者询价单。一旦产品的虚拟库存少于最小数量(= "
+"在手库存减去所有的确认的订单数量和预留数量)， C2P 将会产生一个补货请求，以便增加库存到最大数量。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.view_immediate_transfer
+msgid ""
+"You haven't entered <i>done</i> quantities, by clicking on <i>apply</i>\n"
+"                        Odoo will process all the <i>reserved</i> quantities."
+msgstr ""
+"您没有输入完成数量，点击<i> 应用 </ i>\n"
+"                         C2P将处理所有<i>保留的</ i>数量。"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"either by manually updating the Done quantity on the product lines, or let "
+"Odoo do it automatically while validating"
+msgstr "在产品行上手动更新完成数量，或当验证后让C2P自动更新"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid ""
+"either by manually updating the Done quantity on the product lines, or scan "
+"them with the Odoo Barcode app, or let Odoo do it automatically while "
+"validating"
+msgstr "或者手动在产品行更新完成数量，或者通过扫描枪扫描或者C2P在确认的时候自动做掉"
+
+#. module: stock
+#: model:ir.ui.view,arch_db:stock.inventory_planner
+msgid "feedback@mail.odoo.com"
+msgstr "http://openc2p.com/"
+
+#. module: stock
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of serial number and product must be unique !"
+msgstr "批次号已存在，请重新输入！"

@@ -1,0 +1,108 @@
+msgid ""
+msgstr ""
+
+#. module: web
+#: model:ir.ui.view,arch_db:web.menu_secondary
+msgid "<span>Odoo</span>"
+msgstr "<span>C2P</span>"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/xml/base.xml:1349
+#, python-format
+msgid "Get this feature and much more with Odoo Enterprise!"
+msgstr "通过C2P企业版获得该功能及其他更多！"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/xml/base.xml:1334
+#, python-format
+msgid "My Odoo.com account"
+msgstr "openc2p.com帐户"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/core/dialog.js:51
+#, python-format
+msgid "Odoo"
+msgstr "C2P"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/apps.js:148
+#, python-format
+msgid "Odoo Apps will be available soon"
+msgstr "C2P Apps 将马上可用"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/chrome/abstract_web_client.js:186
+#: code:addons/web/static/src/js/chrome/abstract_web_client.js:194
+#: code:addons/web/static/src/js/services/crash_manager.js:157
+#, python-format
+msgid "Odoo Client Error"
+msgstr "C2P客户端错误"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/fields/upgrade_fields.js:86
+#, python-format
+msgid "Odoo Enterprise"
+msgstr "C2P 企业版"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/services/crash_manager.js:119
+#, python-format
+msgid "Odoo Error"
+msgstr "C2P错误"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/services/crash_manager.js:59
+#, python-format
+msgid "Odoo Session Expired"
+msgstr "C2P会话过期"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/services/crash_manager.js:109
+#: code:addons/web/static/src/js/services/crash_manager.js:198
+#, python-format
+msgid "Odoo Warning"
+msgstr "C2P警告"
+
+#. module: web
+#: model:ir.ui.view,arch_db:web.login_layout
+msgid "Powered by <span>Odoo</span>"
+msgstr "由<span>C2P</span>提供支持"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/fields/special_fields.js:94
+#, python-format
+msgid ""
+"Timezone Mismatch : The timezone of your browser doesn't match the selected "
+"one. The time in Odoo is displayed according to your field timezone."
+msgstr "时区不匹配：你的浏览器的时区选择不匹配。在C2P的时间是根据你的领域时区显示。"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/services/crash_manager.js:59
+#, python-format
+msgid "Your Odoo session expired. Please refresh the current web page."
+msgstr "你的C2P会话已到期，请刷新当前网页。"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/services/crash_manager.js:58
+#, python-format
+msgid "Odoo Session Expired"
+msgstr "C2P会话过期"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/services/crash_manager.js:58
+#, python-format
+msgid "Your Odoo session expired. Please refresh the current web page."
+msgstr "你的C2P会话已到期，请刷新当前网页。"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- product.category tree view -->
+    <record id="product_category_view_tree" model="ir.ui.view">
+        <field name="name">product.category.view.tree</field>
+        <field name="model">product.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="分类名称"/>                
+            </tree>
+        </field>
+    </record>
+    <!-- product.category form view -->
+    <record id="product_category_view_form" model="ir.ui.view">
+        <field name="name">product.category.view.form</field>
+        <field name="model">product.category</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" class="oe_inline"/>
+                        <field name="parent_id" class="oe_inline" options="{'quick_create': False}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

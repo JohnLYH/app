@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <function id="country_default_set"
+              model="ir.default"
+              name="set"
+              eval="('res.partner', 'country_id', ref('base.cn'))"/>
+
+    <function id="customer_default_set"
+              model="ir.default"
+              name="set"
+              eval="('res.users', 'customer', False)"/>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--模板导出的客户端动作-->
+    <record id="action_export_hr_employee_tmpl" model="ir.actions.client">
+        <field name="name">下载员工模板</field>
+        <field name="tag">export_hr_employee_tmpl</field>
+    </record>
+
+    <!--向导form-->
+    <record id="import_export_wizard_form" model="ir.ui.view">
+        <field name="name">向导窗口</field>
+        <field name="model">import.hr.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="%(action_export_hr_employee_tmpl)d" string="下载员工模板" type="action"
+                            class="oe_highlight"/>
+                </header>
+                <groups>
+                    <field name="import_file"/>
+                </groups>
+
+                <footer>
+                    <button name="import_hr_employee" string="导入员工数据" type="object" class="oe_highlight"/>
+                    or
+                    <button name="import_unicorn_data" string="导入数据" type="object" class="oe_highlight"/>
+                    or
+                    <button string="取消" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="import_export_action" model="ir.actions.act_window">
+        <field name="name">导入导出数据</field>
+        <field name="res_model">import.hr.data</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="import_export_hr_employee_excel"
+            name="数据导入"
+            action="import_export_action"
+            parent="hr_employee_menu_categ"
+    />
+</odoo>
+

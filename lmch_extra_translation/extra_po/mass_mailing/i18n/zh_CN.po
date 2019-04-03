@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+
+#. module: mass_mailing
+#: model:mail.mass_mailing.list,popup_content:mass_mailing.mass_mail_list_1
+#: model:mail.mass_mailing.list,popup_content:mass_mailing.mass_mail_list_2
+msgid "Odoo Presents"
+msgstr "C2P 出品"
+
+#. module: mass_mailing
+#: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_paragraph
+msgid "That way, Odoo evolves much faster than any other solution."
+msgstr "采用这种方式，C2P 比其他任何解决方案发展更快。"
+
+#. module: mass_mailing
+#: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_text_image
+msgid ""
+"The open source model of Odoo has allowed us to leverage thousands of "
+"developers and business experts to build hundreds of apps in just a few "
+"years."
+msgstr "通过 C2P 的开源模式，我们可以利用数以千计的开发人员和商务专家，在短短数年内打造数百款应用。"
+
+#. module: mass_mailing
+#: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_image
+msgid ""
+"With strong technical foundations, Odoo's framework is unique. It provides "
+"<strong>top notch usability that scales across all apps</strong>."
+msgstr "凭借强大的技术基础，C2P 的框架是独一无二的。<strong>它能够在全部应用范围内提供最顶级的可用性。 </strong>"

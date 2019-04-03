@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- biote.stock.picking tree view -->
+    <record id="biote_stock_picking_view_tree" model="ir.ui.view">
+        <field name="name">biote.stock.picking.view.tree</field>
+        <field name="model">biote.stock.picking</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <!-- biote.stock.move tree view -->
+    <record id="biote_stock_move_view_tree" model="ir.ui.view">
+        <field name="name">biote.stock.move.view.tree</field>
+        <field name="model">biote.stock.move</field>
+        <field name="arch" type="xml">
+            <tree>                
+                <field name="product_id"/>
+                <field name="move_qty"/>
+                <field name="state"/>   
+            </tree>
+        </field>
+    </record>
+    <!-- biote.stock.picking form view -->
+    <record id="biote_stock_picking_view_form" model="ir.ui.view">
+        <field name="name">biote.stock.picking.view.form</field>
+        <field name="model">biote.stock.picking</field>
+        <field name="arch" type="xml">
+            <form string="库存调拨单"> 
+                <header>
+                    <button name="action_draft_select_dialog" type="object" string="执行" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="picking_type_id"/>
+                    </group>
+                    <notebook>
+                        <page string="库存移动">
+                            <field name="move_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

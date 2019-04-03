@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_employee_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.view.tree</field>
+        <field name="model">hr.employee</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id" string="ID"/>
+                <field name="complete_num" string="员工工号" readonly="1"/>
+                <field name="create_date" string="录入日期" readonly="1"/>
+                <field name="create_uid" string="录入人" readonly="1"/>
+                <field name="trial_start_date" string="试用期开始日期"/>
+                <field name="trial_end_date" string="试用结束日期"/>
+                <field name="lead_time_type" string="转正提示"/>
+                <field name="trial_notify_time" string="转正提示日期"/>
+                <field name="service_length" string="工龄"/>
+                <field name="name" string="名称"/>
+                <field name="department_id" string="部门"/>
+                <field name="hire_date" string="入职日期"/>
+                <field name="birthday" string="出生日期"/>
+                <field name="marital" string="婚姻状况"/>
+                <field name="political_status" string="政治面貌"/>
+                <field name="gender" string="性别"/>
+                <field name="job_title" string="职称"/>
+                <field name="identification_id" string="身份证号"/>
+                <field name="native_place_type" string="户籍性质"/>
+                <field name="degree" string="最高学历"/>
+                <field name="native_place" string="籍贯"/>
+                <field name="ethnic" string="民族"/>
+                <field name="criminal_record" string="犯罪记录"/>
+                <field name="mobile_phone" string="移动电话"/>
+                <field name="work_email" string="邮箱" widget="email"/>
+                <field name="medical_history" string="疾病记录"/>
+                <field name="emergency_contact" string="紧急联系人"/>
+                <field name="kinship" string="紧急联系人关系"/>
+                <field name="emergency_tel" string="紧急联系人电话"/>
+                <field name="residence_address" string="户籍地址"/>
+                <field name="residence_zip_code" string="户籍邮编"/>
+                <field name="residence_tel" string="户籍固定电话"/>
+                <field name="address_home" string="现住址"/>
+                <field name="home_zip_code" string="现住址邮编"/>
+                <field name="home_tel" string="现住址电话"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_employee_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.view.form</field>
+        <field name="model">hr.employee</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form>
+                <group col="3">
+                    <group>
+                        <field name="complete_num" string="员工工号" readonly="1"/>
+                        <field name="create_uid" string="录入人" readonly="1"/>
+                        <field name="trial_start_date" string="试用期开始日期"/>
+                        <field name="trial_date" string="转正日期"/>
+                    </group>
+                    <group>
+                        <field name="department_id" string="部门" options='{"no_open": True, "no_create": True}'/>
+                        <field name="hire_date" string="入职日期"/>
+                        <field name="trial_end_date" string="试用结束日期" readonly="1" force_save="1"/>
+                        <field name="service_length" string="工龄"/>
+                    </group>
+                    <group>
+                        <field name="create_date" string="录入日期" readonly="1"/>
+                        <field name="trial_type" string="试用期"/>
+                        <field name="trial_length" string="试用期时长"
+                               attrs="{'invisible':[('trial_type', '!=', '0')]}"/>
+                        <field name="lead_time_type" string="转正提示"/>
+                        <field name="trial_notify_time" string="转正提示日期"
+                               attrs="{'invisible':[('lead_time_type', '!=', '0')]}"/>
+                    </group>
+                </group>
+
+                <group col="3" string="个人基本信息">
+                    <group>
+                        <field name="name" string="姓名"/>
+                        <field name="political_status" string="政治面貌"/>
+                        <field name="identification_id" string="身份证号"/>
+                        <field name="degree" string="最高学历"/>
+                        <field name="mobile_phone" string="移动电话" widget="phone"/>
+                        <field name="emergency_contact" string="紧急联系人"/>
+                        <field name="residence_address" string="户籍地址"/>
+                        <field name="address_home" string="现住址"/>
+                    </group>
+                    <group>
+                        <field name="birthday" string="出生日期"/>
+                        <field name="gender" string="性别"/>
+                        <field name="ethnic" string="民族"/>
+                        <field name="native_place" string="籍贯"/>
+                        <field name="work_email" string="邮箱" widget="email"/>
+                        <field name="kinship" string="紧急联系人关系"/>
+                        <field name="residence_zip_code" string="户籍邮编"/>
+                        <field name="home_zip_code" string="现住址邮编"/>
+                    </group>
+                    <group>
+                        <field name="marital" string="婚姻状况" widget="radio" options="{'horizontal': true}"/>
+                        <field name="job_title" string="职称" widget="radio" options="{'horizontal': true}"/>
+                        <field name="native_place_type" string="户籍性质" widget="radio" options="{'horizontal': true}"/>
+                        <field name="is_criminal" string="犯罪记录"/>
+                        <field name="criminal_record" string="犯罪记录"
+                               attrs="{'invisible':[('is_criminal', '=', False)]}"/>
+                        <field name="is_medical" string="曾患何种疾病"/>
+                        <field name="medical_history" string="疾病记录" attrs="{'invisible':[('is_medical', '=', False)]}"/>
+                        <field name="emergency_tel" string="紧急联系人电话"/>
+                        <field name="residence_tel" string="户籍电话"/>
+                        <field name="home_tel" string="现住址电话"/>
+                    </group>
+                </group>
+                <group string="教育经历（自最终学历向前追溯至高中同等学历）">
+                    <field name="education_ids" nolabel="1"/>
+                </group>
+                <group string="培训经历">
+                    <field name="training_ids" nolabel="1"/>
+                </group>
+                <group string="主要职业履历（自最近经历向前追溯）">
+                    <field name="work_exp_ids" nolabel="1"/>
+                </group>
+                <group string="直系亲属情况（父母、夫妻、子女、兄弟姐妹）">
+                    <field name="family_ids" nolabel="1"/>
+                </group>
+                <group string="其它与劳动合同履行有关的重要说明"/>
+                <ol>
+                    <li>
+                        <span>
+                            本人确保以上所填内容真实可靠；并本人承诺按公司要求提供真实完整的个人相关资料及信息，包括但不限于前公司离职证明、学历、资格证明等；若有弄虚作假或恶意隐瞒，公司可立即解除劳动合同并无需支付任何经济补偿；
+                        </span>
+                    </li>
+                    <li>
+                        <span>以上资料或信息如有变更，本人将自变更发生日起5个工作日内书面通知人力资源部，并提供相关证明文件，否则后果由本人承担；</span>
+                    </li>
+                    <li>
+                        <span>
+                            与劳动合同履行相关的任何事宜（包括但不限于合同变更、中止、解除/终止等），若届时本人因故无法亲自办理的，本人在此确认并授权可由本履历表载明的紧急联系人及/或直系亲属代为办理，公司向本人发送的与劳动合同履行相关的任何通知，发送至本履历表载明的户籍地址或住址，或由本履历表载明的紧急联系人及/或直系亲属签收视为送达本人。
+                        </span>
+                    </li>
+                </ol>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_picking_type_unqualified_incoming" model="biote.stock.picking.type">
+        <field name="name">不良品入库作业</field>
+        <field name="location_id" ref="biote_stock.stock_location_recevie"/>
+        <field name="dest_warehouse_id" ref="biote_stock.stock_warehouse_blp"/>
+        <field name="code">unqualified_incoming</field>
+        <field name="sequence" eval="1"/>
+    </record>
+    <record id="stock_picking_type_unqualified_return" model="biote.stock.picking.type">
+        <field name="name">不良品退货作业</field>
+        <field name="location_id" ref="biote_stock.stock_location_recevie"/>
+        <field name="dest_location_id" ref="stock.stock_location_suppliers"/>
+        <field name="code">unqualified_return</field>
+        <field name="sequence" eval="1"/>
+    </record>
+    <record id="stock_picking_type_unqualified_scrap" model="biote.stock.picking.type">
+        <field name="name">不良品报废作业</field>
+        <field name="location_id" ref="biote_stock.stock_location_recevie"/>
+        <field name="dest_location_id" ref="stock.stock_location_scrapped"/>
+        <field name="code">unqualified_scrap</field>
+        <field name="sequence" eval="1"/>
+    </record>
+</odoo>

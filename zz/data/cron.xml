@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--定时任务-->
+    <record id="cron_do" forcecreate='True' model="ir.cron">
+        <field name="name">DoTask</field>
+        <!--<field eval="False" name="active"/>-->
+        <!--<field name="user_id" ref="base.user_root"/>-->
+
+        <field name="model_id" ref="model_people_teacher"/>
+        <field name="state">code</field>
+        <field name="code">model.write3()</field>
+
+        <!--设置时间 间隔 单位 负数为永不停止-->
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+
+    <!--参考-->
+    <!--<record id="autovacuum_job" model="ir.cron">-->
+    <!--<field name="name">Base: Auto-vacuum internal data</field>-->
+    <!--<field name="model_id" ref="model_ir_autovacuum"/>-->
+    <!--<field name="state">code</field>-->
+    <!--<field name="code">model.power_on()</field>-->
+    <!--<field name='interval_number'>1</field>-->
+    <!--<field name='interval_type'>days</field>-->
+    <!--<field name="numbercall">-1</field>-->
+    <!--</record>-->
+</odoo>
+
+
+
+
+
+

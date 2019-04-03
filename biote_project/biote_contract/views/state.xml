@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ui_workflow_state_action" model="ir.actions.act_window">
+    	<field name="name">状态</field>
+    	<field name="res_model">oa.workflow.stage</field>
+    	<field name="view_type">form</field>
+    	<field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

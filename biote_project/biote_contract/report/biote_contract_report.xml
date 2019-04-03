@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--报表动作report标签声明-->
+    <report
+            id="biote_contract_report"
+            model="biote.contract"
+            string="打印审批结果"
+            name="biote_contract.biote_contract_templates"
+            report_type="qweb-pdf"
+            print_report_name="'经济合同签约审批表-%s'%(object.name)"
+    />
+
+</odoo>

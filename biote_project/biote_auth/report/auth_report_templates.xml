@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="auth_templates">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div t-call="biote_auth.external_layout">
+                    <div class="page">
+                        <div t-if="doc.category == 'dev_auth'" class="biote-auth">
+                            <h2 class="text-center">开发授权委托书</h2>
+                            <h4 class="text-right biote-num">编号：
+                                <span class="auth-num" t-field="doc.num"/>
+                            </h4>
+                            <p class="auth-content">青岛博益特生物材料股份有限公司现授权委托
+                                <span t-field="doc.enterprise_id"/>负责我公司生产（经营）的产品：
+                                <span  t-field="doc.product_id"/>在<span class="auth-num" t-field="doc.hospital_id"/>
+                                （<span t-field="doc.state_id"/><span t-field="doc.city_id"/><span t-field="doc.area_id"/>）的开发工作。
+                            </p>
+                            <p>
+                                我公司谨此授权上述公司在上述医院的开发。如开发完成形成销售的，须另行签订销售合同，与销售有关的事宜以销售合同为准。
+                            </p>
+                            <p>
+                                授权期限：<span class="auth-num" t-field="doc.start_date"/>
+                                至<span class="auth-num" t-field="doc.end_date"/>，到期自动终止。
+                            </p>
+                            <p>
+                                在上述授权期间，如上述被授权单位的医院未能如期开发或经公司验证无工作进展的，公司有权终止该授权期限并更换经销商。
+                            </p>
+                            <p>
+                                特此委托！
+                            </p>
+                        </div>
+                        <div t-if="doc.category == 'sale_auth'" class="biote-auth">
+                            <h2 class="text-center">销售授权委托书</h2>
+                            <h4 class="text-right biote-num" >编号：
+                                <span class="auth-num" t-field="doc.num"/>
+                            </h4>
+                            <p >
+                                青岛博益特生物材料股份有限公司现授权委托
+                                <span t-field="doc.enterprise_id"/>
+                                负责我公司生产（经营）的产品：<span t-field="doc.product_id"/>在
+                                <span t-field="doc.hospital_id"/>
+                                （<span t-field="doc.state_id"/>
+                                <span t-field="doc.city_id"/><span t-field="doc.area_id"/>）的销售工作。
+                            </p>
+                            <p>
+                                我公司谨此保证为上述公司提供的医疗器械符合现行法定质量标准，但是具体与销售有关的事宜须以双方签订的销售合同为准。
+                            </p>
+                            <p>
+                                授权期限：<span t-field="doc.start_date"/>至
+                                <span t-field="doc.end_date"/>
+                                ，到期自动终止。
+                            </p>
+                            <p>
+                                在上述授权期限内，如上述单位未与我公司签订销售合同或者上述被授权单位的医院未能达到公司销量考核标准的，
+                                公司有权提前终止该授权期限并更换经销商。
+                            </p>
+                            <p class="auth-content">
+                                特此委托！
+                            </p>
+                        </div>
+                        <div t-if="doc.category == 'stop_auth'" class="biote-auth">
+                            <h2 class="text-center">终止《授权委托书》通知书</h2>
+                            <h4 class="text-right biote-num">编号：
+                                <span class="auth-num" t-field="doc.num"/>
+                            </h4>
+                            <p>
+                                <span t-field="doc.enterprise_id"/>：
+                            </p>
+                            <p>
+                                因贵公司业务发展变更，将已授权医院——<span t-field="doc.hospital_id"/>的销售授权，将在
+                                <span t-field="doc.stop_date"/>提前终止。
+                            </p>
+                            <p>
+                                本公司于<span t-field="doc.original_start_date"/>开具给贵公司的《授权委托书》
+                                原授权书编号：<span t-field="doc.original_num"/>，（原授权期限为
+                                <span t-field="doc.original_start_date"/>至<span t-field="doc.original_end_date"/>）。
+                            </p>
+                            <p>
+                                特此通知！
+                            </p>
+                        </div>
+                        <h4 class="text-right biote-company">青岛博益特生物材料股份有限公司</h4>
+                        <h4 class="text-right biote-company"><span class="auth-num" t-field="doc.applicant_date"/></h4>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

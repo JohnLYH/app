@@ -1,0 +1,6 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+yfb_purchase,研发部,model_purchase_order,rongbiz_stock.rs_group_yf,1,0,0,0
+yfb_purchase_line,研发部,model_purchase_order_line,rongbiz_stock.rs_group_yf,1,0,0,0
+yfb_sale,研发部,model_sale_order,rongbiz_stock.rs_group_yf,1,0,0,0
+yfb_sale_line,研发部,model_sale_order_line,rongbiz_stock.rs_group_yf,1,0,0,0
+yfb_stock_production_lot,研发部,model_stock_production_lot,rongbiz_stock.rs_group_yf,1,0,0,0

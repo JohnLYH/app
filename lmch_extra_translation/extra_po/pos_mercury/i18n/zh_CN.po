@@ -1,0 +1,10 @@
+msgid ""
+msgstr ""
+
+#. module: pos_mercury
+#. openerp-web
+#: code:addons/pos_mercury/static/src/js/pos_mercury.js:423
+#: code:addons/pos_mercury/static/src/js/pos_mercury.js:577
+#, python-format
+msgid "Odoo error while processing transaction."
+msgstr "处理交易时出现C2P错误。"

@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid "<strong>-The Odoo Team</strong>"
+msgstr "<strong>-C2P的团队</strong>"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid ""
+"<strong>Create the bill in Odoo</strong><br/> with a proper due date, and "
+"create the vendor if it doesnt' exist yet."
+msgstr "<strong>在C2P创建账单</strong><br/>有正确的付款日期，如果供应商不存在，则创建。"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid ""
+"<strong>Test the following three scenarios in order to assist you in "
+"familiarizing yourself with Odoo:</strong>"
+msgstr "<strong>为了能让你尽快熟悉C2P系统，请测试以下三种场景</strong>"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid ""
+"<strong>There are three different levels of access rights in Odoo:</strong>"
+msgstr "<strong>在C2P中有三种不同的登陆权限：</strong>"
+
+#. module: account
+#: model:ir.model.fields,help:account.field_account_financial_year_op_opening_date
+msgid ""
+"Date from which the accounting is managed in Odoo. It is the date of the "
+"opening entry."
+msgstr "会计在C2P中管理的日期。这是开户分录的日期。"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid "Enjoy your Odoo experience,"
+msgstr "好好体验C2P，"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid ""
+"If you want to be able to send customer statements from Odoo, you must:"
+msgstr "如果你需要从C2P发送客户对账单，你必须："
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid "In Odoo,"
+msgstr "在C2P，"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid "Odoo Accounting has many extra-features:"
+msgstr "C2P 会计有很多额外的功能："
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid ""
+"Odoo can manage multiple companies, but we suggest to setup everything for "
+"your first company before configuring the other ones."
+msgstr "C2P可以管理多家公司，但是我们建议在配置别的公司之前先配置第一个公司。"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid ""
+"Odoo has already preconfigured a few taxes according to your "
+"country.<br/>Simply review them and check if you need more."
+msgstr "C2P已经预先设置了一些你所在国家的税。<br/>简单的查看一下是否还需要用更多。"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_planner
+msgid ""
+"To manage the tax applied when invoicing a Company, Odoo uses the concept of"
+" Fiscal Position: they serve to automatically set the right tax and/or "
+"account according to the customer country and state."
+msgstr "为了管理向公司开发票适用的税，C2P使用“财政状况”的概念：它能够根据客户的国家和州自动的设置正确的税金和／或科目。"
+
+msgid ""
+msgstr ""
+
+#. module: account
+#: model:ir.actions.act_window,help:account.action_invoice_tree1
+msgid ""
+"Odoo's electronic invoicing allows to ease and fasten the\n"
+"                collection of customer payments. Your customer receives the\n"
+"                invoice by email and he can pay online and/or import it\n"
+"                in his own system."
+msgstr ""
+"C2P的电子发票能让你快捷方便的\n"
+"收集客户的付款。你的客户通过邮件收到\n"
+"发票，然后他就可以在线付款和／或者导入自己的系统。"
+
+#. module: account
+#: model:ir.actions.act_window,help:account.action_move_journal_line
+msgid ""
+"Odoo automatically creates one journal entry per accounting\n"
+"                document: invoice, refund, vendor payment, bank statements,\n"
+"                etc. So, you should record journal entries manually only/mainly\n"
+"                for miscellaneous operations."
+msgstr ""
+"C2P会自动根据：发票、退款、供应商付款、银行对账单\n"
+"等来创建一个日记账分录。所以，你应该只／主要\n"
+"对杂项操作进行手工日记账分录。"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.account_aged_balance_view
+msgid ""
+"Aged Partner Balance is a more detailed report of your receivables by "
+"intervals. Odoo calculates a table of credit balance by start Date. So if "
+"you request an interval of 30 days Odoo generates an analysis of creditors "
+"for the past month, past two months, and so on."
+msgstr ""
+"合作伙伴余额账龄是按区间对应你应收款的更详细报表。 C2P 由起始日期计算信用余额的图表。所以，如果你要求以30天为间隔， C2P "
+"会对过去一月、过去两月等生成债权人分析。"
+
+#. module: account
+#: selection:tax.adjustments.wizard,adjustment_type:0
+msgid "Applied on credit journal item"
+msgstr "应用在贷方日记账项目"
+
+#. module: account
+#: selection:tax.adjustments.wizard,adjustment_type:0
+msgid "Applied on debit journal item"
+msgstr "应用在借方日记账项目"
+
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/js/reconciliation/reconciliation_action.js:323
+#: model:ir.actions.client,name:account.action_manual_reconcile
+#, python-format
+msgid "Journal Items to Reconcile"
+msgstr "待调节的日记账项"

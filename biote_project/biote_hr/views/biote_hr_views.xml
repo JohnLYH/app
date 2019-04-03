@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_department_action" model="ir.actions.act_window">
+        <field name="name">部门</field>
+        <field name="res_model">hr.department</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="hr_employee_action" model="ir.actions.act_window">
+        <field name="name">员工</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="博益特-员工" id="hr_menu_root"/>
+    <menuitem name="部门" id="hr_department_menu_categ" parent="hr_menu_root"/>
+    <menuitem name="部门列表" id="department_list_menu_act" parent="hr_department_menu_categ"
+              action="hr_department_action"/>
+    <menuitem name="员工" id="hr_employee_menu_categ" parent="hr_menu_root"/>
+    <menuitem name="员工列表" id="hr_employee_list_menu_act" parent="hr_employee_menu_categ"
+              action="hr_employee_action"/>
+</odoo>

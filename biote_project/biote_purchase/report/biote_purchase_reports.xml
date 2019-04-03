@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="biote_paper" model="report.paperformat">
+            <field name="name">paper</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">8</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">9</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report
+                id="report_biote_purchase_plan"
+                string="采购计划"
+                model="biote.purchase.plan"
+                report_type="qweb-pdf"
+                name="biote_purchase.report_purchaseplan"
+                paperformat="biote_paper"
+        />
+
+        <report
+                id="report_biote_purchase_plan_line"
+                string="采购计划列表"
+                model="biote.purchase.plan.line"
+                report_type="qweb-pdf"
+                name="biote_purchase.report_purchaseplanline"
+                paperformat="biote_paper"
+        />
+    </data>
+</odoo>

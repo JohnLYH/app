@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="qualification_document_view_tree" model="ir.ui.view">
+        <field name="name">biote.qualification.document</field>
+        <field name="model">biote.qualification.document</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string=""
+                  decoration-warning="state == 'warning'"
+                  decoration-danger="state == 'delay'">
+                <field name="name"/>
+                <field name="category"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="lead_time"/>
+                <field name="code"/>
+                <field name="partner_id"/>
+                <field name="note"/>
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="qualification_document_view_form" model="ir.ui.view">
+        <field name="name">biote.qualification.document</field>
+        <field name="model">biote.qualification.document</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form string="">
+                <group col="2">
+                    <group>
+                        <field name="name"/>
+                        <field name="category"/>
+                        <field name="data" filename="fname"/>
+                        <field name="fname" invisible="1"/>
+                        <field name="code"/>
+                        <field name="is_customer" invisible="1"/>
+                        <field name="is_supplier" invisible="1"/>
+                        <field name="partner_id"
+                               options="{'no_open':True,'no_create':True}"
+                               domain="[('customer','=',is_customer),('supplier','=',is_supplier)]"/>
+                    </group>
+                    <group>
+                        <field name="state" invisible="1"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="lead_time"/>
+                        <field name="warning_time"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>

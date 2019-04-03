@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- biote.allow.item action window -->
+    <record id="biote_allow_item_action" model="ir.actions.act_window">
+        <field name="name">放行单审核内容</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">biote.allow.item</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建一条新的审核内容
+            </p>
+        </field>
+    </record>
+    <!-- biote.unqualified action window -->
+    <record id="biote_unqualified_action" model="ir.actions.act_window">
+        <field name="name">不合格处置单</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">biote.unqualified</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建不合格处置单
+            </p>
+        </field>
+    </record>
+    <!-- biote.unqualified.handle action window -->
+    <record id="biote_unqualified_handle_action" model="ir.actions.act_window">
+        <field name="name">不合格处置方式</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">biote.unqualified.handle</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建不合格处置方式
+            </p>
+        </field>
+    </record>
+    <!-- biote.stock.picking action window -->
+    <record id="biote_stock_picking_action_unqualified_incoming" model="ir.actions.act_window">
+        <field name="name">不良品入库单</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">biote.stock.picking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="domain">[('code', '=', 'unqualified_incoming')]</field>
+    </record>
+    <record id="biote_stock_picking_action_unqualified_return" model="ir.actions.act_window">
+        <field name="name">采购退货单</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">biote.stock.picking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="domain">[('code', '=', 'unqualified_return')]</field>
+    </record>
+    <record id="biote_stock_picking_action_unqualified_scrap" model="ir.actions.act_window">
+        <field name="name">不良品销毁单</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">biote.stock.picking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="domain">[('code', '=', 'unqualified_scrap')]</field>
+    </record>
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="quality_menu_root" name="质检管理" sequence="1"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="allow_menu_categ" name="放行单" parent="quality_menu_root" sequence="1"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="allow_item_menu_act" name="审核内容" parent="allow_menu_categ" action="biote_allow_item_action" sequence="2"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="unqualified_menu_categ" name="不合格" parent="quality_menu_root" sequence="2"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="unqualified_menu_act" name="不合格处置单" parent="unqualified_menu_categ" action="biote_unqualified_action" sequence="1"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="unqualified_handle_menu_act" name="不合格处置方式" parent="unqualified_menu_categ" action="biote_unqualified_handle_action" sequence="2"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="unqualified_incoming_picking_menu_act" name="不良品入库单" parent="unqualified_menu_categ" action="biote_stock_picking_action_unqualified_incoming" sequence="3"/>
+    <menuitem id="unqualified_return_picking_menu_act" name="采购退货" parent="unqualified_menu_categ" action="biote_stock_picking_action_unqualified_return" sequence="3"/>
+    <menuitem id="unqualified_srcap_picking_menu_act" name="不良品入报废" parent="unqualified_menu_categ" action="biote_stock_picking_action_unqualified_scrap" sequence="3"/>
+</odoo>

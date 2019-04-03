@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="customer_category_1" model="biote.customer.category">
+        <field name="name">院线-商业公司</field>
+    </record>
+    <record id="customer_category_2" model="biote.customer.category">
+        <field name="name">院线-经销商</field>
+    </record>
+    <record id="customer_category_3" model="biote.customer.category">
+        <field name="name">院线-医院</field>
+    </record>
+    <record id="customer_category_4" model="biote.customer.category">
+        <field name="name">otc-商业公司</field>
+    </record>
+    <record id="customer_category_5" model="biote.customer.category">
+        <field name="name">otc-代理商</field>
+    </record>
+    <record id="customer_category_6" model="biote.customer.category">
+        <field name="name">otc-连锁药店</field>
+    </record>
+    <record id="customer_category_7" model="biote.customer.category">
+        <field name="name">其他</field>
+    </record>
+
+</odoo>

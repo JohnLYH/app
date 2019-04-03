@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- oa.workflow.stage tree view -->
+    <record id="oa_workflow_stage_view_tree" model="ir.ui.view">
+        <field name="name">oa.workflow.stage.view.tree</field>
+        <field name="model">oa.workflow.stage</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="has_subflow"/>
+            </tree>
+        </field>
+    </record>
+    <!-- oa.workflow.stage form view -->
+    <record id="oa_workflow_stage_view_form" model="ir.ui.view">
+        <field name="name">oa.workflow.stage.view.form</field>
+        <field name="model">oa.workflow.stage</field>
+        <field name="arch" type="xml">
+            <form string="审批阶段">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <!-- 声明后创建审批环节时，会自动对顺序进行累加 -->
+                            <field name="sequence" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="has_subflow"/>
+                            <!-- model_name来自于route_id的related字段，需要在表单中声明 -->
+                            <field name="route_id" invisible="1"/>
+                            <field name="model_name" invisible="1"/>
+                        </group>
+                        <field name="domain" widget="domain" options="{'model': 'model_name'}"/>
+                    </group>
+                    <notebook>
+                        <page string="审批人员">
+                            <field name="stage_employee_ids"/>
+                        </page>
+                        <page string="审批部门">
+                            <group>
+                                <group>
+                                    <field name="department_stage_type" required="1"/>
+                                </group>
+                            </group>
+                            <field name="department_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

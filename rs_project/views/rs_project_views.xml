@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="rs_project_view_tree">
+        <field name="name">rs.project.view.tree</field>
+        <field name="model">rs.project</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="manager"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="rs_project_view_form">
+        <field name="name">rs.project.view.form</field>
+        <field name="model">rs.project</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generate_purchase_contract" type="object" string="创建合同" class="oe_highlight"
+                            attrs="{'invisible': [('workflow_state', '!=', 'done')]}"/>
+                    <button name="start_workflow" type="object" string="开始审批" class="oe_highlight"
+                            attrs="{'invisible': [('workflow_state', '!=', 'draft')]}"/>
+                    <button name="btn_workflow_approve" type="object" class="oe_highlight" string="同意"
+                            attrs="{'invisible': ['|', ('access_stage', '=', False), ('workflow_state', 'not in', ['progress', 'subflow'])]}"/>
+                    <button name="btn_workflow_refused" type="object" class="oe_highlight" string="拒绝"
+                            attrs="{'invisible': ['|', ('access_stage', '=', False), ('workflow_state', 'not in', ['progress', 'subflow'])]}"/>
+                    <button name="btn_start_subflow" type="object" class="oe_highlight" string="子审批"
+                            attrs="{'invisible': [('show_subflow_btn', '=', False)]}"/>
+                    <field name="cur_stage_id" domain="[('id', 'in', valid_stage_ids)]" widget="statusbar"
+                           attrs="{'invisible': [('workflow_state', 'not in', ('progress','subflow'))]}"/>
+                    <field name="workflow_state" statusbar_visible="draft,done" widget="statusbar"
+                           attrs="{'invisible': [('workflow_state', 'in', ('progress', 'subflow'))]}"/>
+                </header>
+                <field name="workflow_state" invisible="1"/>
+                <field name="access_stage" invisible="1"/>
+                <field name="has_subflow" invisible="1"/>
+                <field name="show_subflow_btn" invisible="1"/>
+                <field name="valid_stage_ids" invisible="1"/>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="manager"/>
+                        </group>
+                        <field name="line_ids">
+                            <tree editable="bottom">
+                                <field name="purchase_req_num"/>
+                                <field name="product_id"/>
+                                <field name="predict_qty"/>
+                                <field name="uom"/>
+                                <field name="predict_price"/>
+                                <field name="predict_total"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

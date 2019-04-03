@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_category_rs_xz" model="ir.module.category">
+        <field name="name">行政</field>
+    </record>
+    <!--行政组 去掉采购(4, ref('purchase.group_purchase_manager'))权限-->
+    <record id="rs_group_xz" model="res.groups">
+        <field name="name">行政</field>
+        <field name="category_id" ref="stock_category_rs_xz"/>
+        <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+    </record>
+     <record id="stock_category_rs_yf" model="ir.module.category">
+        <field name="name">研发</field>
+    </record>
+    <record id="rs_group_yf" model="res.groups">
+        <field name="name">研发</field>
+        <field name="category_id" ref="stock_category_rs_yf"/>
+    </record>
+    <record id="stock_category_rs_cw" model="ir.module.category">
+        <field name="name">财务</field>
+    </record>
+    <record id="rs_group_cw" model="res.groups">
+        <field name="name">财务</field>
+        <field name="category_id" ref="stock_category_rs_cw"/>
+        <field name="implied_ids" eval="[(4, ref('rs_group_xz'))]"/>
+    </record>
+</odoo>

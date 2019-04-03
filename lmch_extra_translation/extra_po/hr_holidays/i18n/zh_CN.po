@@ -1,0 +1,9 @@
+msgid ""
+msgstr ""
+
+#. module: hr_holidays
+#: model:ir.model.fields,help:hr_holidays.field_hr_holidays_status_categ_id
+msgid ""
+"Once a leave is validated, Odoo will create a corresponding meeting of this "
+"type in the calendar."
+msgstr "一旦休假被批准，C2P 将在日历上生成一个此类型的活动。"

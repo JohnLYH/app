@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+#: model:event.event,description:event.event_1
+#: model:event.event,description:event.event_3
+msgid "Odoo Official Website"
+msgstr "C2P 官方网站"
+
+#. module: event
+#: model:event.event,description:event.event_0
+#: model:event.event,description:event.event_1
+#: model:event.event,description:event.event_3
+msgid "Odoo Web Client"
+msgstr "C2P Web 客户端"
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "events@odoo.com"
+msgstr "events@openc2p.com"
+
+#. module: event
+#: model:ir.actions.act_window,help:event.action_event_view
+msgid ""
+"Odoo helps you schedule and efficiently organize your events:\n"
+"    track registrations and participations, automate the confirmation emails,\n"
+"    sell tickets, etc."
+msgstr ""
+"C2P 帮助您安排和有效组织活动：\n"
+"    跟踪注册和参与情况、自动确认电子邮件、\n"
+"    出售门票等。 "

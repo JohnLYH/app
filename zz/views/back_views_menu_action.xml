@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--views1-->
+    <record id="action_zz_peoples" model="ir.actions.act_window">
+        <field name="name">PeopleS</field>
+        <field name="res_model">zz.peoples</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <!--active_test': False会将无效的数据也显示-->
+        <field name="context">{'active_test': False}</field>
+    </record>
+
+    <!--views2-->
+    <record id="actionteacher" model="ir.actions.act_window">
+        <field name="name">TeacherS</field>
+        <field name="res_model">people.teacher</field>
+        <field name="view_mode">tree,form,graph,kanban</field>
+        <!--<field name="target">fullscreen</field>-->
+        <!--默认搜索 context 为窗口动作的一个属性-->
+        <field name="context" eval="{'search_default_name': '老王'}"/>
+    </record>
+
+    <!--views3-->
+    <record id="asub" model="ir.actions.act_window">
+        <field name="name">Subject</field>
+        <field name="res_model">zz.peoples</field>
+        <field name="view_mode">tree,form</field>
+        <!--同时打开多个指定视图 方法1-->
+        <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree','view_id': ref('zzlist4')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('zzform4')}), ]"/>
+    </record>
+
+    <!--同时打开多个指定视图 方法2 运用ir.actions.act_window.view模型-->
+    <!--<record id="subjtree1" model="ir.actions.act_window.view">-->
+    <!--<field name="sequence" eval="1"/>-->
+    <!--<field name="view_mode">tree</field>-->
+    <!--<field name="view_id" ref="zzlist4"/>-->
+    <!--<field name="act_window_id" ref="asub"/>-->
+    <!--</record>-->
+    <!--<record id="subjform2" model="ir.actions.act_window.view">-->
+    <!--<field name="sequence" eval="2"/>-->
+    <!--<field name="view_mode">form</field>-->
+    <!--<field name="view_id" ref="zzform4"/>-->
+    <!--<field name="act_window_id" ref="asub"/>-->
+    <!--</record>-->
+
+    <!-- 图表和地图打开动作 执行客户端动作：echart_action.该动作在static/src/js/main.js中定义 -->
+    <record id="echart_action1" model="ir.actions.client">
+        <field name="name">基本使用</field>
+        <field name="tag">echart_action</field>
+    </record>
+
+    <record id="echart_action2" model="ir.actions.client">
+        <field name="name">基本使用</field>
+        <field name="tag">echart_map</field>
+    </record>
+
+    <!--设置-->
+    <record id="action_settings" model="ir.actions.act_window">
+        <field name="name">设置</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'zz'}</field>
+    </record>
+
+
+    <!--web_icon为按钮添加图标sequence决定按钮在顶栏位置-->
+    <menuitem id="menu1" name="ZZ" web_icon="zz,static/description/icon.png" sequence="0"/>
+    <menuitem id="menu2" parent="menu1" name="基本"/>
+    <menuitem id="menu3" parent="menu1" name="其他" groups='zz.hidden'/>
+
+    <menuitem id="menu4" parent="menu2" name='学生' action="action_zz_peoples"/>
+    <menuitem id="menu5" parent="menu2" name='老师' action="actionteacher"/>
+    <menuitem id="menu6" parent="menu2" name='学科' action="asub"/>
+    <menuitem id="menu7" parent="menu3" name="图表" action="echart_action1" />
+    <menuitem id="menu8" parent="menu3" name="地图" action="echart_action2" />
+    <menuitem id="menu9" parent="menu1" name="设置" sequence="1000" action="action_settings" groups="base.group_system"/>
+
+    <!--注意manifest文件中 视图文件要在动作按钮文件之前加载 否则提示找不到外部id 即要注意文件先后顺序-->
+</odoo>
+
+
+
+
+
+

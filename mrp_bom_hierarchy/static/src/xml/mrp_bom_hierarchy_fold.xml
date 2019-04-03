@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <!--折叠状态-->
+    <t t-name="bom_hierarchy_foldable">
+        <span class="o_bom_hierarchy_foldable"><i class="fa fa-fw fa-caret-right"></i></span>
+    </t>
+    <!--未折叠状态-->
+    <t t-name="bom_hierarchy_unfoldable">
+        <span class="o_bom_hierarchy_unfoldable"><i class="fa fa-fw fa-caret-down"></i></span>
+    </t>
+</templates>

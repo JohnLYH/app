@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--data noupdate="1" 只创建记录一次，模块更新时不再更新记录-->
+<odoo>
+    <!--单个组权限管理   创建组  添加用户-->
+    <!--<record id="all0" model="res.groups">-->
+    <!--<field name="name">all</field>-->
+    <!--&lt;!&ndash;<field name="users" eval="[(4,36,0)]"/>&ndash;&gt;-->
+    <!--<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+    <!--<field name="users" eval="[(4, ref('base.user_root'))]"/>-->
+    <!--</record>-->
+
+    <!--多个组权限管理-->
+    <!--category可在清单文件中声明-->
+    <record id="ac1" model="ir.module.category">
+        <field name="name">ZZ</field>
+    </record>
+
+    <record id="ac2" model="res.groups">
+        <field name="name">用户</field>
+        <field name="category_id" ref="zz.ac1"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="all0" model="res.groups">
+        <field name="name">管理员</field>
+        <field name="category_id" ref="zz.ac1"/>
+        <field name="implied_ids" eval="[(4, ref('zz.ac2'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+
+
+    <!--隐藏特性测试-->
+    <record id="hidden" model="res.groups">
+        <field name="name">Hidden</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <!--记录级别 哪些人可以访问哪些记录， -->
+    <!--<record id="only14" model="ir.rule">-->
+    <!--<field name="name">Only14</field>-->
+    <!--<field name="model_id" ref="model_people_teacher"/>-->
+    <!--<field name="groups" eval="[(4, ref('zz.all0'))]"/>-->
+    <!--<field name="perm_read" eval="0"/>-->
+    <!--<field name="perm_write" eval="1"/>-->
+    <!--<field name="perm_create" eval="0"/>-->
+    <!--<field name="perm_unlink" eval="1"/>-->
+    <!--&lt;!&ndash;<field name="domain_force">[(1,'=',1)]</field>&ndash;&gt;-->
+    <!--<field name="domain_force">[('user_id','=',user.id)]</field>-->
+    <!--</record>-->
+
+</odoo>

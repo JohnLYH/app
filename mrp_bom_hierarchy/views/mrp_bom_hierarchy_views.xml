@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_bom_hierarchy" model="ir.actions.client">
+        <field name="name">BoM结构</field>
+        <field name="tag">mrp_bom_hierarchy</field>
+    </record>
+
+    <record id="mrp_bom_form_view" model="ir.ui.view">
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="model">mrp.bom</field>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='toggle_active']" position="before">
+                <button name="%(action_bom_hierarchy)d" icon="fa-cubes" class="oe_stat_button" string="BoM结构" type="action"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

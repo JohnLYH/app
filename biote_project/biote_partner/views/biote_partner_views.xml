@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_action_customer" model="ir.actions.act_window">
+        <field name="name">客户信息</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_customer': True, 'default_supplier': False}</field>
+        <field name="domain">[('customer', '=', True)]</field>
+    </record>
+
+    <record id="res_partner_action_supplier" model="ir.actions.act_window">
+        <field name="name">供应商信息</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_supplier': True, 'default_customer': False}</field>
+        <field name="domain">[('supplier', '=', True)]</field>
+    </record>
+
+    <record id="qualification_document_action_customer" model="ir.actions.act_window">
+        <field name="name">客户资质信息</field>
+        <field name="res_model">biote.qualification.document</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_customer','=',True),('is_supplier','=',False)]</field>
+        <field name="context">{'default_is_customer': True,'default_is_supplier': False}</field>
+    </record>
+
+    <record id="qualification_document_action_supplier" model="ir.actions.act_window">
+        <field name="name">供应商资质信息</field>
+        <field name="res_model">biote.qualification.document</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_supplier','=',True),('is_customer','=',False)]</field>
+        <field name="context">{'default_is_customer':False,'default_is_supplier':True}</field>
+    </record>
+    <!--根菜单-->
+    <menuitem
+            id="biote_partner_menu_root"
+            name="合作伙伴"
+            sequence="5"
+    />
+    <!--分类菜单-->
+    <menuitem
+            id="res_partner_menu_categ_customer"
+            name="客户"
+            parent="biote_partner_menu_root"
+            sequence="10"
+    />
+    <menuitem
+            id="res_partner_menu_categ_supplier"
+            name="供应商"
+            parent="biote_partner_menu_root"
+            sequence="10"
+    />
+    <!--动作菜单-->
+    <menuitem
+            id="res_partner_menu_act_customer"
+            name="客户信息"
+            parent="res_partner_menu_categ_customer"
+            action="res_partner_action_customer"
+            sequence="10"
+    />
+    <menuitem
+            id="qualification_document_menu_act_customer"
+            name="客户资质信息"
+            parent="res_partner_menu_categ_customer"
+            action="qualification_document_action_customer"
+            sequence="10"
+    />
+
+    <menuitem
+            id="res_partner_menu_act_supplier"
+            name="供应商信息"
+            parent="res_partner_menu_categ_supplier"
+            action="res_partner_action_supplier"
+            sequence="10"
+    />
+    <menuitem
+            id="qualification_document_menu_act_supplier"
+            name="供应商资质信息"
+            parent="res_partner_menu_categ_supplier"
+            action="qualification_document_action_supplier"
+            sequence="10"
+    />
+
+</odoo>

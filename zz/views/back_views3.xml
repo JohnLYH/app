@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="zzlist4">
+            <field name="name">zz列表4</field>
+            <field name="model">zz.peoples</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="yuwen"/>
+                    <field name="shuxue"/>
+                    <field name="yingyu"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="zzform4">
+            <field name="name">zz表单4</field>
+            <field name="model">zz.peoples</field>
+            <field name="arch" type="xml">
+                <form string="Idea Form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="yuwen"/>
+                                <field name="shuxue"/>
+                                <field name="yingyu"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--动作快捷方式-->
+        <!--<act_window id="action_all_customers"-->
+        <!--name="All customers"-->
+        <!--res_model="res.partner"-->
+        <!--view_mode="list,form"-->
+        <!--domain="[('customer', '=', True)]"-->
+        <!--context="{'default_customer': True}"-->
+        <!--limit="80"/>-->
+
+
+        <!--不写明name 将调用动作中设置的name-->
+        <!--<menuitem id="menu6" parent="menu2" action="action_all_customers" sequence="100" groups=""/>-->
+    </data>
+</odoo>

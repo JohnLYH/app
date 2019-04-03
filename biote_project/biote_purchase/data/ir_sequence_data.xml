@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_doc_num" model="ir.sequence">
+            <field name="name">单据编号</field>
+            <field name="code">biote.purchase.plan.num</field>
+            <field name="prefix">CGSQ%(year)s%(month)s%(day)s</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="assets_seq_doc_num" model="ir.sequence">
+            <field name="name">固定资产单据编号</field>
+            <field name="code">biote.assets.purchase.num</field>
+            <field name="prefix">ZCGZ%(year)s%(month)s%(day)s</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid ""
+"Access to an Account Manager at Odoo SA to discuss strategic, sales and "
+"service issues"
+msgstr "可跟 C2P SA 的客户经理商谈策略、销售及服务等事宜"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "An Odoo official partner commits to:"
+msgstr "C2P 官方合作伙伴承诺："
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Be available for periodic review meeting with Odoo SA account managers"
+msgstr "可与 C2P SA 客户经理进行周期性评估"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid ""
+"Be the first level of support for his Odoo customers and use Odoo SA for the"
+" second level of support (mostly for bug fixes)"
+msgstr "成为其 C2P 客户的第一级支持，并使用 C2P SA 提供第二级支持（主要用于错误修复）"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Become a Certified Odoo Partner"
+msgstr "成为认证的 C2P 合作伙伴"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Has a direct relationship with Odoo SA to escalate issues"
+msgstr "与 C2P SA 直接联系上报问题"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid ""
+"Has access to Odoo Enterprise source code on Github and latest bug fixes"
+msgstr "有权访问 Github 上的 C2P 企业版源代码和最新的错误修复"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Have dedicated resources assigned to Odoo projects"
+msgstr "已向 C2P 项目分配专用资源"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Is fully trained on Odoo"
+msgstr "接受了有关 C2P 的完整培训"
+
+#. module: website_quote
+#: model:product.product,description_sale:website_quote.product_product_quote_1
+#: model:product.product,description_sale:website_quote.product_product_quote_3
+#: model:product.template,description_sale:website_quote.product_product_quote_1_product_template
+#: model:product.template,description_sale:website_quote.product_product_quote_3_product_template
+#: model:product.template,description_sale:website_quote.product_template_quote_1
+#: model:product.template,description_sale:website_quote.product_template_quote_3
+msgid ""
+"Learn directly from our team and network of Odoo experts. Choose from the "
+"available training sessions for a better functional understanding of Odoo"
+msgstr "从我们团队和C2P专家网络直接学习。为更好理解C2P技术，选择可用的培训课程"
+
+#. module: website_quote
+#: model:product.product,description_sale:website_quote.product_product_quote_2
+#: model:product.template,description_sale:website_quote.product_product_quote_2_product_template
+#: model:product.template,description_sale:website_quote.product_template_quote_2
+msgid ""
+"Learn directly from our team and network of Odoo experts. Choose from the "
+"available training sessions for a better technical understanding of Odoo"
+msgstr "从我们的团队和C2P专家网络直接了解。为更好的理解C2P的技术功能，请选择可用的培训课程"
+
+#. module: website_quote
+#: model:product.product,quote_description:website_quote.product_product_quote_2
+#: model:product.template,quote_description:website_quote.product_product_quote_2_product_template
+#: model:product.template,quote_description:website_quote.product_template_quote_2
+#: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
+msgid "Odoo Official Website"
+msgstr "C2P官方网站"
+
+#. module: website_quote
+#: model:product.product,quote_description:website_quote.product_product_quote_2
+#: model:product.template,quote_description:website_quote.product_product_quote_2_product_template
+#: model:product.template,quote_description:website_quote.product_template_quote_2
+#: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
+msgid "Odoo Web Client"
+msgstr "C2P 的Web客户"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Odoo official partners will benefit from:"
+msgstr "C2P 官方合作伙伴将受益于："
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Odoo sales training session"
+msgstr "C2P 销售培训会议"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Promote Odoo Enterprise to its customers"
+msgstr "向客户推广 C2P 企业版"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Publishes references directly on Odoo.com"
+msgstr "直接在 openc2p.com 上发布参考"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "The Odoo Enterprise GitHub repositories for all his developers"
+msgstr "C2P 企业版 GitHub 资源库适用于所有开发人员"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid ""
+"The ability to report bugs to be fixed by Odoo on behalf of his customer "
+"(Enterprise contracts only)"
+msgstr "代表客户报告由 C2P 修复的错误的能力（仅为企业合同）"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid "Train their staff by following Odoo training sessions"
+msgstr "通过以下 C2P 培训课程对员工进行培训"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid ""
+"Up to 20% commission on Odoo Enterprise sales, depending on the partnership "
+"level"
+msgstr "C2P Enterprise 销售佣金最多可高达 20％，具体取决于合作伙伴级别"
+
+#. module: website_quote
+#: model:sale.quote.template,website_description:website_quote.website_quote_template_1
+msgid ""
+"Visibility and recognition, by being listed as an official partner on "
+"Odoo.com Partners page"
+msgstr "通过在 openc2p.com 合作伙伴页面上被列为官方合作伙伴提高知名度和认可度"

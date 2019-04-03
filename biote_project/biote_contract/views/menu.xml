@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+    	id="ui_workflow_menu_root"
+    	name="工作流"
+    	sequence="5"
+    />
+    <menuitem
+    	id="ui_workflow_route_menu_action"
+    	name="审批路线"
+    	parent="ui_workflow_menu_root"
+    	action="ui_workflow_route_action"
+    	sequence="10"
+    />
+	<menuitem
+		id="ui_workflow_state_menu_action"
+		name="审批阶段"
+		parent="ui_workflow_menu_root"
+		action="ui_workflow_state_action"
+		sequence="10"
+	/>
+</odoo>

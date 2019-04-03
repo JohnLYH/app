@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="rs_project_action" model="ir.actions.act_window">
+        <field name="name">容商项目</field>
+        <field name="res_model">rs.project</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="rs_contract_action" model="ir.actions.act_window">
+        <field name="name">合同列表</field>
+        <field name="res_model">rs.contract</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="rs_project_menu_root" name='容商项目'/>
+
+    <menuitem id="rs_project_menu_act" name='项目' parent='rs_project_menu_root'
+              action="rs_project_action"/>
+    <menuitem id="rs_contract_menu_act" name="合同" parent='rs_project_menu_root'
+              action="rs_contract_action"/>
+</odoo>

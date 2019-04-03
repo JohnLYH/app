@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/biote_partner/static/src/js/customer.js"/>
+                <script type="text/javascript" src="/biote_partner/static/src/js/supplier.js"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

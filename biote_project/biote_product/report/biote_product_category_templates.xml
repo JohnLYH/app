@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_productcategory">
+        <t t-call="web.internal_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <h1 t-field="doc.complete_name" class='text-center'></h1>
+                </t>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>

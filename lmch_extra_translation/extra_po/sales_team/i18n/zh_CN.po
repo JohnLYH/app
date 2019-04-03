@@ -1,0 +1,9 @@
+msgid ""
+msgstr ""
+
+#. module: sales_team
+#: model:ir.model.fields,help:sales_team.field_crm_team_reply_to
+msgid ""
+"The email address put in the 'Reply-To' of all emails sent by Odoo about "
+"cases in this sales channel"
+msgstr "电子邮件地址放在有关此销售渠道由C2P发送的所有电邮的 “回复”一栏"

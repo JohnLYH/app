@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- purchase.order action window -->
+    <record id="purchase_action" model="ir.actions.act_window">
+        <field name="name">入库单</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_ids"
+            eval="[(5, 0, 0),
+                   (0, 0, {'view_mode': 'tree', 'view_id': ref('rongbiz_stock.purchase_order_view_tree')}),
+                   (0, 0, {'view_mode': 'form', 'view_id': ref('rongbiz_stock.purchase_order_view_form')})]"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建一个新的入库单
+            </p>
+        </field>
+        <field name="limit">30</field>
+        <field name="search_view_id" ref="purchase_order_view_search" />
+    </record>
+    <!-- sale.order action window -->
+    <record id="sale_order_action" model="ir.actions.act_window">
+        <field name="name">出库单</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="search_view_id" ref="rongbiz_stock.sale_order_view_search"/>
+        <field name="view_ids"
+            eval="[(5, 0, 0),
+                   (0, 0, {'view_mode': 'tree', 'view_id': ref('rongbiz_stock.sale_order_view_tree')}),
+                   (0, 0, {'view_mode': 'form', 'view_id': ref('rongbiz_stock.sale_order_view_form')})]"/>
+        <field name="context">{'form_no_edit': [('state', '=', 'sale')]}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建一个新的出库单
+            </p>
+        </field>
+    </record>
+    <!-- res.partner action window -->
+    <record id="res_partner_action_supplier" model="ir.actions.act_window">
+        <field name="name">供应商</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="domain">[('supplier', '=', True)]</field>
+        <field name="context">{'default_supplier': True, 'default_customer': False}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_ids"
+            eval="[(5, 0, 0),
+                   (0, 0, {'view_mode': 'tree', 'view_id': ref('rongbiz_stock.res_partner_view_tree')}),
+                   (0, 0, {'view_mode': 'form', 'view_id': ref('rongbiz_stock.res_partner_view_form')})]"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建一个新的供应商
+            </p>
+        </field>
+    </record>
+    <!-- res.partner action window -->
+    <record id="res_partner_action_customer" model="ir.actions.act_window">
+        <field name="name">客户</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="domain">[('customer', '=', True)]</field>
+        <field name="context">{'default_customer': True, 'default_supplier': False}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_ids"
+            eval="[(5, 0, 0),
+                   (0, 0, {'view_mode': 'tree', 'view_id': ref('rongbiz_stock.res_partner_view_tree')}),
+                   (0, 0, {'view_mode': 'form', 'view_id': ref('rongbiz_stock.res_partner_view_form')})]"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建一个新的客户
+            </p>
+        </field>
+    </record>
+    <!-- product.template action window -->
+    <record id="product_template_action" model="ir.actions.act_window">
+        <field name="name">产品</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_ids"
+            eval="[(5, 0, 0),
+                   (0, 0, {'view_mode': 'tree', 'view_id': ref('rongbiz_stock.product_template_view_tree')}),
+                   (0, 0, {'view_mode': 'form', 'view_id': ref('rongbiz_stock.product_template_view_form')})]"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建一个新的产品
+            </p>
+        </field>
+    </record>
+    <!-- product.category action window -->
+    <record id="product_category_action" model="ir.actions.act_window">
+        <field name="name">产品类别</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_ids"
+            eval="[(5, 0, 0),
+                   (0, 0, {'view_mode': 'tree', 'view_id': ref('rongbiz_stock.product_category_view_tree')}),
+                   (0, 0, {'view_mode': 'form', 'view_id': ref('rongbiz_stock.product_category_view_form')})]"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建一个新的产品类别
+            </p>
+        </field>
+    </record>
+    <record id="project_incoming_action" model="ir.actions.act_window">
+    	<field name="name">入库明细</field>
+    	<field name="res_model">purchase.order.line</field>
+    	<field name="view_type">form</field>
+    	<field name="view_mode">tree</field>
+    	<field name="view_id" ref="rongbiz_stock.project_incoming_view_tree"/>
+        <field name="context">{'search_default_order': 0}</field>
+        <field name="search_view_id" ref="project_incoming_view_search" />
+    </record>
+     <record id="project_outgoing_action" model="ir.actions.act_window">
+    	<field name="name">出库明细</field>
+    	<field name="res_model">sale.order.line</field>
+    	<field name="view_type">form</field>
+    	<field name="view_mode">tree</field>
+    	<field name="view_id" ref="rongbiz_stock.project_outgoing_view_tree"/>
+        <field name="context">{'search_default_order': 0}</field>
+        <field name="search_view_id" ref="project_outgoing_view_search" />
+    </record>
+
+    <record id="stock_production_action" model="ir.actions.act_window">
+    	<field name="name">产品库存明细</field>
+    	<field name="res_model">stock.production.lot</field>
+    	<field name="view_type">form</field>
+    	<field name="view_mode">tree</field>
+        <field name="view_id" ref="rongbiz_stock.stock_production_lot_view_tree"/>
+        <field name="search_view_id" ref="stock_production_lot_view_search" />
+    </record>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="rs_stock_menu_root" name="库存管理" sequence="1"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="master_menu_categ" name="主数据" parent="rs_stock_menu_root" sequence="1"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="incoming_menu_act" name="入库单" parent="master_menu_categ" action="purchase_action" sequence="1"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="outgoing_menu_act" name="出库单" parent="master_menu_categ" action="sale_order_action" sequence="2"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="product_menu_act" name="产品" parent="master_menu_categ" action="product_template_action" sequence="3"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="product_categ_menu_act" name="产品类别" parent="master_menu_categ" action="product_category_action" sequence="4"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="partner_menu_categ" name="合作伙伴" parent="rs_stock_menu_root" sequence="2"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="supplier_menu_act" name="供应商" parent="partner_menu_categ" action="res_partner_action_supplier" sequence="1"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="customer_menu_act" name="客户" parent="partner_menu_categ" action="res_partner_action_customer" sequence="2"/>
+    <!-- 计量单位 -->
+    <menuitem id="stock.product_uom_menu" parent="rs_stock_menu_root" sequence="3"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="stock_report_menu_categ" name="报表" parent="rs_stock_menu_root" sequence="4"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <!-- <menuitem id="stock_report_menu_act" name="实时库存" parent="stock_report_menu_categ" action="" sequence="1"/> -->
+    <menuitem id="project_menu" name="项目" parent="rs_stock_menu_root" sequence="5"/>
+    <menuitem id="incoming_project_act" name="入库明细" parent="project_menu" action="project_incoming_action" sequence="1"/>
+    <menuitem id="outgoing_project_act" name="出库明细" parent="project_menu" action="project_outgoing_action" sequence="2"/>
+    <menuitem id="stock_production_lot_act" name="产品库存明细" parent="master_menu_categ" action="stock_production_action" sequence="5"
+    groups="rongbiz_stock.rs_group_cw"/>
+    <menuitem id="account_menu" name="会计" parent="rs_stock_menu_root" sequence="6" groups="rongbiz_stock.rs_group_cw"/>
+    <menuitem id="account_tax_act" name="税" parent="account_menu" action="account.action_tax_form" sequence="1"/>
+</odoo>

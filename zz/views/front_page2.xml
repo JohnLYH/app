@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--主页 门户  采用views形式定义  并添加到到导航栏菜单-->
+    <record id="mainpage" model="ir.ui.view">
+        <field name="name">主页</field>
+        <field name="type">qweb</field>
+        <!--<field name="key">zz.mainpage</field>-->
+        <field name="arch" type="xml">
+
+            <t name="mainpage" t-name="zz.mainpage">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure oe_empty text-center">
+
+                        <!--循环方式显示链接地址     需要继续完善-->
+                        <t t-foreach="[1,2,3,4]" t-as="i">
+                            <h1>
+                                <a t-attf-href="/zz/{{i}}">详情
+                                    <t t-esc="i"/>
+                                </a>
+                            </h1>
+                        </t>
+                        <!--普通方式显示链接地址-->
+                        <!--<h1><a href="/zz/1">详情1</a></h1>-->
+                        <!--<h1><a href="/zz/2">详情2</a></h1>-->
+                        <!--<h1><a href="/zz/3">详情3</a></h1>-->
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!--定义url与网页联系-->
+    <record id="mainpagepage" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/zz</field>
+        <field name="view_id" ref="mainpage"/>
+    </record>
+
+    <!--非必须 -->
+    <!--<record id="mainpagemenu" model="website.menu">-->
+    <!--<field name="name">主页</field>-->
+    <!--<field name="url">/zz</field>-->
+    <!--<field name="parent_id" ref="website.main_menu"/>-->
+    <!--&lt;!&ndash;以下非必须&ndash;&gt;-->
+    <!--&lt;!&ndash;<field name="sequence" type="int">25</field>&ndash;&gt;-->
+    <!--&lt;!&ndash;<field name="page_id" ref="zz.mainpagepage"/>&ndash;&gt;-->
+    <!--</record>-->
+
+
+</odoo>

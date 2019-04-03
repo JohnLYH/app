@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rs_contract_view_tree" model="ir.ui.view">
+        <field name="name">rs.contract</field>
+        <field name="model">rs.contract</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="num" readonly="1"/>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="party_a"/>
+                <field name="party_b"/>
+                <field name="sponsor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="rs_contract_view_form" model="ir.ui.view">
+        <field name="name">rs.contract</field>
+        <field name="model">rs.contract</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="start_workflow" type="object" string="开始审批" class="oe_highlight"
+                            attrs="{'invisible': [('workflow_state', '!=', 'draft')]}"/>
+                    <button name="btn_workflow_approve" type="object" class="oe_highlight" string="同意"
+                            attrs="{'invisible': ['|', ('access_stage', '=', False), ('workflow_state', 'not in', ['progress', 'subflow'])]}"/>
+                    <button name="btn_workflow_refused" type="object" class="oe_highlight" string="拒绝"
+                            attrs="{'invisible': ['|', ('access_stage', '=', False), ('workflow_state', 'not in', ['progress', 'subflow'])]}"/>
+                    <button name="btn_start_subflow" type="object" class="oe_highlight" string="子审批"
+                            attrs="{'invisible': [('show_subflow_btn', '=', False)]}"/>
+                    <field name="cur_stage_id" domain="[('id', 'in', valid_stage_ids)]" widget="statusbar"
+                           attrs="{'invisible': [('workflow_state', 'not in', ('progress','subflow'))]}"/>
+                    <field name="workflow_state" statusbar_visible="draft,done" widget="statusbar"
+                           attrs="{'invisible': [('workflow_state', 'in', ('progress', 'subflow'))]}"/>
+                </header>
+                <sheet>
+                    <field name="workflow_state" invisible="1"/>
+                    <field name="access_stage" invisible="1"/>
+                    <field name="has_subflow" invisible="1"/>
+                    <field name="show_subflow_btn" invisible="1"/>
+                    <field name="valid_stage_ids" invisible="1"/>
+                    <group col="2">
+                        <group>
+                            <field name="num" readonly="1" attrs="{'invisible':[('id','=',False)]}"/>
+                            <field name="name"/>
+                            <field name="party_a"/>
+                            <field name="party_b"/>
+                            <field name="content"/>
+                        </group>
+                        <group>
+                            <field name="amount"/>
+                            <field name="sponsor_id" readonly="1"/>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="rs_contract_view_form_wiz" model="ir.ui.view">
+        <field name="name">rs.contract.view.form</field>
+        <field name="model">rs.contract</field>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <form string="创建合同">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="content"/>
+                        <field name="party_a"/>
+                        <field name="party_b"/>
+                        <field name="amount"/>
+                        <field name="project_id" readonly="1" force_save="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

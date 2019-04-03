@@ -1,0 +1,10 @@
+msgid ""
+msgstr ""
+
+#. module: account_bank_statement_import
+#: model:ir.ui.view,arch_db:account_bank_statement_import.account_bank_statement_import_journal_creation_view
+msgid ""
+"The account of the statement you are importing is not yet recorded in Odoo. "
+"In order to proceed with the import, you need to create a bank journal for "
+"this account."
+msgstr "你要导入的报表中的账户还没有被记录在C2P中。为了能够导入成功，你需要对这个账户创建一个银行日记账。"

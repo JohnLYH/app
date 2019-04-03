@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="login" name="登录页">
+        <t t-call="zz.layout">
+            <t t-set="head">
+                <!--样式文件 head导入-->
+                <!--<link rel="stylesheet" href="/myweb3/static/src/css/login.css"/>-->
+                <t t-raw="head or ''"/>
+            </t>
+            <div class='text-center '>
+                <form action="/web/login?redirect=/" method="post">
+                    <h3>登 录</h3>
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <!--有此会重定向到后台-->
+                    <!--<input type="hidden" name="redirect" t-att-value="redirect"/>-->
+                    <input type="hidden" name="token" t-att-value="token"/>
+                    <label for="email">邮箱</label>
+                    <input type="text" name="login" id="email" placeholder="邮箱" required="required"
+                           autofocus="autofocus"/>
+                    <br/>
+                    <label for="pass">密码</label>
+                    <input type="password" name="password" id="pass" placeholder="密码" required="required"
+                           autocomplete="current-password" maxlength="4096"/>
+
+                    <p style="margin: auto;text-align: center;background-color: #d9534f;border-color: #d9534f;color: #ffffff; width: 300px; border-radius: 5px;font-size: 16px;line-height: 1.42857143;">
+                        <t t-raw="err_msg"/>
+                    </p>
+                    <p style="margin: auto;text-align: center;background-color: #4f81f1;border-color: #4f81f1;color: #ffffff; width: 300px; border-radius: 5px;font-size: 16px;line-height: 1.42857143;">
+                        <t t-raw="msg"/>
+                    </p>
+
+                    <button type="submit" class="btn">登 录</button>
+                    <a href="/zz/signup">注册</a>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="signup" name="注册页">
+        <t t-call="zz.layout">
+            <t t-set="head">
+                <t t-raw="head or ''"/>
+            </t>
+            <div class="text-center">
+                <h3>注册</h3>
+
+                <form action="/zz/signup" method="POST">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <!--<input type="hidden" name="redirect" t-att-value="redirect"/>-->
+                    <input type="hidden" name="token" t-att-value="token"/>
+
+                    <label for="email">邮箱</label>
+                    <input name="login" type="text" id="login" required="required"/>
+                    <br/>
+
+                    <label for="name">名称</label>
+                    <input type="text" name="name" t-att-value="name" id="name" placeholder="e.g.张三" required="required"
+                           t-att-readonly="'readonly' if only_passwords else None"
+                           t-att-autofocus="'autofocus' if login and not only_passwords else None"/>
+                    <br/>
+
+                    <label for="pass">密码</label>
+                    <input name="password" type="password" id="password" required="required"/>
+                    <br/>
+                    <label for="confirm">确认</label>
+                    <input name="confirm_password" type="password" id="confirm_password" required="required"/>
+
+                    <p t-if="error"
+                       style="margin: auto;text-align: center;background-color: #d9534f;border-color: #d9534f;color: #ffffff; width: 300px; border-radius: 5px;font-size: 16px;line-height: 1.42857143;">
+                        <t t-raw="error"/>
+                    </p>
+
+                    <br/>
+                    <input value="注 册" type="submit"/>
+                </form>
+                <a href="/web/login">登 录</a>
+            </div>
+
+        </t>
+    </template>
+
+    <template id="signup_successful" name="注册成功">
+        <t t-call="zz.layout">
+            <t t-set="head">
+                <t t-raw="head or ''"/>
+            </t>
+            <div class="text-center container-fluid">
+                <div class="contain" style="margin-top: 50px;margin-bottom: 84px;">
+                    <div class="top">
+                        <span>马上激活邮件, 完成注册吧!</span>
+                    </div>
+                    <div class="middle">
+                        <p>登录您的邮箱激活账号!</p>
+                        <p class="normal">我们已将确认邮箱发送至您的邮箱
+                            <span id="getPhone" t-esc="login"/>
+                        </p>
+                        <p class="normal">请进入邮箱完成激活流程, 点击邮箱里的确认链接即可登录</p>
+
+                    </div>
+                    <hr/>
+                    <div class="buttom">
+                        <p>还没有收到确认邮箱?</p>
+                        <p>尝试到广告邮箱,垃圾邮箱目录找找看.</p>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

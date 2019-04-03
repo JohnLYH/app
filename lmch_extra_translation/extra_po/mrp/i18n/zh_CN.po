@@ -1,0 +1,9 @@
+msgid ""
+msgstr ""
+
+#. module: mrp
+#: model:ir.actions.act_window,help:mrp.mrp_bom_form_action
+msgid ""
+"Odoo uses these BoMs to automatically propose manufacturing\n"
+"                orders according to procurement needs."
+msgstr "根据补货规则C2P用BOM自动的生产生产订单"

@@ -1,0 +1,27 @@
+.rs_custom_class tr {
+    display: flex;
+}
+.rs_custom_class table {
+
+    table-layout: fixed;
+
+}
+.rs_custom_class tr td:nth-of-type(1),.rs_custom_class tr th:nth-of-type(1){
+    flex:0!important;
+    border-bottom:0px;
+}
+.rs_custom_class tr td:nth-of-type(n+1),.rs_custom_class tr th:nth-of-type(n+1){
+    flex:1;
+    width:auto;
+    border-bottom:0px solid #dddddd;
+}
+.rs_custom_class thead {
+        border-bottom: 1px solid #dfdfdf;
+}
+
+.o_list_view  td, .o_list_view th {
+  white-space: nowrap;
+}
+.o_list_view  > tbody > tr > td.o_handle_cell {
+  white-space: nowrap;
+ }

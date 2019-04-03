@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_production_lot_view_tree" model="ir.ui.view">
+    	<field name="name">产品库存明细</field>
+    	<field name="model">stock.production.lot</field>
+    	<field name="priority" eval="16"/>
+    	<field name="arch" type="xml">
+    		<tree string="" class="rs_custom_class">
+                <field name="product_id"/>
+                <field name="invoice_category"/>
+				<field name="project_id"/>
+                <field name="product_available_qty"/>
+                <field name="incoming_price"/>
+                <field name="lot_valuation_excluded" sum="不含税总计" widget="monetary"/>
+                <field name="lots_valuation_included" sum="含税总计" widget="monetary"/>
+    		</tree>
+    	</field>
+    </record>
+
+    <record id="stock_production_lot_view_search" model="ir.ui.view">
+    	<field name="name">分组</field>
+    	<field name="model">stock.production.lot</field>
+    	<field name="priority" eval="16"/>
+    	<field name="arch" type="xml">
+    		<search>
+    			<filter string="产品" name="product_id" context="{'group_by':'product_id'}"/>
+                <filter string="发票类别" name="invoice_category" context="{'group_by':'invoice_category'}"/>
+				<filter string="所属项目" name="project_id" context="{'group_by':'project_id'}"/>
+    		</search>
+    	</field>
+    </record>
+
+</odoo>

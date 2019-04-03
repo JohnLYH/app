@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<t t-name="FieldPreviewBinary" t-extend="FieldBinaryFile">
+		<t t-jquery="a.o_form_uri" t-operation="replace">
+	        <div t-if="widget.mode === 'readonly'" class="o_form_preview" />
+	    </t>
+	</t>
+</templates>

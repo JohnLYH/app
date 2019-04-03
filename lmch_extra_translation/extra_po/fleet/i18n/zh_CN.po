@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+
+#. module: fleet
+#: model:ir.actions.act_window,help:fleet.fleet_vehicle_log_contract_action
+msgid ""
+"Manage all your contracts (leasing, insurances, etc.) with\n"
+"            their related services, costs. Odoo will automatically warn\n"
+"            you when some contracts have to be renewed."
+msgstr ""
+"管理所有合同（租赁、保险等）及\n"
+" 其相关服务、费用。当某些合同必须续订时，C2P 将自动提醒\n"
+" 您。"
+
+#. module: fleet
+#: model:ir.actions.act_window,help:fleet.fleet_vehicle_log_services_action
+msgid ""
+"Odoo helps you keeping track of all the services done\n"
+"            on your vehicle. Services can be of many type: occasional\n"
+"            repair, fixed maintenance, etc."
+msgstr ""
+"C2P 帮助您记录车辆已进行\n"
+" 的所有服务。服务包括多种类型：临时\n"
+" 修理、定期保养等"
+
+#. module: fleet
+#: model:ir.actions.act_window,help:fleet.fleet_vehicle_costs_action
+msgid ""
+"Odoo helps you managing the costs for your different\n"
+"                vehicles. Costs are created automatically from services,\n"
+"                contracts (fixed or recurring) and fuel logs."
+msgstr ""
+"C2P帮你管理不同\n"
+"汽车的成本费用。成本费用自动从服务、\n"
+"合同(固定或者定期的)和燃油记录中创建。"
+
+#. module: fleet
+#: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
+#: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_non_effective_action
+msgid ""
+"Odoo helps you managing the costs for your different vehicles\n"
+"          Costs are generally created from services and contract and appears here."
+msgstr ""
+"C2P能帮你管理不同车辆\n"
+"的费用。费用从服务，合同中产生并显示在这里。"
+
+#. module: fleet
+#: model:ir.actions.act_window,help:fleet.fleet_vehicle_action
+msgid ""
+"Odoo will warn you when services or contract have to be\n"
+"            renewed."
+msgstr ""
+"当服务或合同必须\n"
+" 续订时，C2P 会提醒您。"
+
+#. module: fleet
+#: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
+#: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_non_effective_action
+msgid ""
+"Thanks to the different filters, Odoo can only print the effective\n"
+"          costs, sort them by type and by vehicle."
+msgstr ""
+"感谢有不同的筛选，C2P 能只打印生效\n"
+"的费用，并且用类型和车辆寻找它们。"
+

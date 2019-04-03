@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- oa.subflow.wiz form view -->
+    <record id="oa_subflow_wiz_view_form" model="ir.ui.view">
+        <field name="name">oa.subflow.wiz.view.form</field>
+        <field name="model">oa.subflow.wiz</field>
+        <field name="arch" type="xml">
+            <form string="审批人">
+                <sheet>
+                    <group>
+                        <field name="opinion" required="1"/>
+                        <field name="employee_ids" widget="many2many_tags"/>
+                        <field name="workflow_id" invisible="1"/>  
+                        <field name="cur_stage_id" invisible="1"/>              
+                    </group>
+                    <footer>
+                        <button name="btn_generate_subflow" string="确定" type="object" class="oe_highlight"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

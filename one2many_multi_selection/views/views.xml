@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page/field[@name='order_line']" position="attributes">
+                    <attribute name="widget">multi_select_tree</attribute>
+                    <attribute name="res_model">product.product</attribute>
+                    <attribute name="res_field">product_id</attribute>
+                    <attribute name="domain">[('sale_ok', '=', True)]</attribute>
+                </xpath>
+            </field>
+        </record>
+
+           <!-- Inherit Form View to Modify it -->
+        <record id="purchase_order_form" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page/field[@name='order_line']" position="attributes">
+                    <attribute name="widget">multi_select_tree</attribute>
+                    <attribute name="res_model">product.product</attribute>
+                    <attribute name="res_field">product_id</attribute>
+                </xpath>
+            </field>
+        </record>
+
+      <!-- Inherit Form View to Modify it -->
+      <record id="mrp_bom_form_view_inherit" model="ir.ui.view">
+          <field name="name">mrp.bom.inherit</field>
+          <field name="model">mrp.bom</field>
+          <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='bom_line_ids']" position="attributes">
+                  <attribute name="widget">multi_select_tree</attribute>
+                  <attribute name="res_model">product.product</attribute>
+                  <attribute name="res_field">product_id</attribute>
+              </xpath>
+          </field>
+      </record>
+
+
+
+  </data>
+</odoo>

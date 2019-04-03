@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!--frontend 前端网页资产处 website.assets_frontend也可 如果完全自定义 则看是否调用website.layout -->
+    <!--<template id="assets_frontend" inherit_id="web.assets_frontend">-->
+        <!--<xpath expr="." position="inside">-->
+            <!--&lt;!&ndash;<link href="/zz/static/src/css/main.css" rel="stylesheet" type="text/css"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<script type="text/javascript" src="/zz/static/src/js/front.js"></script>&ndash;&gt;-->
+        <!--</xpath>-->
+    <!--</template>-->
+
+
+    <!--backend后端视图资产处-->
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/zz/static/lib/echarts.js"></script>
+            <script type="text/javascript" src="/zz/static/lib/echarts-gl.js"></script>
+            <script type="text/javascript" src="/zz/static/lib/china.js"></script>
+            <script type="text/javascript" src="/zz/static/lib/world.js"></script>
+            <script type="text/javascript" src="/zz/static/lib/bmap.js"></script>
+            <script type="text/javascript"
+                    src="https://api.map.baidu.com/api?v=2.0&amp;ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+            <script type="text/javascript" src="/zz/static/src/js/main.js"></script>
+            <script type="text/javascript" src="/zz/static/src/js/main1.js"></script>
+
+            <!--以下是不同版本自定义widget代码 用于many2one小部件-->
+            <link href="/zz/static/src/css/mywidget.css" rel="stylesheet" type="text/css"/>
+            <!--rpc版本-->
+            <script type="text/javascript" src="/zz/static/src/js/mywidget2.js"></script>
+            <!--qweb模板版本-->
+            <!--<script type="text/javascript" src="/zz/static/src/js/mywidget1.js"></script>-->
+            <!--原始版本-->
+            <!--<script type="text/javascript" src="/zz/static/src/js/mywidget.js"></script>-->
+        </xpath>
+
+        <!--以下用于报表打印预览-->
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" href="/zz/static/src/less/preview_dialog.less"/>
+            <link rel="stylesheet" href="/zz/static/src/less/preview_content.less"/>
+        </xpath>
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/zz/static/src/js/preview_handler.js"/>
+            <script type="text/javascript" src="/zz/static/src/js/preview_generator.js"/>
+            <script type="text/javascript" src="/zz/static/src/js/preview_dialog.js"/>
+            <script type="text/javascript" src="/zz/static/src/js/web_pdf_preview.js"/>
+        </xpath>
+    </template>
+
+
+    <!--修改后台脚注-->
+    <template id="secondary1" inherit_id="web.menu_secondary">
+        <xpath expr="//div[@class='o_sub_menu_footer']" position="replace">
+            <a href="http://localhost:8069/" target="_blank">
+                <h5 style="text-align:center">主 页</h5>
+            </a>
+            <a href="http://localhost:8069/web/database/manager" target="_blank">
+                <h6 style="text-align:center">数 据 库</h6>
+            </a>
+            <!--<a href="http://localhost:8069/website/info" target="_blank">-->
+            <!--<h6 style="text-align:center">已安装程序</h6>-->
+            <!--</a>-->
+        </xpath>
+    </template>
+
+
+    <!--修改报表样式 自定义页眉页脚-->
+    <template id="assets_backend1" inherit_id="web.internal_layout">
+        <xpath expr="//div[@class='header']" position="replace">
+            <div class="header">
+                <div class="row">
+                    <div class='text-center' style="color:#808080">
+                        <span>张众的报表</span>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@ class='article']" position="after">
+            <div class="footer">
+                <div class="row">
+                    <hr/>
+                    <div class='text-center' style="color:#808080">
+                        <!--页码-->
+                        <ul class="list-inline">
+                            <li>Page:</li>
+                            <!--当前页-->
+                            <li>
+                                <span class="page"/>
+                            </li>
+                            <li>/</li>
+                            <!--总页数-->
+                            <li>
+                                <span class="topage"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+
+    <!--报表添加css文件 注意继承-->
+    <template inherit_id="web.report_assets_pdf" id="reportcss">
+        <xpath expr="." position="inside">
+            <link href="/zz/static/src/css/main.css" rel="stylesheet" type="text/css"/>
+        </xpath>
+    </template>
+
+
+        <!--继承修改websitinfo界面网址/website/info  参考main里class ZZwebsiteinfo-->
+    <template id="show_website_info" inherit_id="website.show_website_info">
+        <xpath expr="//dl[@t-foreach='apps']" position="replace">
+            <table class="table table-bordered table-striped">
+                <tr t-foreach="apps" t-as="app">
+                    <th>
+                        <a t-att-href="app.website">
+                            <t t-esc="app.name"/>
+                        </a>
+                    </th>
+                    <td>
+                        <t t-esc="app.summary"/>
+                    </td>
+                </tr>
+            </table>
+        </xpath>
+    </template>
+
+</odoo>

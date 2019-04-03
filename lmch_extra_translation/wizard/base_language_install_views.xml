@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_custom_language_install" model="ir.ui.view">
+        <field name="name">加载自定义翻译</field>
+        <field name="model">base.language.install</field>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <form string="加载自定义翻译">
+                <field name="state" invisible="1"/>
+                <group states="init">
+                    <field name="lang"/>
+                    <field name="is_load_all"/>
+                    <field name="load_module"
+                           attrs="{'invisible': [('is_load_all', '=', True)], 'required': [('is_load_all', '=', False)]}"
+                           options="{'no_create': True}"
+                    />
+                    <field name="overwrite" groups="base.group_no_one"/>
+                </group>
+                <group states="done" colspan="4">
+                    <label string="所选语言已成功安装。您必须更改用户的首选项以查看更改。"/>
+                </group>
+                <footer states="init">
+                    <button name="custom_install_lang" string="加载" type="object" class="btn-primary"/>
+                    <button special="cancel" string="取消" class="btn-default"/>
+                </footer>
+                <footer states="done">
+                    <button name="reload" string="关闭" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_custom_language_install" model="ir.actions.act_window">
+        <field name="name">加载自定义翻译</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">base.language.install</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_overwrite': True, 'default_lang': 'zh_CN'}</field>
+        <field name="view_id" ref="view_custom_language_install"/>
+    </record>
+
+    <menuitem
+            name="加载自定义翻译"
+            action="action_view_custom_language_install"
+            id="menu_view_custom_language_install"
+            parent="base.menu_translation" sequence="2"/>
+</odoo>

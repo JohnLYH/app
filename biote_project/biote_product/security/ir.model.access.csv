@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_biote_product_biote_product,biote_product.biote_product,model_biote_product_biote_product,,1,0,0,0

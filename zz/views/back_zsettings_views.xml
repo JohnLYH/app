@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="config_settings_view_form" model="ir.ui.view">
+            <field name="name">zz_options</field>
+            <field name="model">res.config.settings</field>
+            <!--优先级决定图标上下位置-->
+            <field name="priority" eval="1"/>
+            <!--继承base_setup.res_config_settings_view_form是在常规设置中出现-->
+            <!--<field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>-->
+            <!--继承base.res_config_settings_view_form则和其他类目并列出现-->
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+
+                    <!--设置在常规设置最上部 配合base_setup-->
+                    <!--<div id="business_documents" position="before">-->
+                    <!--<div id="zz" class="app_settings_block">-->
+
+                    <!--此行是关键设置 data-key自定义属性决定有无图标以及设置是否串位到其他类目-->
+                    <div class="app_settings_block " string="Z Z" data-key="zz" data-string="zz" groups="zz.all0">
+                        <h2>隐藏设置</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                 <div class="o_setting_left_pane">
+                                   <field name="group_hidden" class="oe_inline"/>
+                                 </div>
+                                <div class="o_setting_right_pane">
+                                       <label for="group_hidden"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--</div>-->
+                </xpath>
+            </field>
+        </record>
+
+        <!--模块中按钮动作设置见views_menu_action文件 仅设置此视图 会仅在总设置中出现设置选项 而不会在模块中出现-->
+
+    </data>
+</odoo>

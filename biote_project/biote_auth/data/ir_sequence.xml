@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--DJ20181205002后缀依次递增-->
+        <record id="sale_auth_auto" model="ir.sequence">
+            <field name="name">销售授权编号</field>
+            <field name="code">sale.auth</field>
+            <field name="prefix">SQSXS%(year)s%(month)s%(day)s</field>
+            <field name="padding">2</field>
+        </record>
+
+        <record id="dev_auth_auto" model="ir.sequence">
+            <field name="name">开发授权编号</field>
+            <field name="code">dev.auth</field>
+            <field name="prefix">SQSKF%(year)s%(month)s%(day)s</field>
+            <field name="padding">2</field>
+        </record>
+
+        <record id="stop_auth_auto" model="ir.sequence">
+            <field name="name">取消授权编号</field>
+            <field name="code">stop.auth</field>
+            <field name="prefix">SQSZZ%(year)s%(month)s%(day)s</field>
+            <field name="padding">2</field>
+        </record>
+
+    </data>
+</odoo>

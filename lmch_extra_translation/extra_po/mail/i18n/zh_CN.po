@@ -1,0 +1,149 @@
+msgid ""
+msgstr ""
+
+#. module: mail
+#: selection:res.users,notification_type:0
+msgid "Handle in Odoo"
+msgstr "在系统内处理"
+
+#. module: mail
+#: model:ir.model.fields,help:mail.field_res_config_settings_alias_domain
+msgid ""
+"If you have setup a catch-all email domain redirected to the Odoo server, "
+"enter the domain name here."
+msgstr "如果你设置了电子邮件域名重定向到C2P服务器，请在这里输入域名。"
+
+#. module: mail
+#: model:ir.ui.view,arch_db:mail.message_user_assigned
+msgid "Odoo"
+msgstr "C2P"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/client_action.js:898
+#, python-format
+msgid ""
+"Odoo has now the permission to send you native notifications on this device."
+msgstr "C2P 现在有权限在该设备上发送本地通知。"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/client_action.xml:11
+#, python-format
+msgid "Odoo needs your permission to"
+msgstr "C2P需要你的许可进行"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/client_action.js:895
+#, python-format
+msgid ""
+"Odoo will not have the permission to send native notifications on this "
+"device."
+msgstr "C2P 没有权限在该设备上发送本地通知。"
+
+#. module: mail
+#: model:ir.model.fields,help:mail.field_mail_alias_alias_model_id
+#: model:ir.model.fields,help:mail.field_mail_alias_mixin_alias_model_id
+#: model:ir.model.fields,help:mail.field_mail_channel_alias_model_id
+#: model:ir.model.fields,help:mail.field_mail_test_alias_model_id
+msgid ""
+"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+" email that does not reply to an existing record will cause the creation of "
+"a new record of this model (e.g. a Project Task)"
+msgstr "此别名对应的模型(C2P单据种类)。任何一封非回复已存在的记录的收件将导致此模型创建新的记录(例如：一个项目任务)"
+
+#. module: mail
+#: model:ir.model.fields,help:mail.field_mail_alias_alias_name
+#: model:ir.model.fields,help:mail.field_mail_alias_mixin_alias_name
+#: model:ir.model.fields,help:mail.field_mail_channel_alias_name
+#: model:ir.model.fields,help:mail.field_mail_test_alias_name
+msgid ""
+"The name of the email alias, e.g. 'jobs' if you want to catch emails for "
+"<jobs@example.odoo.com>"
+msgstr "邮件别名的名称，例如，如果你要收取 <jobs@openc2p.com> 的电子邮件,别名就要被设为：\"jobs\""
+
+#. module: mail
+#: model:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid "mycompany.odoo.com"
+msgstr "openc2p.com"
+
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/client_action.js:895
+#, python-format
+msgid ""
+"Odoo has now the permission to send you native notifications on this device."
+msgstr "C2P 现在有权限在该设备上发送本地通知。"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/client_action.js:892
+#, python-format
+msgid ""
+"Odoo will not have the permission to send native notifications on this "
+"device."
+msgstr "C2P 没有权限在该设备上发送本地通知。"
+
+#. module: mail
+#: model:ir.model.fields,help:mail.field_res_users_notification_type
+msgid ""
+"Policy on how to handle Chatter notifications:\n"
+"- Emails: notifications are sent to your email\n"
+"- Odoo: notifications appear in your Odoo Inbox"
+msgstr ""
+"关于如何处理聊天通知的策略：\n"
+"-电子邮件：向电子邮件发送通知 \n"
+"-C2P：在 C2P 收件箱中显示通知"
+
+#. module: mail
+#: model:ir.model.fields,help:mail.field_mail_alias_alias_model_id
+#: model:ir.model.fields,help:mail.field_mail_alias_mixin_alias_model_id
+#: model:ir.model.fields,help:mail.field_mail_channel_alias_model_id
+#: model:ir.model.fields,help:mail.field_mail_test_alias_model_id
+msgid ""
+"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+" email that does not reply to an existing record will cause the creation of "
+"a new record of this model (e.g. a Project Task)"
+msgstr "此别名对应的模型(C2P单据种类)。任何一封非回复已存在的记录的收件将导致此模型创建新的记录(例如：一个项目任务)"
+
+#. module: mail
+#: model:ir.model.fields,help:mail.field_mail_alias_alias_name
+#: model:ir.model.fields,help:mail.field_mail_alias_mixin_alias_name
+#: model:ir.model.fields,help:mail.field_mail_channel_alias_name
+#: model:ir.model.fields,help:mail.field_mail_test_alias_name
+msgid ""
+"The name of the email alias, e.g. 'jobs' if you want to catch emails for "
+"<jobs@example.odoo.com>"
+msgstr "邮件别名的名称，例如，如果你要收取 <http://openc2p.com/> 的电子邮件,别名就要被设为：\"openc2p.com\""
+
+#. module: mail
+#: model:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid ""
+"Using your own email server is required to send/receive emails in Community "
+"and Enterprise versions. Online users already benefit from a ready-to-use "
+"email server (@mycompany.odoo.com)."
+msgstr ""
+"在系统中，发送/接收电子邮件需要使用自己的电子邮件服务器。在线用户已受益于随时可用的电子邮件服务器 "
+"(http://openc2p.com/)。"
+
+#. module: mail
+#: model:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid "mycompany.odoo.com"
+msgstr "http://openc2p.com"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/client_action.xml:56
+#: code:addons/mail/static/src/xml/client_action.xml:176
+#, python-format
+msgid "Private Channels"
+msgstr "工作群"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/client_action.xml:60
+#, python-format
+msgid "Add a private channel"
+msgstr "添加工作群"

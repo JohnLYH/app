@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--自定义格式 横向 放在 report前 通过report中的 paperformat="pp1"引用-->
+    <record id="pp1" model="report.paperformat">
+        <field name="name">mypaper</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">23</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="True"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!--声明报表-->
+    <report id="report1"
+            model="people.teacher"
+            string="报表1"
+            name="zz.report2"
+            report_type="qweb-pdf"
+            paperformat="pp1"
+    />
+
+    <!--隐藏报表打印按钮   multi='True' -->
+    <!--name需要注意格式 模块名 加template id-->
+
+    <report id="report3"
+            model="people.teacher"
+            string="报表2"
+            name="zz.report4"
+            report_type="qweb-pdf"
+            paperformat="pp1"
+    />
+
+
+</odoo>

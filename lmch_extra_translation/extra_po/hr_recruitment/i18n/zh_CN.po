@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+
+#. module: hr_recruitment
+#: model:ir.actions.act_window,help:hr_recruitment.action_hr_job_applications
+msgid ""
+"Odoo helps you track applicants in the recruitment\n"
+"                process and follow up all operations: meetings, interviews, etc."
+msgstr "C2P帮助你在招聘过程跟踪申请人及跟进所有操作：会议、面试等。"
+
+#. module: hr_recruitment
+#: model:ir.model.fields,help:hr_recruitment.field_hr_job_alias_model_id
+msgid ""
+"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+" email that does not reply to an existing record will cause the creation of "
+"a new record of this model (e.g. a Project Task)"
+msgstr "此别名对应的模型(C2P单据种类)。任何一封非回复已存在的记录的收件将导致此模型创建新的记录(例如：一个项目任务)"
+
+#. module: hr_recruitment
+#: model:ir.model.fields,help:hr_recruitment.field_hr_job_alias_name
+msgid ""
+"The name of the email alias, e.g. 'jobs' if you want to catch emails for "
+"<jobs@example.odoo.com>"
+msgstr "邮件别名的名称，例如，如果你要收取 <jobs@openc2p.com> 的电子邮件,别名就要被设为：\"jobs\""
+
+#. module: hr_recruitment
+#: model:ir.actions.act_window,help:hr_recruitment.hr_applicant_resumes
+msgid ""
+"This menu helps you search through resumes and motivation\n"
+"                letters. Odoo automatically indexes .PDF, .DOC, DOCX, .TXT\n"
+"                files so that you can search keywords from the content of these\n"
+"                files."
+msgstr ""
+"此菜单有助您通过简历和动机\n"
+" 信进行搜索。C2P 自动检索PDF、DOC、DOCX、TXT\n"
+" 文件，这样您便可在这些\n"
+" 文件的内容中搜索关键字。"

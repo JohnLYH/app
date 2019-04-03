@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_filter_inherit" model="ir.ui.view">
+        <field name="name">隐藏采购单无用的筛选条件</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='not_invoiced']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='to_approve']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='message_needaction']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='activities_my']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='activities_overdue']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='activities_today']" position="replace">
+            </xpath>
+            <xpath expr="//group/filter[3]" position="replace">
+                <!--<filter string="入库月份" domain="[]" context="{'group_by':'date_planned'}"/>-->
+            </xpath>
+            <xpath expr="//filter[@name='activities_upcoming_all']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='invoiced']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherited_product_template_view_form" model="ir.ui.view">
+        <field name="name">产品无用的筛选条件</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='services']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='consumable']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='filter_to_sell']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='filter_to_purchase']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='activities_today']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='activities_upcoming_all']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='activities_overdue']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherited_product_template_view_form_stock" model="ir.ui.view">
+        <field name="name">产品无用的筛选条件</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.product_template_search_form_view_stock"/>
+        <field name="arch" type="xml">
+           <xpath expr="//filter[@name='real_stock_available']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='real_stock_exhausted']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='real_stock_negative']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherited_res_partner_view_form_base" model="ir.ui.view">
+        <field name="name">去掉供应商筛选条件</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_my_partners']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='type_person']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='type_company']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='customer']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='supplier']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='salesperson']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='group_company']" position="replace">
+            </xpath>
+            <xpath expr="//filter[@name='group_country']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherited_res_partner_view_form_mail" model="ir.ui.view">
+        <field name="name">供应商筛选条件</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="mail.res_partner_view_search_inherit_mail"/>
+        <field name="arch" type="xml">
+             <xpath expr="//filter[@name='not_opt_out']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='activities_my']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='activities_overdue']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='activities_today']" position="replace">
+            </xpath>
+             <xpath expr="//filter[@name='activities_upcoming_all']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+
+
+
+</odoo>

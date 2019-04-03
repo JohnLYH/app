@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="product_template_action" model="ir.actions.act_window">
+            <field name="name">产品维护</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_invoice_policy': 'delivery'}</field>
+        </record>
+        <record id="product_category_action" model="ir.actions.act_window">
+            <field name="name">产品分类维护</field>
+            <field name="res_model">product.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="product_uom_action" model="ir.actions.act_window">
+            <field name="name">计量单位维护</field>
+            <field name="res_model">product.uom</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="product_uom_categ_action" model="ir.actions.act_window">
+            <field name="name">计量单位类别维护</field>
+            <field name="res_model">product.uom.categ</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="biote_product_menu_root" name='产品'/>
+        <menuitem id="product_menu_categ" name='产品' parent='biote_product_menu_root'/>
+        <menuitem id="product_template_menu_act" name='产品' parent='product_menu_categ'
+                  action="product_template_action"/>
+        <menuitem id="product_category_menu_act" name='分类' parent='product_menu_categ'
+                  action="product_category_action"/>
+        <menuitem id="uom_menu_categ" name='单位' parent='biote_product_menu_root'/>
+        <menuitem id="product_uom_menu_act" name='计量单位' parent='uom_menu_categ'
+                  action="product_uom_action"/>
+        <menuitem id="product_uom_categ_menu_act" name='计量单位类别' parent='uom_menu_categ'
+                  action="product_uom_categ_action"/>
+    </data>
+</odoo>

@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.crm_planner
+msgid "Happy Selling!<br/>- The Odoo Team"
+msgstr "愉快的销售!<br/>-  C2P团队"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.crm_planner
+msgid "In Odoo, there are 3 different ways to manage your prices.<br/>"
+msgstr "在C2P，有3种不同的方式来管理您的价格。<br/>"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.crm_planner
+msgid "Odoo Default"
+msgstr "C2P默认"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.crm_planner
+msgid ""
+"Odoo is the world's only software to have a full integration of Marketing "
+"Apps for your sales channel: insight sales, point of sale, ecommerce."
+msgstr "C2P是世界上唯一一个全面整合营销的应用程序为你的销售渠道的软件：具洞察力的销售、POS、电子商务。"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.crm_planner
+msgid "Templates of quotations (use Odoo Online Proposals for this)"
+msgstr "报价单模板（对此使用C2P在线建议）"
+
+#. module: crm
+#: model:ir.model.fields,help:crm.field_crm_team_alias_model_id
+msgid ""
+"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+" email that does not reply to an existing record will cause the creation of "
+"a new record of this model (e.g. a Project Task)"
+msgstr "此别名对应的模型(C2P单据种类)。任何一封非回复已存在的记录的收件将导致此模型创建新的记录(例如：一个项目任务)"
+
+#. module: crm
+#: model:ir.model.fields,help:crm.field_crm_team_alias_name
+msgid ""
+"The name of the email alias, e.g. 'jobs' if you want to catch emails for "
+"<jobs@example.odoo.com>"
+msgstr "邮件别名的名称，例如，如果你要收取 <jobs@openc2p.com> 的电子邮件,别名就要被设为：\"jobs\""
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.crm_planner
+msgid ""
+"We can handle the whole import process\n"
+"                                        for you: simply send your Odoo project\n"
+"                                        manager a CSV file containing all your\n"
+"                                        data."
+msgstr "我们负责所有的导入流程：给你的C2P的项目经理一份包含你所有数据的CSV文档。"
+
+#. module: crm
+#: model:mail.template,subject:crm.mail_template_data_module_install_crm
+msgid "Your Odoo CRM application is running smoothly."
+msgstr "您的C2P CRM应用程序运行顺利。"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.crm_case_form_view_leads
+#: model:ir.ui.view,arch_db:crm.crm_case_form_view_oppor
+msgid "e.g. www.odoo.com"
+msgstr "例如：http://openc2p.com"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.crm_planner
+msgid "use Odoo API to import through scripts"
+msgstr "使用C2P API通过脚本导入"
+
+#. module: crm
+#: model:ir.model.fields,field_description:crm.field_res_config_settings_module_crm_phone_validation
+msgid "Phone Formatting"
+msgstr "号码格式"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.res_config_settings_view_form
+msgid "Format phone numbers based on national conventions"
+msgstr "根据国家惯例格式化电话号码"
+
+#. module: crm
+#: model:ir.actions.act_window,help:crm.crm_case_form_view_salesteams_opportunity
+#: model:ir.actions.act_window,help:crm.crm_lead_opportunities
+#: model:ir.actions.act_window,help:crm.crm_lead_opportunities_tree_view
+msgid ""
+"Odoo helps you keep track of your sales pipeline to follow\n"
+"                    up potential sales and better forecast your future revenues."
+msgstr ""
+"C2P帮助你追踪\n"
+"你的销售管道以跟进潜在销售并更好的预测你的未来收入。"
+
+#. module: crm
+#: model:ir.actions.server,name:crm.action_mark_activities_done
+msgid "Mark All Activities as Done"
+msgstr "将所有活动标记为已完成"
+
+#. module: crm
+#: model:ir.actions.server,name:crm.action_mark_late_activities_done
+msgid "Mark Late Activities as Done"
+msgstr "将延迟的活动标记为完成"

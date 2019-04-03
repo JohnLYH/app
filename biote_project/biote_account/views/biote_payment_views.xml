@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="biote_payment_view_tree" model="ir.ui.view">
+        <field name="name">biote.payment.view.tree</field>
+        <field name="model">biote.payment</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="单据编号" readonly="1"/>
+                <field name="create_date" string="单据日期" readonly="1"/>
+                <field name="doc_type" string="单据类型"/>
+                <field name="supplier" string="供应商"/>
+                <field name="apply" string="用途"/>
+                <field name="mediator_id" string="经办人" options="{'no_create': True, 'no_open': True}"/>
+                <field name="payment_type" string="支付方式" widget="radio" options="{'horizontal': true}"/>
+                <field name="settlement_certificate" string="结算凭证" options="{'horizontal': true}"/>
+                <field name="total_amount" string="总金额(小写)" sum="合计"/>
+                <field name="bank_id" string="开户行"/>
+                <field name="receivables_account" string="收款账号"/>
+                <field name="payment_type" string="报销种类"/>
+            </tree>
+        </field>
+    </record>
+    <record id="biote_payment_view_form" model="ir.ui.view">
+        <field name="name">biote.payment.view.form</field>
+        <field name="model">biote.payment</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="company_id" string="公司" readonly="1"/>
+                            <field name="name" string="单据编号" readonly="1"/>
+                            <field name="doc_type" string="单据类型"/>
+                            <field name="supplier" string="供应商"/>
+                            <field name="bank_id" string="开户行"/>
+                            <field name="receivables_account" string="收款账号"/>
+                        </group>
+                        <group>
+                            <field name="create_date" string="单据日期" readonly="1"/>
+                            <field name="apply" string="用途"/>
+                            <field name="total_amount" string="总金额(小写)"/>
+                            <field name="capital_total_amount" string="总金额(大写)" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="payment_type" string="支付方式" widget="radio" options="{'horizontal': true}"/>
+                        <field name="check_num"
+                               string="支票号码"
+                               attrs="{'invisible': [('payment_type', '!=', 'check')]}"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="settlement_certificate" string="结算凭证" options="{'horizontal': true}"/>
+                        </group>
+                        <group>
+                            <field name="mediator_id" string="经办人" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="现金报销" attrs="{'invisible':[('payment_type', '!=', 'cash')]}">
+                            <group>
+                                <group>
+                                    <field name="total_amount" string="今收到现金(元）：" readonly="1"/>
+                                    <field name="receivables_company" string="收款人"/>
+                                </group>
+                                <group>
+                                    <field name="capital_total_amount" string="大写：人民币" readonly="1"/>
+                                    <field name="receivables_date" string="收款日期"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

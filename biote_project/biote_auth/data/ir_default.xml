@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <function id="country_id_default_set"
+              model="ir.default"
+              name="set"
+              eval="('biote.auth', 'country_id', ref('base.cn'))"/>
+</odoo>

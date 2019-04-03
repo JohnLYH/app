@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- oa.simple.test form view -->
+    <record id="oa_simple_test_view_form" model="ir.ui.view">
+        <field name="name">oa.simple.test.view.form</field>
+        <field name="model">oa.simple.test</field>
+        <field name="arch" type="xml">
+            <form string="工作流测试">
+                <header>
+                    <button name="start_workflow" type="object" string="开始审批" class="oe_highlight" attrs="{'invisible': [('workflow_state', '!=', 'draft')]}"/>
+                    <button name="btn_workflow_approve" type="object" class="oe_highlight" string="同意" attrs="{'invisible': ['|', ('access_stage', '=', False), ('workflow_state', 'not in', ['progress', 'subflow'])]}"/>
+                    <button name="btn_workflow_refused" type="object" class="oe_highlight" string="拒绝" attrs="{'invisible': ['|', ('access_stage', '=', False), ('workflow_state', 'not in', ['progress', 'subflow'])]}"/>
+                    <button name="btn_start_subflow" type="object" class="oe_highlight" string="子审批" attrs="{'invisible': [('show_subflow_btn', '=', False)]}"/>
+                    <field name="cur_stage_id" domain="[('id', 'in', valid_stage_ids)]" widget="statusbar" attrs="{'invisible': [('workflow_state', 'not in', ('progress','subflow'))]}"/>
+                    <field name="workflow_state" statusbar_visible="draft,done" widget="statusbar" attrs="{'invisible': [('workflow_state', 'in', ('progress', 'subflow'))]}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="state"/>
+                        <!-- 以下四个字段必须要出现在表单的定义中 -->
+                        <field name="access_stage"/>
+                        <field name="has_subflow"/>
+                        <field name="show_subflow_btn"/>
+                        <field name="valid_stage_ids" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="审批记录">
+                            <field name="workflow_result_ids" context="{'disable_open': 1}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- oa.simple.test action window -->
+    <record id="oa_simple_test_action" model="ir.actions.act_window">
+        <field name="name">oa.simple.test.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">oa.simple.test</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+    </record>
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="oa_test_menu_root" name="工作流测试" sequence="1"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="oa_simple_menu_act" name="简单测试" parent="oa_test_menu_root" action="oa_simple_test_action" sequence="1"/>
+</odoo>

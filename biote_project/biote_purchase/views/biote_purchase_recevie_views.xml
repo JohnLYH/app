@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- biote.purchase.recevie form view -->
+    <record id="biote_purchase_recevie_view_form" model="ir.ui.view">
+        <field name="name">biote.purchase.recevie.view.form</field>
+        <field name="model">biote.purchase.recevie</field>
+        <field name="arch" type="xml">
+            <form string="采购收货四联单">
+                <header>
+                    <button name="action_raw_allow_select_dialog" type="object" string="放行单" class="oe_highlight"/>
+                    <button name="action_unqualified_select_dialog" type="object" string="不合格处置" class="oe_highlight"/>
+                    <button name="action_incoming_select_dialog" type="object" string="入库单" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="contract_id"/>
+                        </group>
+                        <group>
+                            <field name="qa_dep_id"/>
+                            <field name="qa_date"/>
+                            <field name="recevie_user_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="收货明细">
+                            <field name="recevie_line_ids">
+                                <tree selectable="True">
+                                    <field name="product_id"/>
+                                    <field name="ordered_qty"/>
+                                    <field name="recevie_qty"/>
+                                    <field name="remaining_qty"/>
+                                    <field name="allow_amount_qty"/>
+                                    <field name="refused_amount_qty"/>
+                                    <field name="allow_state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

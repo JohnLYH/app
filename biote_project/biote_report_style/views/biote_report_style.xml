@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="external_layout">
+        <div class="header">
+            <div style="float:left;margin:25px 20px 0 0;">
+                <img style="height: 40px;vertical-align: middle;margin-top: 25px;"
+                     src="/biote_report_style/static/src/img/logo.png"/>
+            </div>
+            <div style="float:left;margin-top:25px;">
+                <h3 class="text-center">青岛博益特生物材料股份有限公司</h3>
+                <h4 class="text-center">Qingdao Biotemed Biomaterial Co.,Ltd</h4>
+            </div>
+            <div class="col-xs-12">
+                <div style="border-bottom: 1px solid grey;"/>
+            </div>
+        </div>
+        <div class="article o_report_layout_standard">
+            <t t-raw="0"/>
+        </div>
+        <div class="footer">
+            <div class="col-xs-12" style="margin-bottom:20px">
+                <div style="border-bottom: 1px solid grey;"/>
+            </div>
+            <h4 class="text-center" style="margin:0px 0px 20px 0px;">Tel:00-111-22222 Fax:86-1234567
+                Http:www.biotemed.com
+            </h4>
+            <h4 class="text-center">Email:sale@biotemed.com Addr:No.168 Zhuzhou Road,Qingdao,China</h4>
+        </div>
+    </template>
+
+    <template id="list_layout">
+        <div class="header">
+            <div style="float:left;margin:25px 20px 0 0;">
+                <img style="height: 40px;vertical-align: middle;margin-top: 25px;"
+                     src="/biote_report_style/static/src/img/logo.png"/>
+            </div>
+            <div style="float:left;margin-top:25px;">
+                <h3 class="text-center">青岛博益特生物材料股份有限公司</h3>
+                <h4 class="text-center">Qingdao Biotemed Biomaterial Co.,Ltd</h4>
+            </div>
+            <div class="col-xs-12">
+                <div style="border-bottom: 1px solid grey;"/>
+            </div>
+        </div>
+        <div class="article">
+            <t t-raw="0"/>
+        </div>
+        <div class="footer">
+            <div class="row">
+                <div class='text-center' style="color:#808080">
+                    <ul class="list-inline">
+                        <li>Page:</li>
+                        <li>
+                            <span class="page"/>
+                        </li>
+                        <li>/</li>
+                        <li>
+                            <span class="topage"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</odoo>

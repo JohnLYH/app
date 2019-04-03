@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <!--运动项目-->
+    <record id="s1" model="people.sports">
+        <field name="name">跑步</field>
+    </record>
+
+    <record id="s2" model="people.sports">
+        <field name="name">足球</field>
+    </record>
+
+    <record id="s3" model="people.sports">
+        <field name="name">篮球</field>
+    </record>
+
+    <record id="s4" model="people.sports">
+        <field name="name">游泳</field>
+    </record>
+
+    <record id="s5" model="people.sports">
+        <field name="name">瑜伽</field>
+        <field name="color" eval="11"/>
+    </record>
+
+    <record id="s6" model="people.sports">
+        <field name="name">拳击</field>
+    </record>
+
+    <!--学生相关数据-->
+    <record id="p1" model="zz.peoples">
+        <field name="id">1</field>
+        <field name="img">/zz/static/img/tx1.jpg</field>
+        <field name="name">小明</field>
+        <field name="age">13</field>
+        <field name="des">好孩子</field>
+        <!--Many2many关系-->
+        <field name="petosp" eval="[(4, s1,0), (4, s2,0), (4, s4,0)]"/>
+        <!--Many2one关系 以下两种效果相同-->
+        <!--<field name="petote" ref="t1"/>-->
+        <field name="petote" eval="ref('t1')"/>
+        <!--<field name="语文" eval="ref('f1').score"/>-->
+    </record>
+
+    <record id="p2" model="zz.peoples">
+        <field name="id">2</field>
+        <field name="img">/zz/static/img/tx2.jpg</field>
+        <field name="name">小刚</field>
+        <field name="age">11</field>
+        <field name="des">坏孩子</field>
+        <field name="petosp" eval="[(4, ref('s3')), (4, ref('s2')), (4, ref('s4')), (4, ref('s6'))]"/>
+        <field name="petote" ref="t1"/>
+    </record>
+
+    <record id="p3" model="zz.peoples">
+        <field name="id">3</field>
+        <field name="img">/zz/static/img/tx3.jpg</field>
+        <field name="name">李建国</field>
+        <field name="age">13</field>
+        <field name="des">有为青年</field>
+        <field name="petosp" eval="[(4, ref('s1')), (4, ref('s6')), ]"/>
+        <field name="petote" ref="t2"/>
+    </record>
+
+    <record id="p4" model="zz.peoples">
+        <field name="id">4</field>
+        <field name="img">/zz/static/img/tx4.jpg</field>
+        <field name="name">张国庆</field>
+        <field name="age">32</field>
+        <field name="des">上进青年</field>
+        <field name="petosp" eval="[(4, ref('s1')), (4, ref('s2')), (4, ref('s3')), (4, ref('s6'))]"/>
+        <field name="petote" ref="t3"/>
+    </record>
+
+
+    <!--消息测试-->
+
+    <record id="mailtest1" model="mail.message.subtype">
+        <field name="name">状态改变</field>
+        <field name="res_model">people.teacher</field>
+        <field name="default" eval="False"/>
+        <field name="description">状态被改变了 哈哈哈哈!</field>
+    </record>
+
+
+    <!--运用function安装时修改小明的数据-->
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'zz'),('name', '=', 'xiaoming')]"/>
+        </function>
+        <value eval="{'noupdate': False}"/>
+    </function>
+
+    <record id="p1" model="zz.peoples">
+        <!--添加一个运动项目-->
+        <field name="petosp" eval="[(4, ref('s6'))]"/>
+    </record>
+
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'zz'),('name', '=', 'xiaoming')]"/>
+        </function>
+        <value eval="{'noupdate': True}"/>
+    </function>
+
+
+</odoo>

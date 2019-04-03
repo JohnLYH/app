@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_view_tree" model="ir.ui.view">
+        <field name="name">res.partner</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="num"/>
+                <field name="num_customer"/>
+                <field name="company_id"/>
+                <field name="name"/>
+                <field name="company_type" string="客商性质"/>
+                <field name="mobile"/>
+                <field name="email"/>
+                <field name="website"/>
+                <!--<field name="auth_product"/>-->
+                <!--<field name="auth_end_date"/>-->
+                <!--<field name="device_type"/>-->
+                <field name="create_date"/>
+                <field name="comment"/>
+                <field name="supplier" invisible="1"/>
+                <field name="customer" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_partner_view_form" model="ir.ui.view">
+        <field name="name">res.partner</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form string="">
+                <group string='基本信息' col="3">
+                    <group>
+                        <field name="company_id" options="{'no_open':True,'no_create':True}"/>
+                        <field name="num"
+                               attrs="{'invisible':[('supplier','=',False),('customer','=',True)]}"/>
+                        <field name="num_customer" readonly="1"
+                               attrs="{'invisible':[('customer','=',False),('supplier', '=',True)]}"/>
+                        <field name="contact_name"/>
+                        <field name="mobile"/>
+                        <field name="sex"/>
+                        <field name="job_id"/>
+                        <field name="email"/>
+                        <!--客户的税务登记号-->
+                        <field name="vat"
+                               attrs="{'invisible':[('customer','=',False),('supplier', '=',True)]}"/>
+                    </group>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="category_customer_id"
+                               attrs="{'invisible':[('customer','=',False),('supplier', '=',True)]}"/>
+                        <field name="category_supplier"
+                               attrs="{'invisible':[('supplier','=',False),('customer','=',True)]}"/>
+
+                        <field name="supplier" invisible="1"/>
+                        <field name="customer" invisible="1"/>
+                        <field name="company_type" string="客商性质"/>
+                        <field name="device_type"
+                               attrs="{'invisible':[('customer','=',False),('supplier', '=',True)]}"/>
+                        <!-- <field name="auth_product_ids"/> -->
+                    </group>
+                    <group>
+                        <field name="create_date"/>
+                        <field name="website"/>
+                        <label for="street" string="地址"/>
+                        <div class="o_address_format">
+                            <field name="country_id" placeholder="国家" class="o_address_state"
+                                   invisible="1"
+                            />
+                            <field name="state_id" placeholder="省份" class="o_address_state"
+                                   context="{'country_id':country_id}"
+                                   options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="city_id" placeholder="城市" class="o_address_city"
+                                   context="{'state_id':state_id}"
+                                   options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="area_id" class="o_address_city" placeholder="区/县"
+                                   context="{'city_id':city_id}"
+                                   options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="street" placeholder="街道(详细地址)"/>
+                        </div>
+                        <field name="salesman_id"
+                               attrs="{'invisible':[('customer','=',False),('supplier', '=',True)]}"
+                               options="{'no_create': True, 'no_open': True}"
+                        />
+                        <field name="area_manager_id"
+                               attrs="{'invisible':[('customer','=',False),('supplier', '=',True)]}"
+                               options="{'no_create': True, 'no_open': True}"
+                        />
+                    </group>
+                </group>
+                <group string="财务信息" col="3">
+                    <group>
+                        <field name="finance_address"/>
+                        <field name="tax_id"/>
+                    </group>
+                    <group>
+                         <field name="finance_telephone"/>
+                         <field name="finance_category"/>
+                    </group>
+                    <group>
+                         <field name="finance_contract_name"/>
+                         <field name="payment_id"/>
+                    </group>
+                    <field name="finance_ids" nolabel="1"/>
+                </group>
+                <group string="资质文件">
+                    <field name="qualification_ids"
+                           context="{'default_partner_id': active_id, 'default_is_customer':customer,'default_is_supplier':supplier}"
+                           nolabel="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>

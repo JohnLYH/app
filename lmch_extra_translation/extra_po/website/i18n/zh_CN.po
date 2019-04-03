@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "- The Odoo Team"
+msgstr "- C2P团队"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.s_button
+msgid "<strong>50,000+ companies run Odoo to grow their businesses.</strong>"
+msgstr "<STRONG>50000+ 公司使用C2P发展其业务。</STRONG>"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.website_planner
+msgid "@odoo"
+msgstr "@C2P"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/content/website_root.js:212
+#, python-format
+msgid ""
+"It might be possible to edit the relevant items or fix the issue in <a "
+"href=\"%s\">the classic Odoo interface</a>"
+msgstr "在<a href=\"%s\">经典 C2P 界面</a>上可以编辑相关项目或修改问题。"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.layout_footer_copyright
+msgid "Odoo"
+msgstr "C2P"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.s_three_columns
+msgid "Odoo - Sample 1 for three columns"
+msgstr "C2P－三列示例 1"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.s_three_columns
+msgid "Odoo - Sample 2 for three columns"
+msgstr "C2P－三列示例 2"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.s_three_columns
+msgid "Odoo - Sample 3 for three columns"
+msgstr "C2P－三列示例 3"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.s_big_picture
+msgid "Odoo CMS - a big picture"
+msgstr "C2P CMS－大图"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.s_image_floating
+msgid "Odoo CMS- Sample image floating"
+msgstr "C2P CMS－图像浮动示例"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.show_website_info
+msgid "Odoo Version"
+msgstr "C2P版本"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.s_image_text
+msgid "Odoo image and text block"
+msgstr "C2P图像和文字块"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.s_text_image
+msgid "Odoo text and image block"
+msgstr "C2P文本和图像块"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.s_banner
+msgid "Slider Odoo Image"
+msgstr "C2P 图像滑块"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.show_website_info
+msgid "instance of Odoo, the"
+msgstr "C2P实例，"
+
+msgid ""
+msgstr ""
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.footer_default
+msgid "Connect with us"
+msgstr "联系我们"

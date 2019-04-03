@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- oa.subflow.wiz form view -->
+    <record id="oa_subflow_detail_wiz_view_form" model="ir.ui.view">
+        <field name="name">oa.subflow.detail.wiz.view.form</field>
+        <field name="model">oa.subflow.detail.wiz</field>
+        <field name="arch" type="xml">
+            <form string="子审批详情">
+                <sheet>
+                    <field name="subflow_id" invisible="1"/>
+                    <notebook>
+                        <page string="审批人">
+                            <field name="subflow_stage_ids">
+                                <tree create="false" edit="false" delete="false" disable_open="1">
+                                    <field name="stage_employee_ids" widget="many2many_tags"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="审批结果">
+                            <field name="subflow_result_ids">
+                                <tree create="false" edit="false" delete="false" disable_open="1">
+                                    <field name="opinion"/>
+                                    <field name="result"/>
+                                    <field name="operate_user_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

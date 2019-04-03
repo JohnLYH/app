@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- biote.unqualified.handle tree view -->
+    <record id="biote_unqualified_handle_view_tree" model="ir.ui.view">
+        <field name="name">biote.unqualified.handle.view.tree</field>
+        <field name="model">biote.unqualified.handle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <!-- biote.unqualified.handle form view -->
+    <record id="biote_unqualified_handle_view_form" model="ir.ui.view">
+        <field name="name">biote.unqualified.handle.view.form</field>
+        <field name="model">biote.unqualified.handle</field>
+        <field name="arch" type="xml">
+            <form string="不合格处置方式">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="usage" required="1"/>
+                        <field name="picking_type_id" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

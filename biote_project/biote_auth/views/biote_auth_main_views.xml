@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="biote_auth_action" model="ir.actions.act_window">
+    	<field name="name">授权申请单</field>
+    	<field name="res_model">biote.auth</field>
+    	<field name="view_type">form</field>
+    	<field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+    	id="biote_auth_menu_root"
+    	name="授权书"
+    	sequence="5"
+    />
+    <menuitem
+    	id="biote_auth_menu_action"
+    	name="授权书"
+    	parent="biote_auth.biote_auth_menu_root"
+    	action="biote_auth_action"
+    	sequence="10"
+    />
+</odoo>

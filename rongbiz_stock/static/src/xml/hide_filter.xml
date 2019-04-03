@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <!--隐藏自定义筛选-->
+     <t t-extend="SearchView.FilterMenu">
+        <t t-jquery="a:contains('Add Custom Filter')"  t-operation="replace"/>
+     </t>
+    <!--隐藏自定义分组-->
+     <t t-extend="SearchView.GroupByMenu">
+        <t t-jquery="a:contains('Add custom group')"  t-operation="replace"/>
+     </t>
+</templates>

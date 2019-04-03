@@ -1,0 +1,243 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="zzlist3">
+            <field name="name">zz列表3</field>
+            <field name="model">people.teacher</field>
+            <field name="arch" type="xml">
+                <tree default_order="age" decoration-it="age&gt;35" decoration-danger="age&gt;35">
+                    <field name="name"/>
+                    <field name="age" sum="年龄总和"/>
+                    <field name="active"/>
+                    <button name="bu2" type="object" string="确认超龄" attrs="{'invisible':[('age','&lt;',60)]}"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--看板视图自定义-->
+        <record id="kanban1" model="ir.ui.view">
+            <field name="name">zz看板</field>
+            <field name="model">people.teacher</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="img"/>
+                    <field name="te2pe"/>
+                    <field name="tetosp"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div style="border:solid 2px red;width:250px;height:300px;border-radius:100%;text-align:center">
+                                <div class="oe_dropdown_kanban">
+                                    <!-- dropdown menu -->
+                                    <div class="oe_dropdown_toggle">
+                                        <i class="fa fa-bars fa-lg"/>
+                                        <ul class="oe_dropdown_menu" role="menu" aria-labelledby="dLabel">
+                                            <li>
+                                                <a type="delete">删除</a>
+                                            </li>
+                                            <li>
+                                                <a type="open">打开</a>
+                                            </li>
+                                            <li>
+                                                <a type="edit">编辑</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--<div class="oe_clear"></div>-->
+                                </div>
+
+                                <div>
+                                    <!--图片解决-->
+                                    <img t-att-src="record.img.value" style="width:130px;height:130px"/>
+                                    <h1>
+                                        <span>姓名:</span>
+                                        <field name="name"/>
+                                    </h1>
+                                    <br/>
+                                    <span>年龄:</span>
+                                    <field name="age"/>
+                                    <br/>
+                                    <!--一对多看板视图显示-->
+                                    <t t-foreach="record.te2pe.raw_value" t-as='o'>
+                                        <t t-esc="o.name"/>
+                                        <!--0是id字段  默认生成  1是名称-->
+                                        <!--<t t-esc="o.petote[1]"/>-->
+                                    </t>
+                                    <!--多对多看板显示-->
+                                    <field name="tetosp"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record>
+
+
+        <!--#为动作按钮创建的动作记录-->
+        <record id="abc1" model="ir.actions.act_window">
+            <field name="name">看板动作</field>
+            <field name="res_model">people.teacher</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_id" ref="kanban1"/>
+            <field name="target">current</field>
+        </record>
+
+
+        <!--#url动作-->
+        <record id="url1" model="ir.actions.act_url">
+            <field name="name">url动作</field>
+            <field name="url">http://www.baidu.com</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- 执行客户端动作：echart_action.该动作在static/src/js/main.js中定义 -->
+        <record id="echart_action1" model="ir.actions.client">
+            <field name="name">基本使用</field>
+            <field name="tag">echart_action</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="zzform3">
+            <field name="name">zz表单3</field>
+            <field name="model">people.teacher</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!--按钮在header中 icon无效-->
+                        <button name="write2" type="object" string="方法" class="btn-danger"/>
+
+                        <button name="%(abc1)d" type="action" string="动作" class="oe_highlight"/>
+
+                        <!--%d将xmlid转成记录id 记录id 可在设置中查到 以下二者效果相同-->
+                        <button name="%(url1)d" type="action" string="url动作"/>
+                        <!--<button name="135" type="action" string="url动作"/>-->
+
+                        <!--class="oe_edit_only"编辑状态才可见-->
+                        <button name="%(echart_action1)d" type="action" string="客户端动作" class="oe_edit_only"/>
+                    </header>
+                    <!--传统布局-->
+                    <sheet>
+                        <!--按钮带有图标 且移到右边-->
+                        <button name="write2" type="object" string="方法1" icon="fa-archive" class="oe_right"/>
+                        <group>
+                            <!--<separator string="General1" colspan="2" />-->
+                            <group>
+                                <field name="name"/>
+                                <field name="img"/>
+                                <field name="age"/>
+                                <newline/>
+                                <field name="active"/>
+                                <field name="re"/>
+                            </group>
+                            <group>
+                                <field name="salary" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="tetosp" widget="many2many_tags" options="{'color_field':'color'}"/>
+                                <field name="pay"/>
+                                <field name="jiangjin"/>
+                                <field name="ar"/>
+                            </group>
+                        </group>
+                        <separator string="其他" colspan="2"/>
+                        <!--一对多字段 赋予mode属性 实现form嵌套tree 并自定义显示字段-->
+                        <field name="te2pe" mode="tree">
+                            <tree>
+                                <field name="name"/>
+                                <field name="name"/>
+                                <field name="age"/>
+                            </tree>
+                        </field>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="activity_ids" widget="mail_activity"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+
+
+                    <!--笔记本布局-->
+                    <!--<sheet>-->
+                    <!--<notebook>-->
+                    <!--<page string="基本">-->
+                    <!--<group>-->
+                    <!--<field name="name"/>-->
+                    <!--<field name="img"/>-->
+                    <!--<field name="age"/>-->
+                    <!--<field name="active"/>-->
+                    <!--</group>-->
+                    <!--</page>-->
+                    <!--<page string="其他">-->
+                    <!--<group>-->
+                    <!--<field name="salary" widget="monetary"/>-->
+                    <!--<field name="tetosp" widget="many2many_tags"/>-->
+                    <!--<field name="pay"/>-->
+                    <!--<field name="jiangjin"/>-->
+                    <!--</group>-->
+                    <!--</page>-->
+                    <!--</notebook>-->
+                    <!--</sheet>-->
+                </form>
+            </field>
+        </record>
+
+        <!--表单视图继承   -->
+        <record id="zzform31" model="ir.ui.view">
+            <field name="name">zz老师表单2</field>
+            <field name="model">people.teacher</field>
+            <field name="inherit_id" ref="zzform3"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='re']" position="after">
+                    <!--裁剪图片-->
+                    <!--<field name="tou" widget="image" class="oe_avatar" options='{"preview_image": "tou_small"}'/>-->
+                    <!--预设尺寸-->
+                    <!--<field name="tou" widget="image" class="oe_avatar" options="{'size': [90, 90]}"/>-->
+                    <!--默认-->
+                    <field name="tou" widget="image" class="oe_avatar"/>
+                </xpath>
+
+                <xpath expr="//field[@name='te2pe']" position="after">
+                    <field name="ia"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!--搜索视图-->
+        <record id="zzsearch" model="ir.ui.view">
+            <field name="name">zz搜索</field>
+            <field name="model">people.teacher</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!--filter_domain此项限制了搜索出现的结果 只能出现名字中有小字的-->
+                    <field name="name" string="姓名1" filter_domain="[ ('name', 'ilike', '小')]"/>
+                    <!--添加搜索过滤条件-->
+                    <filter name="age" string="年龄1" domain="[('age', '>', 45)]"/>
+                    <!--添加分组-->
+                    <filter name="age" string="年龄1" context="{'group_by': 'age'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!--图表视图 可不自定义  而由系统自动生成 统计字段切换由图表视图中的测量选择-->
+        <!--<record id="zzgraph" model="ir.ui.view">-->
+        <!--<field name="name">zz图表</field>-->
+        <!--<field name="model">people.teacher</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<graph type="bar">-->
+        <!--<field name="name"/>-->
+        <!--<field name="age" type="measure"/>-->
+        <!--</graph>-->
+        <!--</field>-->
+        <!--</record>-->
+
+
+        <!--已经建立的菜单 共用的话 可不需要重新建立-->
+        <!--<menuitem sequence="0" id="menu1" name="PeoplE"/>-->
+        <!--<menuitem id="menu2" parent="menu1" name="Content"/>-->
+        <!--<menuitem id="menu3" parent="menu2" name='名单' action="action_zz_peoples"/>-->
+
+    </data>
+</odoo>

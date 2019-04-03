@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track7
+msgid ""
+"A technical explanation of Odoo as a CMS and a eCommerce platform for "
+"version 8."
+msgstr "一份以8.0版本从技术角度解释C2P为客户关系管理和电子商务平台。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track19
+msgid "Advanced lead management with Odoo: tips and tricks from the fields"
+msgstr "C2P的先进领先的管理:字段的提示和技巧"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track8
+msgid ""
+"Discover Odoo CRM: How to optimize your sales, from leads to sales orders."
+msgstr "发现C2P CRM：如何优化你的销售，从线索到销售订单。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track11
+msgid "Discover Odoo Point-of-Sale: Your shop ready to use in 30 minutes."
+msgstr "探索C2P POS：你的店在30分钟内就能准备好使用。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track18
+msgid ""
+"How to build your marketing strategy for the purpose of generating leads "
+"with Odoo."
+msgstr "如何生成线索与C2P的目的建立自己的营销策略。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track4
+msgid "How to develop automated tests in the Odoo web client."
+msgstr "在C2P Web客户端，如何开发自动化测试。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track2
+msgid "How to integrate hardware materials with the Odoo point of sale."
+msgstr "如何与C2P POS集成硬件物料。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track9
+msgid ""
+"How to use Odoo for your HR process: recruitment, leaves management, "
+"appraisals, expenses, etc."
+msgstr "如何在你的人力资源流程中利用C2P：招聘、休假管理、考核、费用等。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track23
+msgid "Key Success factors selling Odoo."
+msgstr "销售C2P的关键成功因素。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track12
+msgid "Manage your events with Odoo, the new training modules."
+msgstr "在C2P上管理你的活动，新的培训模块。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track15
+msgid "Odoo Mobile for Notes, Meetings and Messages."
+msgstr "C2P移动的笔记、会议和消息。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track28
+msgid "Odoo Status & Strategy 2014"
+msgstr "C2P的现状与策略2014"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track16
+msgid "Odoo as your Enterprise Social Network."
+msgstr "C2P作为你的企业社交网络。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track27
+msgid "Odoo in 2014"
+msgstr "C2P 在 2014"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track21
+msgid "Recruiting high skilled talents with Odoo HR apps"
+msgstr "透过C2P人力资源应用程序招聘高技能人才"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track17
+msgid "The Art of Making an Odoo Demo."
+msgstr "制作C2P演示的艺术。"
+
+#. module: website_event_track
+#: model:event.track,name:website_event_track.event_track5
+msgid ""
+"The new way to promote your modules in the Apps platform and Odoo website."
+msgstr "在应用程序平台和C2P网站以新的方式来推广你的模块。"

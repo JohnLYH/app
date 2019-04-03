@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+
+#. module: web_settings_dashboard
+#. openerp-web
+#: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:100
+#, python-format
+msgid "Follow these implementation guides to get the most out of Odoo."
+msgstr "按照这些实施指导来有效利用C2P."
+
+#. module: web_settings_dashboard
+#. openerp-web
+#: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:140
+#, python-format
+msgid "Help us spread the word: Share Odoo's awesomeness with your friends!"
+msgstr "帮助我们传播:和你的朋友们分享C2P的精彩!"
+
+#. module: web_settings_dashboard
+#. openerp-web
+#: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:155
+#, python-format
+msgid "Odoo"
+msgstr "C2P"
+
+#. module: web_settings_dashboard
+#. openerp-web
+#: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:186
+#, python-format
+msgid "Odoo Enterprise"
+msgstr "C2P 企业版"
+
+#. module: web_settings_dashboard
+#. openerp-web
+#: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:163
+#, python-format
+msgid "Odoo S.A."
+msgstr "C2P S.A."

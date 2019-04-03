@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--继承原来的模板，修改页眉和页脚-->
+    <template id="custom_external_layout" inherit_id="web.external_layout_standard">
+        <!-- 页眉 -->
+       <xpath expr="//div[@class='header']" position="replace">
+           <div class="header">
+               <div style="float:left;margin:25px 20px 0 0;width:10%;">
+                   <img style="height: 40px;vertical-align: middle;margin-top: 25px;"
+                        src="/biote_contract/static/src/img/biote.png"/>
+               </div>
+               <div style="float:left;margin-top:25px;width:78%;">
+                   <h2 class="text-center">经济合同签约表</h2>
+               </div>
+               <div class="col-xs-12">
+                   <div style="border-bottom: 1px solid grey;"/>
+               </div>
+           </div>
+       </xpath>
+        <!--页脚-->
+        <xpath expr="//div[@class='footer']/div[@class='text-center']" position="replace">
+            <div class="col-xs-12" style="margin-bottom:20px">
+                <div style="border-bottom: 1px solid grey;"/>
+            </div>
+            <h5 class="text-center" style="margin:0px 0px 20px 0px;">注：此经济合同审批表一式两份，合同经办部门一份，合同档案保管部门一份。审批必须附加合同附件。否则退回发起人。</h5>
+        </xpath>
+    </template>
+
+</odoo>

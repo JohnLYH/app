@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--报表内容与样式-->
+    <template id="report2">
+        <t t-call="web.html_container">
+
+            <!--报表到顶部的距离-->
+            <!--<t t-set="data_report_margin_top" t-value="50"/>-->
+            <!--标题之间距离-->
+            <!--<t t-set="data_report_header_spacing" t-value="20"/>-->
+
+            <!--有页眉页脚形式-->
+            <!--<t t-call="web.external_layout">-->
+            <!--无页眉页脚形式-->
+            <t t-call="web.internal_layout">
+                <!--最基础形式-->
+                <!--<t t-call="web.basic_layout">-->
+
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        姓名:
+                        <h2 t-field="doc.name"/>
+                        年龄:
+                        <h2 t-field="doc.age"/>
+                        收入:
+                        <h2 t-field="doc.salary"/>
+
+                        <div >
+                            <img t-att-src="doc.img" style="width:100px;height:100px;"/>
+                            <!--二维码  要实现外部网址跳转需要加http-->
+                            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' %('QR', doc.name, 100, 100)"/>
+                            <!--添加二进制图片 方法1-->
+                            <span t-field="doc.tou"
+                                  t-field-options='{"widget": "image", "class": "img-circle", "style":"width: 30px; margin-right: 10px; display:inline"}'/>
+                            <!--添加二进制图片 方法2-->
+                            <t t-if="doc.tou">
+                                <img class="img-circle" t-att-src="'data:image/jpg;base64,%s'%(to_text(doc.tou))"
+                                     style="width:100px;height:100px;"/>
+                            </t>
+                        </div>
+
+                        <h4 class="zz">Mystr:</h4>
+                        <h4>
+                            <t t-esc="mystr"/>
+                        </h4>
+                        <h4>fields_get(['age']):</h4>
+                        <h5>
+                            <t t-esc="fields"/>
+                        </h5>
+                        <h4>Raw SQL:</h4>
+                        <h5>
+                            <t t-esc="res"/>
+                        </h5>
+
+                    </div>
+                    <!--</t>-->
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+    <template id="report4">
+        <t t-call="web.internal_layout">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th colspan="4">姓名</th>
+                        <th colspan="4">年龄</th>
+                        <th colspan="4">工资</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="docs" t-as="doc">
+                        <tr>
+                            <td colspan="4">
+                                <span t-field="doc.name"/>
+                            </td>
+                            <td colspan="4">
+                                <span t-field="doc.age"/>
+                            </td>
+                            <td colspan="4">
+                                <span t-field="doc.salary"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </t>
+    </template>
+
+</odoo>

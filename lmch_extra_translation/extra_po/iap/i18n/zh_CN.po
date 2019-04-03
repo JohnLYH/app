@@ -1,0 +1,9 @@
+msgid ""
+msgstr ""
+
+#. module: iap
+#. openerp-web
+#: code:addons/iap/static/src/js/crash_manager.js:40
+#, python-format
+msgid "Buy credits at Odoo"
+msgstr "在C2P中购买信用"

@@ -1,0 +1,72 @@
+<odoo>
+    <data>
+        <record id="biote_purchase_plan_action" model="ir.actions.act_window">
+            <field name="name">采购计划</field>
+            <field name="res_model">biote.purchase.plan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="biote_purchase_plan_line_action" model="ir.actions.act_window">
+            <field name="name">采购申请列表</field>
+            <field name="res_model">biote.purchase.plan.line</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="biote_assets_purchase_action" model="ir.actions.act_window">
+            <field name="name">固定资产购置审批</field>
+            <field name="res_model">biote.assets.purchase</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- biote.purchase.recevie action window -->
+        <record id="biote_purchase_recevie_action" model="ir.actions.act_window">
+            <field name="name">采购收货单</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">biote.purchase.recevie</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    点击创建按钮创建新的单据
+                </p>
+            </field>
+        </record>
+        <!-- biote.stock.picking action window -->
+        <record id="biote_stock_picking_action" model="ir.actions.act_window">
+            <field name="name">采购入库单</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">biote.stock.picking</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="biote_purchase_menu_root" name='采购管理'/>
+        <menuitem id="biote_purchase_plan_menu_act" name='采购计划' parent='biote_purchase_menu_root' sequence="10"
+                  action="biote_purchase_plan_action"/>
+        <menuitem id="biote_purchase_plan_line_menu_act" name='采购申请列表' parent='biote_purchase_menu_root' sequence="11"
+                  action="biote_purchase_plan_line_action"/>
+        <menuitem id="biote_assets_purchase_menu_act" name='固定资产购置审批' parent='biote_purchase_menu_root' sequence="12"
+                  action="biote_assets_purchase_action"/>
+       
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="biote_purchase_recevie_menu_act" name="采购收货四单" parent="biote_purchase_menu_root" action="biote_purchase_recevie_action" sequence="1"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="biote_stock_picking_menu_act" name="采购入库单" parent="biote_purchase_menu_root" action="biote_stock_picking_action" sequence="2"/>
+
+        <!-- biote.allow action window -->
+        <record id="biote_allow_action" model="ir.actions.act_window">
+            <field name="name">原材料放行单</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">biote.allow</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="raw_allow_menu_act" name="原材料放行单" parent="biote_quality.allow_menu_categ" action="biote_allow_action" sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+msgid ""
+msgstr ""
+
+#. module: portal
+#: model:mail.template,subject:portal.mail_template_data_portal_welcome
+msgid "Your Odoo account at ${user.company_id.name}"
+msgstr "你在 ${user.company_id.name} 的C2P账号"

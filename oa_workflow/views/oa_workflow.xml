@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- oa.workflow.route action window -->
+    <record id="oa_workflow_route_action" model="ir.actions.act_window">
+        <field name="name">工作流路线</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">oa.workflow.route</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="domain" eval="[('is_custom', '=', False)]"/>
+        <field name="context">{'default_is_custome': 0}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                点击创建按钮创建一条新的路线
+            </p>
+        </field>
+    </record>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="workflow_menu_categ" name="工作流配置" parent="base.menu_administration" sequence="2"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="oa_workflow_route_menu_act" name="工作流路线" parent="workflow_menu_categ" action="oa_workflow_route_action" sequence="1"/>
+</odoo>

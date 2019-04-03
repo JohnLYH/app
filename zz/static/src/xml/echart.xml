@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="echartAction">
+        <div class="container">
+            <div class="row">
+                <div id="ediv" style="height:800px;width:1200px"></div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_picking_type_purchase_recevie" model="biote.stock.picking.type">
+        <field name="name">合格品入库作业</field>
+        <field name="location_id" ref="biote_stock.stock_location_recevie"/>
+        <field name="dest_warehouse_id" ref="biote_stock.stock_warehouse_ycl"/>
+        <field name="code">raw_incoming</field>
+        <field name="sequence" eval="1"/>
+    </record>
+</odoo>

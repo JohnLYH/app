@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_work_exp_view_tree" model="ir.ui.view">
+        <field name="name">biote.hr.work.exp.view.tree</field>
+        <field name="model">biote.hr.work.exp</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="start_date" string="开始日期"/>
+                <field name="end_date" string="结束日期"/>
+                <field name="company" string="就职单位"/>
+                <field name="department" string="部门"/>
+                <field name="job_title" string="职位"/>
+                <field name="certifier" string="证明人"/>
+                <field name="certifier_tel" string="联系电话"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_work_exp_view_form" model="ir.ui.view">
+        <field name="name">biote.hr.work.exp.view.form</field>
+        <field name="model">biote.hr.work.exp</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="start_date" string="开始日期"/>
+                    <field name="end_date" string="结束日期"/>
+                    <field name="company" string="就职单位"/>
+                    <field name="department" string="部门"/>
+                    <field name="job_title" string="职位"/>
+                    <field name="certifier" string="证明人"/>
+                    <field name="certifier_tel" string="联系电话"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

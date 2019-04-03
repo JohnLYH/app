@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!--模板导出-->
+    <record id="action_excel_tmpl_export_customer" model="ir.actions.client">
+        <field name="name">下载模板</field>
+        <field name="tag">customer_excel_tmpl_export</field>
+    </record>
+    <record id="action_excel_tmpl_export_supplier" model="ir.actions.client">
+        <field name="name">下载模板</field>
+        <field name="tag">supplier_excel_tmpl_export</field>
+    </record>
+
+    <!--Form-->
+    <record id="customer_operation_wizard_view_form" model="ir.ui.view">
+        <field name="name">客户数据导入向导</field>
+        <field name="model">customer.operation.wizard</field>
+        <field name="arch" type="xml">
+        <form string="数据导入向导">
+            <header>
+                <button name="%(action_excel_tmpl_export_customer)d" type="action" string="客户模板下载" class="oe_highlight"
+                        attrs="{'invisible': [('is_visible', '=', True)]}"
+                />
+                <button name="%(action_excel_tmpl_export_supplier)d" type="action" string="供应商模板下载" class="oe_highlight"
+                        attrs="{'invisible': [('is_visible', '=', False)]}"/>
+                <field name="is_visible" invisible="1"/>
+            </header>
+            <sheet>
+                <group>
+                    <field name="import_excel"/>
+                </group>
+            </sheet>
+            <footer>
+                <!--action_import在步骤3中实现-->
+                <button name="action_import_customer" string="执行导入" type="object" class="oe_highlight"/>
+                或
+                <button string="取消" class="btn-default" special="cancel"/>
+            </footer>
+        </form>
+        </field>
+    </record>
+</odoo>

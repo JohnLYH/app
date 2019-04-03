@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="biote_expense_action" model="ir.actions.act_window">
+        <field name="name">常用费用报销</field>
+        <field name="res_model">biote.expense</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_expense_type':'normal','is_normal':True}</field>
+    </record>
+    <record id="biote_travel_expense_action" model="ir.actions.act_window">
+        <field name="name">差旅费用报销</field>
+        <field name="res_model">biote.expense</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_expense_type':'travel','is_normal':False}</field>
+    </record>
+    <record id="biote_payment_action" model="ir.actions.act_window">
+        <field name="name">付费报销</field>
+        <field name="res_model">biote.payment</field>
+        <field name="view_mode">tree,form</field>
+        <field name='context'>{'form_no_edit': [('state', '!=', 'draft')]}</field>
+    </record>
+    <menuitem name="博益特-财务管理" id="biote_expense_menu_root"/>
+    <menuitem name="费用报销" id="biote_expense_menu_categ" parent="biote_expense_menu_root"/>
+    <menuitem name="费用报销" id="biote_expense_list_menu_act" parent="biote_expense_menu_categ"
+              action="biote_expense_action"/>
+    <menuitem name="差旅费用报销" id="biote_travel_expense_menu_categ" parent="biote_expense_menu_root"/>
+    <menuitem name="差旅费用报销" id="biote_travel_expense_list_menu_act" parent="biote_travel_expense_menu_categ"
+              action="biote_travel_expense_action"/>
+    <menuitem name="付费报销" id="biote_payment_menu_categ" parent="biote_expense_menu_root"/>
+    <menuitem name="付费报销" id="biote_payment_list_menu_act" parent="biote_payment_menu_categ"
+              action="biote_payment_action"/>
+</odoo>

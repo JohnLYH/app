@@ -1,0 +1,12 @@
+msgid ""
+msgstr ""
+
+#. module: payment
+#: model:ir.model.fields,help:payment.field_payment_acquirer_capture_manually
+msgid "Capture the amount from Odoo, when the delivery is completed."
+msgstr "完成交货后，从 C2P 获取金额。"
+
+#. module: payment
+#: selection:payment.acquirer,payment_flow:0
+msgid "Payment from Odoo"
+msgstr "C2P付款"

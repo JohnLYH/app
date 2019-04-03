@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 自定义布局 公共布局代码 -->
+    <template id="layout" name="整体布局">
+        &lt;!DOCTYPE html&gt;
+        <html t-att="html_data or {}">
+
+            <head>
+                <meta charset="utf-8"/>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+                <meta name="renderer" content="webkit"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+                <meta name="description" content="别有一番风味"/>
+                <meta name="keywords" content="Nothing"/>
+
+                <title t-esc="'页面'"/>
+                <link type="image/x-icon" rel="shortcut icon" t-att-href="'/zz/static/description/icon.png'"/>
+
+                <link rel="stylesheet" href="/zz/static/lib/bootstrap/css/bootstrap.css"/>
+                <!--导入bootstrap.js前需要先导入jquery-->
+                <script src="/zz/static/lib/jquery/1.12.4/jquery.min.js"></script>
+                <script src="/zz/static/lib/bootstrap/js/bootstrap.js"></script>
+                <script type="text/javascript">
+                    var odoo = {
+                    csrf_token: "<t t-esc="request.csrf_token(None)"/>",
+                    };
+                    odoo.session_info = {
+                    is_superuser:<t t-esc="json.dumps(request.env.user._is_superuser())"/>,
+                    is_system:<t t-esc="json.dumps(request.env.user._is_system())"/>,
+                    is_website_user:<t t-esc="json.dumps(request.env.user._is_public())"/>,
+                    user_id:<t t-esc="json.dumps(request.env.user.id)"/>,
+                    is_frontend: true,
+                    translationURL: '/website/translations',
+                    };
+                </script>
+                <t t-raw="head or ''"/>
+            </head>
+
+            <body>
+                <div id="wrapwrap" t-att-class="pageName or ''">
+                    <!--头部-->
+                    <header>
+                        <div class="navbar navbar-inverse navbar-static-top">
+                            <div class="container">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                            data-target=".navbar-top-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href='http://www.baidu.com'>ZZ</a>
+                                </div>
+                                <div class="collapse navbar-collapse navbar-top-collapse">
+                                    <ul class="nav navbar-nav navbar-right" id="top_menu">
+                                        <li class="divider" t-ignore="true" t-if="not user_id._is_public()"/>
+                                        <li class="active">
+                                            <a href="/">主页</a>
+                                        </li>
+                                        <li>
+                                            <a href="/web/login" t-if=" user_id._is_public()">
+                                                <b>登录</b>
+                                            </a>
+                                        </li>
+
+                                        <li class="dropdown" t-ignore="true" t-if="not user_id._is_public()">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <b>
+                                                    <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+                                                    <span class="caret"></span>
+                                                </b>
+                                            </a>
+                                            <ul class="dropdown-menu js_usermenu" role="menu">
+                                                <li id="o_logout">
+                                                    <a t-attf-href="/web/session/logout?redirect=/" role="menuitem">注销
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <!--主体-->
+                    <main>
+                        <t t-raw="0"/>
+                    </main>
+
+                    <!--脚注-->
+                    <!--<footer >-->
+                    <!--<div class="text-center" style="margin-bottom:0;background:#f8f8f8;height:60px" id="footer">-->
+                    <!--ZZ-->
+                    <!--</div>-->
+                    <!--</footer>-->
+
+
+                </div>
+
+                <!--<div t-if="pager" class="o_portal_pager text-center">-->
+                <!--<t t-call="portal.pager"/>-->
+                <!--</div>-->
+            </body>
+        </html>
+
+    </template>
+</odoo>

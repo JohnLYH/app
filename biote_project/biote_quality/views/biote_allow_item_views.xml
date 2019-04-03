@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- biote.allow.item tree view -->
+    <record id="biote_allow_item_view_tree" model="ir.ui.view">
+        <field name="name">biote.allow.item.view.tree</field>
+        <field name="model">biote.allow.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="categ"/>
+            </tree>
+        </field>
+    </record>
+    <!-- biote.allow.item form view -->
+    <record id="biote_allow_item_view_form" model="ir.ui.view">
+        <field name="name">biote.allow.item.view.form</field>
+        <field name="model">biote.allow.item</field>
+        <field name="arch" type="xml">
+            <form string="原材料放行单">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="categ"/>                            
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

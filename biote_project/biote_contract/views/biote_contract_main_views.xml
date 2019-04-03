@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="biote_contract_action" model="ir.actions.act_window">
+        <field name="name">合同列表</field>
+        <field name="res_model">biote.contract</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+    	id="biote_contract_menu_root"
+    	name="合同管理"
+    	sequence="5"
+    />
+
+    <menuitem
+            id="contract_menu_action"
+            name="合同"
+            action="biote_contract_action"
+            parent="biote_contract_menu_root"
+            sequence="10"
+    />
+</odoo>

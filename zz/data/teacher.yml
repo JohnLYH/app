@@ -1,0 +1,6 @@
+-
+  !record {model : people.teacher, id : t5}:
+    name : 老刘
+    age : 55
+
+#注意冒号前后空格  yaml语法 空格较严格 yml数据库中没有xmlid 仅供测试

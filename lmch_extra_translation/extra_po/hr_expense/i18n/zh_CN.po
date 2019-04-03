@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+
+#. module: hr_expense
+#: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
+msgid "(e.g. expenses@mycompany.odoo.com)"
+msgstr "（例如：expenses@mycompany.openc2p.com）"
+
+#. module: hr_expense
+#: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
+msgid "Enjoy your Odoo experience,"
+msgstr "享受你的C2P体验，"
+
+#. module: hr_expense
+#: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
+msgid "Have a wonderful day,<br/>- The Odoo Team"
+msgstr "祝您拥有美好的一天。<br/>- C2P 团队敬上"
+
+#. module: hr_expense
+#: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
+msgid "This guide helps you start with Odoo Expenses."
+msgstr "该指南帮助您开始使用 C2P 费用。"

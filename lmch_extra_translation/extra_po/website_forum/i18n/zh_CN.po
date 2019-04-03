@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+
+#. module: website_forum
+#: model:forum.forum,faq:website_forum.forum_help
+msgid ""
+"The goal of this site is create a relevant knowledge base that would answer\n"
+"    questions related to Odoo."
+msgstr "这个网站的目的是建立一个回复与C2P问题相关的知识库。"
+
+#. module: website_forum
+#: model:ir.ui.view,arch_db:website_forum.new_link
+msgid "e.g. https://www.odoo.com"
+msgstr "例如：https://www.openc2p.com"
+
+#. module: website_forum
+#: model:forum.forum,faq:website_forum.forum_help
+msgid "how to configure or customize Odoo to specific business needs,"
+msgstr "如何为特定的业务需求配置或自定义C2P，"
+
+#. module: website_forum
+#: model:forum.forum,faq:website_forum.forum_help
+msgid "how to install Odoo on a specific infrastructure,"
+msgstr "如何在特定环境下安装C2P，"
+
+#. module: website_forum
+#: model:forum.forum,faq:website_forum.forum_help
+msgid "specific questions about Odoo service offers, etc."
+msgstr "有关C2P服务等具体问题等。"
+
+#. module: website_forum
+#: model:forum.forum,faq:website_forum.forum_help
+msgid "what's the best way to use Odoo for a specific business need,"
+msgstr "什么是为特定业务需求使用C2P 的最佳方式，"

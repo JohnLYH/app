@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="action_excel_tmpl_product" model="ir.actions.client">
+        <field name="name">下载模板</field>
+        <field name="tag">action_excel_product_tmpl</field>
+     </record>
+
+    <record id="product_wizard_view_form" model="ir.ui.view">
+    	<field name="name">产品批量导入</field>
+    	<field name="model">rs.product.wizard</field>
+    	<field name="priority" eval="16"/>
+    	<field name="arch" type="xml">
+            <form string="产品批量导入">
+                <header>
+                    <button name="%(action_excel_tmpl_product)d" type="action" string="模板下载" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="import_excel" required="0"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_import_product" string="执行导入" type="object" class="oe_highlight"/>
+                    或
+                    <button string="取消" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+    	</field>
+    </record>
+
+    <record id="product_wizard_action" model="ir.actions.act_window">
+        <field name="name">产品批量导入</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rs.product.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref=""/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+    	id="rs_product_menu_action"
+    	name="产品批量导入"
+    	parent="rongbiz_stock.master_menu_categ"
+    	action="product_wizard_action"
+    	sequence="5"
+    />
+</odoo>

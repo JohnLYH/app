@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_education_view_tree" model="ir.ui.view">
+        <field name="name">biote.hr.education.view.tree</field>
+        <field name="model">biote.hr.education</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="start_date" string="开始日期"/>
+                <field name="end_date" string="结束日期"/>
+                <field name="school" string="学校"/>
+                <field name="major" string="专业"/>
+                <field name="full_time_school" string="全日制/非全日制" widget="radio" options="{'horizontal': true}"/>
+                <field name="degree" string="学历/学位"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_education_view_form" model="ir.ui.view">
+        <field name="name">biote.hr.education.view.form</field>
+        <field name="model">biote.hr.education</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="start_date" string="开始日期"/>
+                    <field name="end_date" string="结束日期"/>
+                </group>
+                <group>
+                    <field name="school" string="学校"/>
+                    <field name="major" string="专业"/>
+                    <field name="full_time_school" string="全日制/非全日制" widget="radio" options="{'horizontal': true}"/>
+                    <field name="degree" string="学历/学位"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="biote_contract_templates">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout_standard">
+                    <div class="page">
+                        <div>
+                            <h4 class="text-left" style="float:left">合同审批单号:<span t-field="doc.num"/></h4>
+                            <h4 class="text-right" style="float:right">发起日期:<span t-field="doc.date"/></h4>
+                        </div>
+                        <table class="table table-bordered mb64 biote-contract-table">
+                            <tr>
+                                <td class="biote-contract-td-title">合同类别</td>
+                                <td ><span t-field="doc.category"/></td>
+                                <td class="biote-contract-td-title">合同名称</td>
+                                <td ><span t-field="doc.name"/></td>
+                            </tr>
+                            <tr>
+                                <td class="biote-contract-td-title">合同概要</td>
+                                <td colspan="3"><span t-field="doc.content"/></td>
+                            </tr>
+                             <tr>
+                                <td class="biote-contract-td-title">甲方</td>
+                                <td colspan="3"><span t-field="doc.party_a"/></td>
+                            </tr>
+                             <tr>
+                                <td class="biote-contract-td-title">乙方</td>
+                                <td colspan="3"><span t-field="doc.party_b"/></td>
+                            </tr>
+                            <tr>
+                                <td class="biote-contract-td-title">发起者</td>
+                                <td ><span t-field="doc.sponsor_id.name"/></td>
+                                <td class="biote-contract-td-title">合同金额</td>
+                                <td ><span t-field="doc.amount"/></td>
+                            </tr>
+                             <t t-if="doc.workflow_result_ids">
+                                 <t t-foreach="doc.workflow_result_ids" t-as="o">
+                                     <!--每一个o都是一个结果对象oa.workflow.result(8,)-->
+                                     <tr>
+                                        <td class="biote-contract-td-title"><span t-field="o.name"/></td>
+                                        <td colspan="3">
+                                            <h5 class="text-left">审批结果:<span t-field="o.result"/></h5>
+                                            <h5 class="text-left">审批意见:<span t-field="o.opinion"/></h5>
+                                            <h5 class="text-right">审批时间:<span t-field="o.create_date"/></h5>
+                                        </td>
+                                    </tr>
+                                 </t>
+                             </t>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

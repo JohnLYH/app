@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- biote.stock.picking.type form view -->
+    <record id="biote_stock_picking_type_view_form" model="ir.ui.view">
+        <field name="name">biote.stock.picking.type.view.form</field>
+        <field name="model">biote.stock.picking.type</field>
+        <field name="arch" type="xml">
+            <form string="库存作业类型">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="location_id" groups="base.group_no_one"/>
+                        <field name="dest_location_id" groups="base.group_no_one"/>
+                        <field name="warehouse_id"/>
+                        <field name="dest_warehouse_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

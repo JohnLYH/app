@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+oa_workflow_result_public,审批结果公共权限,model_oa_workflow_result,,1,1,1,0
+oa_workflow_route_public,审批路线公共权限,model_oa_workflow_route,,1,0,1,0
+oa_workflow_stage_public,审批阶公共权限,model_oa_workflow_stage,,1,1,1,0
+oa_workflow_public,工作流公共权限,model_oa_workflow,,1,1,1,0

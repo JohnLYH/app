@@ -1,0 +1,129 @@
+msgid ""
+msgstr ""
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "<code>env</code>: Odoo Environment on which the action is triggered"
+msgstr "<code>env</code>：触发操作的 C2P 环境"
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid ""
+"<code>model</code>: Odoo Model of the record on which the action is "
+"triggered; is a void recordset"
+msgstr "<code>模型</code>：触发操作的 C2P 模型记录；是一个无效的记录集"
+
+#. module: base
+#: model:ir.module.module,description:base.module_test_pylint
+msgid "A module to test Odoo with pylint."
+msgstr "使用pylint测试C2P的模块"
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.wizard_lang_export
+msgid ""
+"For more details about translating Odoo in your language, please refer to "
+"the"
+msgstr "更多关于翻译C2P的详细信息，请参见"
+
+#. module: base
+#: model:ir.module.module,description:base.module_bus
+msgid "Instant Messaging Bus allow you to send messages to users, in live."
+msgstr "你可以通过即时消息总线给用户发送在线即时信息，类似QQ，但限于C2P的web框架内。"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_website_helpdesk_forum
+msgid "Knowledge base for helpdesk based on Odoo Forum"
+msgstr "基于 C2P 论坛的帮助台知识库"
+
+#. module: base
+#: selection:ir.module.module,license:0
+msgid "Odoo Enterprise Edition License v1.0"
+msgstr "C2P 企业版授权协议 v1.0"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_mx_reports
+msgid "Odoo Mexican Localization Reports"
+msgstr "C2P 墨西哥语本地化报告"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_mx_edi_customs
+msgid "Odoo Mexico Localization for Invoice with customs Number"
+msgstr "C2P墨西哥本地化的发票与海关编号"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_mx_edi_landing
+msgid "Odoo Mexico Localization for Stock/Landing"
+msgstr "C2P墨西哥本地化库存/起货的定位"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_web_mobile
+msgid "Odoo Mobile Core module"
+msgstr "C2P 移动核心模块"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_web_settings_dashboard
+msgid "Odoo Settings Dashboard"
+msgstr "C2P设置仪表板"
+
+#. module: base
+#: model:ir.actions.act_window,help:base.action_partner_customer_form
+#: model:ir.actions.act_window,help:base.action_partner_form
+msgid ""
+"Odoo helps you easily track all activities related to\n"
+"                a customer: discussions, history of business opportunities,\n"
+"                documents, etc."
+msgstr "C2P 帮助你轻松地跟踪有关一个客户所有的活动，会谈，商业机会历史，文档等。"
+
+#. module: base
+#: model:ir.actions.act_window,help:base.action_partner_supplier_form
+msgid ""
+"Odoo helps you easily track all activities related to\n"
+"                a supplier: discussions, history of purchases,\n"
+"                documents, etc."
+msgstr "C2P 帮助你轻松地跟踪有关一个供应所有的活动，会谈，采购历史，文档等。"
+
+#. module: base
+#: model:ir.model.fields,help:base.field_ir_sequence_padding
+msgid ""
+"Odoo will automatically adds some '0' on the left of the 'Next Number' to "
+"get the required padding size."
+msgstr "C2P将自动添加几个“0”在“下一个数字”的左侧以满足填充要求。"
+
+#. module: base
+#: model:res.groups,comment:base.group_public
+msgid ""
+"Public users have specific access rights (such as record rules and restricted menus).\n"
+"                They usually do not belong to the usual Odoo groups."
+msgstr "公众用户有特定的访问权(如记录规则和限制菜单)。 他们通常不属于通常的C2P组"
+
+#. module: base
+#: model:ir.actions.act_window,help:base.action_ui_view
+msgid ""
+"Views allows you to personalize each view of Odoo. You can add new fields, "
+"move fields, rename them or delete the ones that you do not need."
+msgstr "视图允许你个性化C2P的每一个视图。你能添加新字段，移动字段，重命名字段，或者删除你不需要的字段。"
+
+#. module: base
+#: code:addons/base/res/res_users.py:391
+#, python-format
+msgid ""
+"You can not remove the admin user as it is used internally for resources "
+"created by Odoo (updates, module installation, ...)"
+msgstr "你不能删除 admin 用户，因为其由 C2P 创建并被系统内部使用(更新，模块安装－)"
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_company_form
+#: model:ir.ui.view,arch_db:base.view_partner_address_form
+#: model:ir.ui.view,arch_db:base.view_partner_form
+msgid "e.g. www.odoo.com"
+msgstr "例如：http://openc2p.com"
+
+#. module: base
+#: model:res.groups,name:base.group_private_addresses
+msgid "Access to Private Addresses"
+msgstr "访问私人地址"
+
+#. module: base
+#: selection:res.partner,type:0
+msgid "Private Address"
+msgstr "家庭地址"

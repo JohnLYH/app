@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="data_wizard_action_customer" model="ir.actions.act_window">
+        <field name="name">客户信息导入</field>
+        <field name="res_model">customer.operation.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_is_visible': False}</field>
+    </record>
+
+    <record id="data_wizard_action_supplier" model="ir.actions.act_window">
+        <field name="name">供应商信息导入</field>
+        <field name="res_model">customer.operation.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_is_visible': True}</field>
+    </record>
+
+    <!--Menu-->
+    <menuitem
+    	id="partner_data_menu_categ"
+    	name="数据导入"
+    	parent="biote_partner_menu_root"
+    	sequence="10"
+    />
+    <menuitem
+        id="customer_data_menu_act_import"
+        name="客户信息导入"
+        parent="partner_data_menu_categ"
+        action="data_wizard_action_customer"
+        sequence="10"
+    />
+    <menuitem
+        id="supplier_data_menu_act"
+        name="供应商信息导入"
+        parent="partner_data_menu_categ"
+        action="data_wizard_action_supplier"
+        sequence="10"
+    />
+</odoo>

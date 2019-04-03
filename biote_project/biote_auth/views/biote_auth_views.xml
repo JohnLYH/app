@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="biote_auth_view_form" model="ir.ui.view">
+    	<field name="name">biote.auth</field>
+    	<field name="model">biote.auth</field>
+    	<field name="priority" eval="16"/>
+    	<field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button string="在线预览" name="btn_report" type="object" class="oe_highlight"/>
+                </header>
+                <group col="2">
+                    <group>
+                        <field name="num" readonly="1"/>
+                        <field name="category"/>
+                        <field name="enterprise_id" options="{'no_create': True}"/>
+                        <field name="hospital_id" options="{'no_create': True}"/>
+                        <field name="predict_sales"/>
+                        <field name="product_id"/>
+                        <label for="street" string="授权地址"/>
+                        <div class="o_address_format">
+                            <field name="country_id" placeholder="国家" class="o_address_state"
+                                   invisible="1"
+                            />
+                            <field name="state_id" placeholder="省份" class="o_address_state"
+                                   context="{'country_id':country_id}"
+                                   options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="city_id" placeholder="城市" class="o_address_city"
+                                   context="{'state_id':state_id}"
+                                   options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="area_id" class="o_address_city" placeholder="区/县"
+                                   context="{'city_id':city_id}"
+                                   options="{'no_create': True, 'no_open': True}"
+                            />
+                        </div>
+                        <field name="auth_date"/>
+                        <field name="start_date"/>
+                        <field name="customer_date" attrs="{'invisible':[('auth_date', '!=', 'customer_date')]}"/>
+                        <field name="end_date"/>
+                        <field name="original_num" attrs="{'invisible':[('category', '!=', 'stop_auth')]}"/>
+                        <field name="advance_stop_date" attrs="{'invisible':[('category', '!=', 'stop_auth')]}"/>
+                        <field name="original_start_date" attrs="{'invisible':[('category', '!=', 'stop_auth')]}"/>
+                        <field name="original_end_date" attrs="{'invisible':[('category', '!=', 'stop_auth')]}"/>
+                    </group>
+                    <group>
+                        <field name="applicant_date"/>
+                        <field name="applicant_id"/>
+                        <field name="leader_id"/>
+                        <field name="contract_name"/>
+                        <field name="phone"/>
+                        <field name="recipient"/>
+                        <field name="address"/>
+                        <field name="note"/>
+                    </group>
+                </group>
+                <group string="授权资质信息">
+                    <field name="enterprise_qa" nolabel="1"/>
+                </group>
+            </form>
+    	</field>
+    </record>
+
+    <record id="biote_auth_view_tree" model="ir.ui.view">
+    	<field name="name">biote.auth</field>
+    	<field name="model">biote.auth</field>
+    	<field name="priority" eval="16"/>
+    	<field name="arch" type="xml">
+    		<tree string="">
+				<field name="num"/>
+				<field name="category"/>
+				<field name="applicant_date"/>
+				<field name="enterprise_id"/>
+				<field name="hospital_id"/>
+				<field name="end_date"/>
+				<field name="predict_sales"/>
+				<field name="applicant_id"/>
+				<field name="leader_id"/>
+    		</tree>
+    	</field>
+    </record>
+</odoo>

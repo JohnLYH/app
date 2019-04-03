@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--去除header样式-->
+    <template id="internal_layout" name="internal_layout_tmp" inherit_id="web.internal_layout">
+        <xpath expr="//div[@class='header']" position="replace">
+            <div class="header">
+                <div class='text-center' style="color:blue">
+                    <h6>
+                        <span>员工基本信息</span>
+                    </h6>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <record id="paperformat_a4" model="report.paperformat">
+        <field name="name">样式：A4</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">5</field>
+        <field name="dpi">90</field>
+    </record>
+    <report
+            string="Hr Employee"
+            id="action_report_hr_employee"
+            model="hr.employee"
+            name="biote_hr.hr_employee_report"
+            report_type="qweb-pdf"
+            paperformat="paperformat_a4"
+    />
+    <report
+            string="Hr Employee data"
+            id="action_report_hr_employee_data"
+            model="hr.employee"
+            name="biote_hr.hr_employee_report_data"
+            report_type="qweb-pdf"
+            paperformat="paperformat_a4"
+    />
+</odoo>

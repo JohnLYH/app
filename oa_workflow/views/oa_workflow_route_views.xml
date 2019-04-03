@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- oa.workflow.route tree view -->
+    <record id="oa_workflow_route_view_tree" model="ir.ui.view">
+        <field name="name">oa.workflow.route.view.tree</field>
+        <field name="model">oa.workflow.route</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>                
+                <field name="sequence"/>
+                <field name="model_id"/>
+                <field name="route_type"/>
+            </tree>
+        </field>
+    </record>
+    <!-- oa.workflow.route form view -->
+    <record id="oa_workflow_route_view_form" model="ir.ui.view">
+        <field name="name">oa.workflow.route.view.form</field>
+        <field name="model">oa.workflow.route</field>
+        <field name="arch" type="xml">
+            <form string="工作流路线">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="model_id" required="1"/>
+                        </group>
+                        <group>
+                            <field name="sequence" required="1"/>
+                            <field name="model_name" invisible="1"/>
+                        </group>
+                        <field name="domain" widget="domain" options="{'model': 'model_name'}"/>
+                    </group>
+                    <notebook>
+                        <page string="审批阶段">
+                            <field name="stage_ids" required="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

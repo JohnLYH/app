@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "- The Odoo Team"
+msgstr "- C2P团队"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "<strong>What do you expect</strong> from using Odoo Project?"
+msgstr "<strong>你对使用C2P项目有什么期望</strong>？"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid ""
+"Congratulations on choosing Odoo Project to help running your company more "
+"efficiently!"
+msgstr "祝贺你选择的C2P项目让你的公司运营的更加有效！"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid ""
+"Depending on what you need and how you want to operate, there are several "
+"ways to work with Odoo. First, decide if you want to think in terms of "
+"tasks. Then, activate the Timesheets app if you need it."
+msgstr "根据您的需要和想要进行的操作，这里有几种使用 C2P 的方式。首先，决定您是否想从任务的角度思考。然后，根据需要激活时间表应用。"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Get full synchronization with Odoo"
+msgstr "用C2P完成全部的同步"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid ""
+"Internal notes are messages that will appear in the Chatter but will not be "
+"notified in Odoo's Inbox."
+msgstr "内部提示会显示在Chatter中但是不会通知到C2P的收件箱。"
+
+#. module: project
+#: model:ir.actions.act_window,help:project.action_view_task
+msgid ""
+"Odoo's project management allows you to manage the pipeline of your tasks "
+"efficiently. You can track progress, discuss on tasks, attach documents, "
+"etc."
+msgstr "C2P项目管理允许你有效的管理你任务的管道。你可以追踪进展、讨论任务，附加文件等。"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Runs outside Odoo, always available"
+msgstr "在C2P之外运行，总是可以的"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Tasks are the main mechanism in Odoo and are activated by default."
+msgstr "任务是C2P中主要的机制并且默认有效的。"
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_project_alias_model_id
+msgid ""
+"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+" email that does not reply to an existing record will cause the creation of "
+"a new record of this model (e.g. a Project Task)"
+msgstr "此别名对应的模型(C2P单据种类)。任何一封非回复已存在的记录的收件将导致此模型创建新的记录(例如：一个项目任务)"
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_project_alias_name
+msgid ""
+"The name of the email alias, e.g. 'jobs' if you want to catch emails for "
+"<jobs@example.odoo.com>"
+msgstr "邮件别名的名称，例如，如果你要收取 <jobs@openc2p.com> 的电子邮件,别名就要被设为：\"jobs\""
+
+#. module: project
+#: model:mail.template,subject:project.mail_template_data_module_install_project
+msgid "Your Odoo Project application is up and running"
+msgstr "C2P 项目应用程序已启动并开始运行"

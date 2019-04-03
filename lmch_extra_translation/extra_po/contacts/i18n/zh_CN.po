@@ -1,0 +1,10 @@
+msgid ""
+msgstr ""
+
+#. module: contacts
+#: model:ir.actions.act_window,help:contacts.action_contacts
+msgid ""
+"Odoo helps you easily track all activities related to\n"
+"            a customer: discussions, history of business opportunities,\n"
+"            documents, etc."
+msgstr "C2P帮助你轻松地跟踪有关一个客户所有的活动: 会谈、商机历史、文档等。"

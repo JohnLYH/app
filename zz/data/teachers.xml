@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--老师相关数据-->
+    <record id="t1" model="people.teacher">
+        <field name="name">老张</field>
+        <field name="age">50</field>
+        <field name="salary">516789.12</field>
+        <field name="img">/zz/static/img/a1.jpg</field>
+
+    </record>
+
+    <record id="t2" model="people.teacher">
+        <field name="name">老李</field>
+        <field name="age">47</field>
+        <field name="salary">537487.05</field>
+        <field name="img">/zz/static/img/a2.jpg</field>
+    </record>
+
+    <record id="t3" model="people.teacher">
+        <field name="name">老王</field>
+        <field name="age">40</field>
+        <field name="salary">264734.23</field>
+        <field name="img">/zz/static/img/a3.jpg</field>
+       <!--添加附件 type="base64"-->
+        <field name="tou" type="base64" file="zz/static/img/t1.jpg"/>
+    </record>
+
+    <record id="t4" model="people.teacher">
+        <field name="name">老陈</field>
+        <field name="age">66</field>
+        <field name="salary">4452432.2</field>
+        <field name="img">/zz/static/img/a4.jpg</field>
+    </record>
+
+
+<!--function将t4记录设为已经死亡-->
+  <!--<function model="people.teacher" name="set_dead" eval="[ref('t4')]"/>-->
+
+</odoo>

@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="hr_employee_report">
+        <t t-call="web.internal_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <table class="table table-bordered mb64">
+                        <tr>
+                            <td colspan="8" class="bg-success">
+                                <strong>
+                                    <p>员工基本信息
+                                    </p>
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">姓名</td>
+                            <td colspan="2"></td>
+                            <td colspan="1">出生日期</td>
+                            <td colspan="1"></td>
+                            <td colspan="1">婚姻状况</td>
+                            <td colspan="1"></td>
+                            <td colspan="1" rowspan="5" align="center" valign="middle">照片</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">政治面貌</td>
+                            <td colspan="2"></td>
+                            <td colspan="1">性别</td>
+                            <td colspan="1"></td>
+                            <td colspan="1">职称</td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">身份证号</td>
+                            <td colspan="2"></td>
+                            <td colspan="1">籍贯</td>
+                            <td colspan="1"></td>
+                            <td colspan="1">户籍性质</td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">最高学历</td>
+                            <td colspan="2"></td>
+                            <td colspan="1">民族</td>
+                            <td colspan="1"></td>
+                            <td colspan="1">犯罪记录</td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">移动电话</td>
+                            <td colspan="2"></td>
+                            <td colspan="1">邮箱</td>
+                            <td colspan="1"></td>
+                            <td colspan="1">曾患何种疾病</td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">紧急联系人</td>
+                            <td colspan="2"></td>
+                            <td colspan="1">关系</td>
+                            <td colspan="1"></td>
+                            <td colspan="1">联系电话</td>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">户籍地址</td>
+                            <td colspan="3"></td>
+                            <td colspan="1">邮编</td>
+                            <td colspan="1"></td>
+                            <td colspan="1">固定电话</td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">现在住址</td>
+                            <td colspan="3"></td>
+                            <td colspan="1">邮编</td>
+                            <td colspan="1"></td>
+                            <td colspan="1">固定电话</td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                教育经历（自最终学历向前追溯至高中同等学历）
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1">开始日期</td>
+                            <td colspan="1">结束日期</td>
+                            <td colspan="2">就读学校</td>
+                            <td colspan="2">专业</td>
+                            <td colspan="1">学历/学位</td>
+                            <td colspan="1">全日制/非全日制</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                培训经历
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1">开始日期</td>
+                            <td colspan="1">结束日期</td>
+                            <td colspan="3">培训机构</td>
+                            <td colspan="3">证书</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="1"></td>
+                            <td colspan="3"></td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                主要职业履历（自最近经历向前追溯）
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1">起止年月</td>
+                            <td colspan="2">就职单位</td>
+                            <td colspan="1">部门</td>
+                            <td colspan="2">职位</td>
+                            <td colspan="1">证明人</td>
+                            <td colspan="1">联系电话</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                直系亲属情况（父母、夫妻、子女、兄弟姐妹）
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1">姓名</td>
+                            <td colspan="1">关系</td>
+                            <td colspan="2">工作单位</td>
+                            <td colspan="1">身份证号码</td>
+                            <td colspan="2">住址</td>
+                            <td colspan="1">联系电话</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                            <td colspan="2"></td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                其它与劳动合同履行有关的重要说明
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="8"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="8">
+                                <span>
+                                    1、本人确保以上所填内容真实可靠；并本人承诺按公司要求提供真实完整的个人相关资料及信息，包括但不限于前公司离职证明、学历、资格证明等；若有弄虚作假或恶意隐瞒，公司可立即解除劳动合同并无需支付任何经济补偿；
+                                </span>
+                                <span>
+                                    2、以上资料或信息如有变更，本人将自变更发生日起5个工作日内书面通知人力资源部，并提供相关证明文件，否则后果由本人承担；
+                                </span>
+                                <span>
+                                    3、与劳动合同履行相关的任何事宜（包括但不限于合同变更、中止、解除/终止等），若届时本人因故无法亲自办理的，本人在此确认并授权可由本履历表载明的紧急联系人及/或直系亲属代为办理，公司向本人发送的与劳动合同履行相关的任何通知，发送至本履历表载明的户籍地址或住址，或由本履历表载明的紧急联系人及/或直系亲属签收视为送达本人。
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+    <template id="hr_employee_report_data">
+        <t t-call="web.internal_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <table class="table table-bordered mb64">
+                        <tr>
+                            <td colspan="8" class="bg-success">
+                                <strong>
+                                    <p>
+                                        员工基本信息
+                                    </p>
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">姓名</td>
+                            <td colspan="2">
+                                <span t-field="doc.name"/>
+                            </td>
+                            <td colspan="1">出生日期</td>
+                            <td colspan="1">
+                                <span t-field="doc.birthday"/>
+                            </td>
+                            <td colspan="1">婚姻状况</td>
+                            <td colspan="1">
+                                <span t-field="doc.marital"/>
+                            </td>
+                            <td colspan="1" rowspan="5" align="center" valign="middle">
+                                <t t-if="doc.image">
+                                    <span t-field="doc.image"
+                                          t-field-options='{"widget": "image", "style":"margin-right: 10px; display:inline"}'/>
+                                </t>
+                                <t t-if="not doc.image">
+                                    <span>图片</span>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">政治面貌</td>
+                            <td colspan="2">
+                                <span t-field="doc.political_status"/>
+                            </td>
+                            <td colspan="1">性别</td>
+                            <td colspan="1">
+                                <span t-field="doc.gender"/>
+                            </td>
+                            <td colspan="1">职称</td>
+                            <td colspan="1">
+                                <span t-field="doc.job_title"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">身份证号</td>
+                            <td colspan="2">
+                                <span t-field="doc.identification_id"/>
+                            </td>
+                            <td colspan="1">籍贯</td>
+                            <td colspan="1">
+                                <span t-field="doc.identification_id"/>
+                            </td>
+                            <td colspan="1">户籍性质</td>
+                            <td colspan="1">
+                                <span t-field="doc.native_place_type"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">最高学历</td>
+                            <td colspan="2">
+                                <span t-field="doc.degree"/>
+                            </td>
+                            <td colspan="1">民族</td>
+                            <td colspan="1">
+                                <span t-field="doc.ethnic"/>
+                            </td>
+                            <td colspan="1">犯罪记录</td>
+                            <td colspan="1">
+                                <t t-if="doc.is_criminal">
+                                    <span t-field="doc.criminal_record"/>
+                                </t>
+                                <t t-if="not doc.is_criminal">
+                                    <span>无</span>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">移动电话</td>
+                            <td colspan="2">
+                                <span t-field="doc.mobile_phone"/>
+                            </td>
+                            <td colspan="1">邮箱</td>
+                            <td colspan="1">
+                                <span t-field="doc.work_email"/>
+                            </td>
+                            <td colspan="1">曾患何种疾病</td>
+                            <td colspan="1">
+                                <t t-if="doc.is_medical">
+                                    <span t-field="doc.medical_history"/>
+                                </t>
+                                <t t-if="not doc.is_medical">
+                                    <span>无</span>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">紧急联系人</td>
+                            <td colspan="2">
+                                <span t-field="doc.emergency_contact"/>
+                            </td>
+                            <td colspan="1">关系</td>
+                            <td colspan="1">
+                                <span t-field="doc.kinship"/>
+                            </td>
+                            <td colspan="1">联系电话</td>
+                            <td colspan="2">
+                                <span t-field="doc.emergency_tel"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">户籍地址</td>
+                            <td colspan="3">
+                                <span t-field="doc.residence_address"/>
+                            </td>
+                            <td colspan="1">邮编</td>
+                            <td colspan="1">
+                                <span t-field="doc.residence_zip_code"/>
+                            </td>
+                            <td colspan="1">固定电话</td>
+                            <td colspan="1">
+                                <span t-field="doc.residence_tel"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">现在住址</td>
+                            <td colspan="3">
+                                <span t-field="doc.address_home"/>
+                            </td>
+                            <td colspan="1">邮编</td>
+                            <td colspan="1">
+                                <span t-field="doc.home_zip_code"/>
+                            </td>
+                            <td colspan="1">固定电话</td>
+                            <td colspan="1">
+                                <span t-field="doc.home_tel"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                教育经历（自最终学历向前追溯至高中同等学历）
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1">开始日期</td>
+                            <td colspan="1">结束日期</td>
+                            <td colspan="2">就读学校</td>
+                            <td colspan="2">专业</td>
+                            <td colspan="1">学历/学位</td>
+                            <td colspan="1">全日制/非全日制</td>
+                        </tr>
+                        <tr>
+                            <t t-if="doc.education_ids">
+                                <t t-foreach="doc.education_ids" t-as="education">
+                                    <tr>
+                                        <td colspan="1">
+                                            <span t-field="education.start_date"/>
+                                        </td>
+                                        <td colspan="1">
+                                            <span t-field="education.end_date"/>
+                                        </td>
+                                        <td colspan="2">
+                                            <span t-field="education.school"/>
+                                        </td>
+                                        <td colspan="2">
+                                            <span t-field="education.major"/>
+                                        </td>
+                                        <td colspan="1">
+                                            <span t-field="education.full_time_school"/>
+                                        </td>
+                                        <td colspan="1">
+                                            <span t-field="education.degree"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                            <t t-if="not doc.education_ids">
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                            </t>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                培训经历
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1">开始日期</td>
+                            <td colspan="1">结束日期</td>
+                            <td colspan="2">培训机构</td>
+                            <td colspan="2">培训课程</td>
+                            <td colspan="2">证书</td>
+                        </tr>
+                        <tr>
+                            <t t-if="doc.training_ids">
+                                <t t-foreach="doc.training_ids" t-as="training">
+                                    <tr>
+                                        <td colspan="1">
+                                            <span t-field="training.start_date"/>
+                                        </td>
+                                        <td colspan="1">
+                                            <span t-field="training.end_date"/>
+                                        </td>
+                                        <td colspan="2">
+                                            <span t-field="training.institution"/>
+                                        </td>
+                                        <td colspan="2">
+                                            <span t-field="training.course"/>
+                                        </td>
+                                        <td colspan="2">
+                                            <span t-field="training.certificate"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                主要职业履历（自最近经历向前追溯）
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1">开始日期</td>
+                            <td colspan="1">结束日期</td>
+                            <td colspan="1">就职单位</td>
+                            <td colspan="1">部门</td>
+                            <td colspan="2">职位</td>
+                            <td colspan="1">证明人</td>
+                            <td colspan="1">联系电话</td>
+                        </tr>
+                        <t t-if="doc.training_ids">
+                            <t t-foreach="doc.work_exp_ids" t-as="work_exp">
+                                <tr>
+                                    <td colspan="1">
+                                        <span t-field="work_exp.start_date"/>
+                                    </td>
+                                    <td colspan="1">
+                                        <span t-field="work_exp.end_date"/>
+                                    </td>
+                                    <td colspan="1">
+                                        <span t-field="work_exp.company"/>
+                                    </td>
+                                    <td colspan="1">
+                                        <span t-field="work_exp.department"/>
+                                    </td>
+                                    <td colspan="2">
+                                        <span t-field="work_exp.job_title"/>
+                                    </td>
+                                    <td colspan="1">
+                                        <span t-field="work_exp.certifier"/>
+                                    </td>
+                                    <td colspan="1">
+                                        <span t-field="work_exp.certifier_tel"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-if="not doc.training_ids">
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="1"></td>
+                                <td colspan="1"></td>
+                                <td colspan="2"></td>
+                                <td colspan="1"></td>
+                                <td colspan="1"></td>
+                            </tr>
+                        </t>
+
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                直系亲属情况（父母、夫妻、子女、兄弟姐妹）
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1">姓名</td>
+                            <td colspan="1">关系</td>
+                            <td colspan="2">工作单位</td>
+                            <td colspan="1">身份证号码</td>
+                            <td colspan="2">住址</td>
+                            <td colspan="1">联系电话</td>
+                        </tr>
+                        <t t-if="doc.training_ids">
+                            <t t-foreach="doc.family_ids" t-as="family">
+                                <tr>
+                                    <td colspan="1">
+                                        <span t-field="family.name"/>
+                                    </td>
+                                    <td colspan="1">
+                                        <span t-field="family.kinship"/>
+                                    </td>
+                                    <td colspan="2">
+                                        <span t-field="family.company"/>
+                                    </td>
+                                    <td colspan="1">
+                                        <span t-field="family.identification_id"/>
+                                    </td>
+                                    <td colspan="2">
+                                        <span t-field="family.home_address"/>
+                                    </td>
+                                    <td colspan="1">
+                                        <span t-field="family.phone"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-if="not doc.training_ids">
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="1"></td>
+                                <td colspan="2"></td>
+                                <td colspan="1"></td>
+                                <td colspan="2"></td>
+                                <td colspan="1"></td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <th colspan="8" class="bg-success">
+                                其它与劳动合同履行有关的重要说明
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="8"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="8">
+                                <span>
+                                    1、本人确保以上所填内容真实可靠；并本人承诺按公司要求提供真实完整的个人相关资料及信息，包括但不限于前公司离职证明、学历、资格证明等；若有弄虚作假或恶意隐瞒，公司可立即解除劳动合同并无需支付任何经济补偿；
+                                </span>
+                                <span>
+                                    2、以上资料或信息如有变更，本人将自变更发生日起5个工作日内书面通知人力资源部，并提供相关证明文件，否则后果由本人承担；
+                                </span>
+                                <span>
+                                    3、与劳动合同履行相关的任何事宜（包括但不限于合同变更、中止、解除/终止等），若届时本人因故无法亲自办理的，本人在此确认并授权可由本履历表载明的紧急联系人及/或直系亲属代为办理，公司向本人发送的与劳动合同履行相关的任何通知，发送至本履历表载明的户籍地址或住址，或由本履历表载明的紧急联系人及/或直系亲属签收视为送达本人。
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

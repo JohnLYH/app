@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/popups.js:115
+#, python-format
+msgid "IMPORTANT: Bug Report From Odoo Point Of Sale"
+msgstr "重要：来自C2P POS的问题报告"
+
+#. module: point_of_sale
+#: model:ir.ui.view,arch_db:point_of_sale.customer_facing_display_html
+#: model:pos.config,customer_facing_display_html:point_of_sale.pos_config_main
+msgid "Odoo Logo"
+msgstr "C2P 徽标"
+
+#. module: point_of_sale
+#: model:ir.model.fields,help:point_of_sale.field_pos_config_sequence_line_id
+msgid ""
+"This sequence is automatically created by Odoo but you can change it to "
+"customize the reference numbers of your orders lines."
+msgstr "此序列由 C2P 自动创建，但您可以进行更改以自定义订单明细的参考号。"
+
+#. module: point_of_sale
+#: model:ir.model.fields,help:point_of_sale.field_pos_config_sequence_id
+msgid ""
+"This sequence is automatically created by Odoo but you can change it to "
+"customize the reference numbers of your orders."
+msgstr "这个序列号是由C2P自动产生的，不过您可以把它改为自己定义订单的序列号。"

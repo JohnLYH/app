@@ -1,0 +1,92 @@
+<odoo>
+    <data>
+        <record id="biote_assets_purchase_tree" model="ir.ui.view">
+            <field name="name">biote.assets.purchase.view.tree</field>
+            <field name="model">biote.assets.purchase</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="purchase_req_num" string="资产购置单号"/>
+                    <field name="name"/>
+                    <field name="specification_model"/>
+                    <field name="quantity" sum="购置数量"/>
+                    <field name="estimated_amount"/>
+                    <field name="demand_date" string="需求时间"/>
+                    <field name="uom"/>
+                    <field name="purchase_reason"/>
+                    <field name="expected_result"/>
+                    <field name="budget_or_not" string="是否有预算"/>
+                    <field name="budget_amount"/>
+                    <field name="req_dep"/>
+                    <field name="mediator"/>
+                    <field name="create_uid" string="制单人"/>
+                    <field name="create_date" string="创建时间"/>
+                    <!--<field name="workflow_state" string="单据状态"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="biote_assets_purchase_form" model="ir.ui.view">
+            <field name="name">biote.assets.purchase.view.form</field>
+            <field name="model">biote.assets.purchase</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--<header>-->
+                    <!--<button name="start_workflow" type="object" string="开始审批" class="oe_highlight"-->
+                    <!--attrs="{'invisible': [('workflow_state', '!=', 'draft')]}"/>-->
+                    <!--<button name="btn_workflow_approve" type="object" class="oe_highlight" string="同意"-->
+                    <!--attrs="{'invisible': ['|', ('access_stage', '=', False), ('workflow_state', 'not in', ['progress', 'subflow'])]}"/>-->
+                    <!--<button name="btn_workflow_refused" type="object" class="oe_highlight" string="拒绝"-->
+                    <!--attrs="{'invisible': ['|', ('access_stage', '=', False), ('workflow_state', 'not in', ['progress', 'subflow'])]}"/>-->
+                    <!--<button name="btn_start_subflow" type="object" class="oe_highlight" string="子审批"-->
+                    <!--attrs="{'invisible': [('show_subflow_btn', '=', False)]}"/>-->
+                    <!--<field name="cur_stage_id" domain="[('id', 'in', valid_stage_ids)]" widget="statusbar"-->
+                           <!--attrs="{'invisible': [('workflow_state', 'not in', ('progress','subflow'))]}"/>-->
+                    <!--<field name="workflow_state" statusbar_visible="draft,done" widget="statusbar"-->
+                    <!--attrs="{'invisible': [('workflow_state', 'in', ('progress', 'subflow'))]}"/>-->
+                    <!--</header>-->
+                    <sheet>
+                        <label for="price_rel"/>
+                        <field name="price_rel" attrs="{'readonly': [('direct', '=', True)]}"/>
+                        <label for="contract"/>
+                        <field name="contract" attrs="{'readonly': [('direct', '=', True)]}"/>
+                        <label for="direct"/>
+                        <field name="direct"
+                               attrs="{'readonly': ['|', ('price_rel', '=', True), ('contract', '=', True)]}"/>
+                        <field name="attachment" attrs="{'invisible': [('direct', '=', True)]}"/>
+                        <field name="purchase_req_num" class="oe_right"/>
+                        <label for="purchase_req_num" class="oe_right"/>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="brand"/>
+                                <field name="estimated_amount"/>
+                                <field name="demand_date"/>
+                                <field name="purchase_reason"/>
+                                <field name="budget_or_not"/>
+                                <field name="req_dep" options="{ 'no_create_edit': True, 'no_open': True}"/>
+                            </group>
+                            <group>
+                                <field name="specification_model"/>
+                                <field name="quantity"/>
+                                <field name="uom"/>
+                                <field name="purchase_req_date"/>
+                                <field name="expected_result"/>
+                                <field name="budget_amount" attrs="{'invisible': [('budget_or_not', '=', False)]}"/>
+                                <field name="mediator" options="{ 'no_create_edit': True, 'no_open': True}"/>
+                            </group>
+                        </group>
+                        <!--<notebook>-->
+                        <!--<page string="审批记录">-->
+                        <!--<field name="access_stage" invisible="1"/>-->
+                        <!--<field name="has_subflow" invisible="1"/>-->
+                        <!--<field name="show_subflow_btn" invisible="1"/>-->
+                        <!--<field name="valid_stage_ids" invisible="1"/>-->
+                        <!--<field name="workflow_result_ids" context="{'disable_open': 1}"/>-->
+                        <!--</page>-->
+                        <!--</notebook>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

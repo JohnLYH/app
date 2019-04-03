@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+
+#. module: google_calendar
+#: model:ir.model.fields,field_description:google_calendar.field_calendar_attendee_oe_synchro_date
+msgid "Odoo Synchro Date"
+msgstr "C2P 同步日期"
+
+#. module: google_calendar
+#: model:ir.model.fields,field_description:google_calendar.field_calendar_event_oe_update_date
+msgid "Odoo Update Date"
+msgstr "C2P 更新日期"
+
+#. module: google_calendar
+#. openerp-web
+#: code:addons/google_calendar/static/src/js/google_calendar.js:42
+#, python-format
+msgid "You will be redirected to Google to authorize access to your calendar!"
+msgstr "你将被重定向到Google来授权C2P访问你的日历!"

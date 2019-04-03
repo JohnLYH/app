@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record id="product_uom_categ_view_tree" model="ir.ui.view">
+            <field name="name">product.uom.categ.view.tree</field>
+            <field name="model">product.uom.categ</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="company_id" readonly="1"/>
+                    <field name="uom_categ_num"/>
+                    <field name="name" string="计量类别名称"/>
+                    <field name="active"/>
+                    <field name="create_date"/>
+                    <field name="create_uid"/>
+                </tree>
+            </field>
+        </record>
+        <record id="product_uom_categ_view_form" model="ir.ui.view">
+            <field name="name">product.uom.categ.view.form</field>
+            <field name="model">product.uom.categ</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="company_id" readonly="1"/>
+                                <field name="uom_categ_num"/>
+                                <field name="name" string="计量类别名称"/>
+                                <field name="create_uid" options="{ 'no_create_edit': True,'no_open': True}"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                                <field name="create_date" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
